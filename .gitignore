@@ -24,6 +24,7 @@ session-*.json
 #
 .config_entities.json
 __pycache__
+*.bak
 alexa_media.pickle
 zwcfg_*
 /.cloud
