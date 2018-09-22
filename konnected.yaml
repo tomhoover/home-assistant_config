@@ -1,0 +1,50 @@
+access_token: !secret konnected_access_token
+devices:
+  - id: bcddc2fdedc6
+    binary_sensors:
+      - zone: 3
+        type: window
+        name: 'Upstairs Windows'
+      - zone: 4
+        type: door
+        name: 'Unknown Door'
+      - zone: 5
+        type: door
+        name: 'Front/Kitchen Doors'
+      - zone: 6
+        type: door
+        name: 'Back/Laundry Doors'
+    switches:
+      - zone: out
+        name: 'Siren'
+  - id: 68c63aab35a8
+    binary_sensors:
+      - zone: 1
+        type: window
+        name: 'Kitchen/Dining Windows'
+      - zone: 2
+        type: window
+        name: 'Garage Windows, Storage Doors'
+      - zone: 3
+        type: window
+        name: 'Living Room Windows'
+      - zone: 4
+        type: window
+        name: 'Office/Craft/Bath Windows'
+      - zone: 5
+        type: door
+        name: 'Master Bedroom Doors'
+      - zone: 6
+        type: smoke
+        name: 'Smoke Detectors'
+    switches:
+      - zone: out
+        name: 'Beep Beep'
+        momentary: 65
+        pause: 55
+        repeat: 2
+      - zone: out
+        name: 'Warning'
+        momentary: 65
+        pause: 55
+        repeat: -1

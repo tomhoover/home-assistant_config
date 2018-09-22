@@ -1,0 +1,240 @@
+#default_view:
+home2:
+  name: Home2
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.presence
+    - group.all_deadbolts
+    - group.binary_sensors
+    - group.doors_windows
+#    - group.front_locks
+    - weather.dark_sky
+    - group.my_weather_darksky
+#    - sensor.tom_badge
+    - sun.sun
+    - sensor.yr_symbol
+#    - zone.home
+#    - zone.office
+
+media_players:
+  name: Media Players
+  view: yes
+  entities:
+    - group.amazon_echos
+    - media_player.this_device
+    - media_player.txnr777_0009b0ebccdf
+
+status:
+  name: Status
+  view: yes
+  entities:
+    - group.tom_presence
+    - group.mitzi_presence
+    - group.brandon_presence
+    - group.krystle_presence
+    - group.monitor_sensors
+    - group.deadbolt_battery_levels
+    - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.front_deadbolt
+    - zwave.kitchen_deadbolt
+    - zwave.back_deadbolt
+    - zwave.laundry_deadbolt
+    - zwave.mbr_deadbolt
+    - zwave.office_dimmer
+    - zwave.zooz_zen06
+
+automation:
+  name: Automation
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_scripts
+
+testing:
+  name: Testing
+  view: yes
+  entities:
+    - group.amazon_fire7
+    - group.amazon_unused_devices
+    - group.zooz_zen06_switch
+    - group.input_boolean
+
+default_groups:
+  name: Default Groups
+  view: yes
+  entities:
+    - group.all_devices
+    - group.all_lights
+    - group.all_switches
+    #- group.status
+    - group.all_locks
+    - group.all_remotes
+
+presence:
+  name: Presence
+  entities:
+    - group.tom_presence
+    - group.mitzi_presence
+    - group.brandon_presence
+    - group.krystle_presence
+
+tom_presence:
+  name: Tom
+  entities:
+    - device_tracker.toms_iphone_nmap
+    - device_tracker.toms_iphone_mqtt
+    - device_tracker.tom_iphone
+# hass
+#    - device_tracker.toms_iphone
+
+mitzi_presence:
+  name: Mitzi
+  entities:
+    - device_tracker.mitzis_iphone_nmap
+    - device_tracker.mitzis_iphone_mqtt
+
+brandon_presence:
+  name: Brandon
+  entities:
+    - device_tracker.brandons_iphone_nmap
+    - device_tracker.brandons_iphone_mqtt
+
+krystle_presence:
+  name: Krystle
+  entities:
+    - device_tracker.krystles_iphone_nmap
+    - device_tracker.krystles_iphone_mqtt
+
+monitor_sensors:
+  name: Monitor Sensors
+  entities:
+    - sensor.tom_media_closet
+    - sensor.tom_home_occupancy_confidence
+    - sensor.mitzi_media_closet
+    - sensor.mitzi_home_occupancy_confidence
+    - sensor.brandon_media_closet
+    - sensor.brandon_home_occupancy_confidence
+    - sensor.krystle_media_closet
+    - sensor.krystle_home_occupancy_confidence
+
+front_locks:
+  name: Front Locks
+  entities:
+    - lock.front_deadbolt_locked
+    - lock.kitchen_deadbolt_locked
+
+all_deadbolts:
+  name: All Deadbolts
+  entities:
+    - lock.front_deadbolt_locked
+    - lock.kitchen_deadbolt_locked
+    - lock.back_deadbolt_locked
+    - lock.laundry_deadbolt_locked
+    - lock.mbr_deadbolt_locked
+
+binary_sensors:
+  name: Binary Sensors
+  entities:
+    - binary_sensor.smoke_detectors
+
+doors_windows:
+  name: Doors & Windows
+  entities:
+    #    - binary_sensor.doors
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
+    - binary_sensor.garage_windows_storage_doors
+    - binary_sensor.kitchendining_windows
+    - binary_sensor.living_room_windows
+    - binary_sensor.officecraftbath_windows
+    - binary_sensor.upstairs_windows
+
+amazon_fire7:
+  name: Touchscreens
+  entities:
+    - media_player.toms_2nd_fire
+    - media_player.toms_3rd_fire
+    - media_player.toms_4th_fire
+
+amazon_unused_devices:
+  name: Unused Amazon Devices
+  entities:
+    - media_player.mitzis_alexa_apps
+    - media_player.toms_alexa_apps
+    - media_player.toms_echo_dot
+    - media_player.toms_fire_tv_stick
+
+amazon_echos:
+  name: All Amazon Echos
+  entities:
+    - media_player.pool_house_echo_dot
+    - media_player.toms_echo
+    - media_player.toms_echo_show
+
+my_weather_darksky:
+  name: Weather from Dark Sky
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_daily_summary
+#   - precip_type returns sensor.dark_sky_precip
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+#   - precip_intensity_max returns sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_accumulation
+    - sensor.dark_sky_temperature
+#   - temperature_high returns sensor.dark_sky_daytime_high_temperature
+    - sensor.dark_sky_daytime_high_temperature
+#   - temperature_low returns sensor.dark_sky_overnight_low_temperature
+    - sensor.dark_sky_overnight_low_temperature
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_apparent_temperature
+#   - apparent_temperature_high returns sensor.dark_sky_daytime_high_apparent_temperature
+    - sensor.dark_sky_daytime_high_apparent_temperature
+#   - apparent_temperature_low returns sensor.dark_sky_overnight_low_apparent_temperature
+    - sensor.dark_sky_overnight_low_apparent_temperature
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_wind_speed
+#   - cloud_cover returns sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_ozone
+    - sensor.dark_sky_uv_index
+#    - sensor.dark_sky_icon
+    - sensor.dark_sky_nearest_storm_bearing
+    - sensor.dark_sky_nearest_storm_distance
+
+deadbolt_battery_levels:
+  name: Battery Levels
+  entities:
+    - sensor.front_deadbolt_batteries
+    - sensor.kitchen_deadbolt_batteries
+    - sensor.back_deadbolt_batteries
+    - sensor.laundry_deadbolt_batteries
+    - sensor.mbr_deadbolt_batteries
+
+zooz_zen06_switch:
+  name: Zooz ZEN06 Switch
+  entities:
+    - switch.zooz_zen06_switch
+    - sensor.zooz_zen06_current
+    - sensor.zooz_zen06_energy
+    - sensor.zooz_zen06_power
+    - sensor.zooz_zen06_previous_reading
+    - sensor.zooz_zen06_voltage
+
+input_boolean:
+  name: Input Booleans
+  entities:
+    - input_boolean.tom_occupancy
+    - input_boolean.mitzi_occupancy
+    - input_boolean.brandon_occupancy
+    - input_boolean.krystle_occupancy

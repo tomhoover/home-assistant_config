@@ -1,0 +1,176 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  # https://www.gps-coordinates.net/:
+  elevation: 133
+  unit_system: imperial
+  time_zone: America/Chicago
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+#introduction:
+frontend:
+config:
+
+http:
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+# NOTE: the discovery component must be enabled for konnected
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+history:
+logbook:
+map:
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+cloud:
+
+group: !include groups.yaml
+#automation: !include automations.yaml
+#script: !include scripts.yaml
+
+##### tch additions #####
+
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_network_key
+#  polling_interval: 30000
+#    device_config:
+#      light.office_dimmer_level:
+#      polling_intensity: 1
+
+recorder:
+notify: !include notify.yaml
+konnected: !include konnected.yaml
+script: !include_dir_merge_named script_configs
+sensor: !include sensors.yaml
+automation: !include editor_automations.yaml
+automation old: !include automations.yaml
+
+ios:
+  push:
+    categories:
+      - name: frontdoorlock
+        identifier: 'frontdoorlock'
+        actions:
+          - identifier: 'LOCK_FRONTDOOR'
+            title: 'Lock front door'
+      - name: kitchendoorlock
+        identifier: 'kitchendoorlock'
+        actions:
+          - identifier: 'LOCK_KITCHENDOOR'
+            title: 'Lock kitchen door'
+      - name: backdoorlock
+        identifier: 'backdoorlock'
+        actions:
+          - identifier: 'LOCK_BACKDOOR'
+            title: 'Lock back door'
+      - name: laundrydoorlock
+        identifier: 'laundrydoorlock'
+        actions:
+          - identifier: 'LOCK_LAUNDRYDOOR'
+            title: 'Lock laundry room door'
+      - name: mbrdoorlock
+        identifier: 'mbrdoorlock'
+        actions:
+          - identifier: 'LOCK_MBRDOOR'
+            title: 'Lock master bedroom door'
+
+emulated_hue:
+  expose_by_default: false
+  entities:
+    light.office_dimmer_level:
+      name: "Office Lights"
+      hidden: false
+    lock.front_deadbolt_locked:
+      name: "Front Door"
+      hidden: false
+    lock.kitchen_deadbolt_locked:
+      name: "Kitchen Door"
+      hidden: false
+    lock.back_deadbolt_locked:
+      name: "Back Door"
+      hidden: false
+    lock.laundry_deadbolt_locked:
+      name: "Laundry Room Door"
+      hidden: false
+    lock.mbr_deadbolt_locked:
+      name: "Master Bedroom Door"
+      hidden: false
+
+mqtt:
+  broker: 192.168.2.90
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+device_tracker:
+  - platform: nmap_tracker
+    home_interval: 5
+    hosts: 192.168.2.80-89
+#    consider_home: 300
+  - platform: owntracks
+    max_gps_accuracy: 200
+    consider_home: 180
+  - platform: mqtt
+    devices:
+      toms_iphone_mqtt: 'location/tom'
+      mitzis_iphone_mqtt: 'location/mitzi'
+      brandons_iphone_mqtt: 'location/brandon'
+      krystles_iphone_mqtt: 'location/krystle'
+
+input_boolean:
+  tom_occupancy:
+    name: Tom is Home
+  mitzi_occupancy:
+    name: Mitzi is Home
+  brandon_occupancy:
+    name: Brandon is Home
+  krystle_occupancy:
+    name: Krystle is Home
+
+media_player:
+  - platform: onkyo
+  - platform: alexa
+    email: !secret amazon_email
+    password: !secret amazon_password
+    url: "amazon.com"
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
+zone:
+  - name: Work
+    latitude: 32.927203
+    longitude: -97.010597
+    radius: 250
+    icon: mdi:office-building
+
+# this will override the default home zone
+#  - name: Home
+#    latitude: !secret home_latitude
+#    longitude: !secret home_longitude
+#    radius: 100
+#    icon: mdi:home
+#    icon: mdi:account-multiple
