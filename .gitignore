@@ -23,8 +23,8 @@ session-*.json
 /octoprint
 #
 .config_entities.json
+__pycache__
 alexa_media.pickle
-custom_components
 zwcfg_*
 /.cloud
 /.storage
