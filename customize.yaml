@@ -1,0 +1,261 @@
+group.front_locks:
+  hidden: true
+
+group.presence:
+  order: 1
+group.all_deadbolts:
+  order: 2
+group.binary_sensors:
+  hidden: false
+  order: 3
+group.doors_windows:
+  order: 4
+group.amazon_echos:
+  order: 5
+group.my_weather_darksky:
+  order: 6
+
+group.tom_presence:
+  entity_picture: !secret tom_pic
+#group.mitzi_presence:
+#  entity_picture: !secret mitzi_pic
+group.brandon_presence:
+  entity_picture: !secret brandon_pic
+#group.krystle_presence:
+#  entity_picture: !secret krystle_pic
+
+# default HA groups
+group.all_automations:
+  hidden: false
+group.all_devices:
+  hidden: false
+group.all_lights:
+  hidden: false
+group.all_locks:
+  hidden: false
+group.all_remotes:
+  hidden: false
+group.all_scripts:
+  hidden: false
+group.all_switches:
+  hidden: false
+#group.status:
+#  hidden: false
+
+#group.amazon_fire7:
+#  hidden: true
+media_player.toms_2nd_fire:
+  hidden: true
+media_player.toms_3rd_fire:
+  hidden: true
+media_player.toms_4th_fire:
+  hidden: true
+
+#group.amazon_unused_devices:
+#  hidden: true
+media_player.mitzis_alexa_apps:
+  hidden: true
+media_player.toms_alexa_apps:
+  hidden: true
+media_player.toms_echo_dot:
+  hidden: true
+media_player.toms_fire_tv_stick:
+  hidden: true
+
+media_player.onkyo_txnr777_ebccdf:
+  hidden: true
+media_player.txnr777_0009b0ebccdf:
+  friendly_name: Onkyo TX-NR777
+
+zwave.front_deadbolt:
+  hidden: false
+lock.front_deadbolt_locked:
+  hidden: false
+sensor.front_deadbolt_alarm_type:
+  hidden: true
+sensor.front_deadbolt_alarm_level:
+  hidden: true
+sensor.front_deadbolt_sourcenodeid:
+  hidden: true
+sensor.front_deadbolt_access_control:
+  hidden: true
+sensor.front_deadbolt_burglar:
+  hidden: true
+sensor.front_deadbolt_power_management:
+  hidden: true
+sensor.front_deadbolt_system:
+  hidden: true
+
+zwave.kitchen_deadbolt:
+  hidden: false
+lock.kitchen_deadbolt_locked:
+  hidden: false
+sensor.kitchen_deadbolt_alarm_type:
+  hidden: true
+sensor.kitchen_deadbolt_alarm_level:
+  hidden: true
+sensor.kitchen_deadbolt_sourcenodeid:
+  hidden: true
+sensor.kitchen_deadbolt_access_control:
+  hidden: true
+sensor.kitchen_deadbolt_burglar:
+  hidden: true
+sensor.kitchen_deadbolt_power_management:
+  hidden: true
+sensor.kitchen_deadbolt_system:
+  hidden: true
+
+zwave.back_deadbolt:
+  hidden: false
+lock.back_deadbolt_locked:
+  hidden: false
+sensor.back_deadbolt_alarm_type:
+  hidden: true
+sensor.back_deadbolt_alarm_level:
+  hidden: true
+sensor.back_deadbolt_sourcenodeid:
+  hidden: true
+sensor.back_deadbolt_access_control:
+  hidden: true
+sensor.back_deadbolt_burglar:
+  hidden: true
+sensor.back_deadbolt_power_management:
+  hidden: true
+sensor.back_deadbolt_system:
+  hidden: true
+
+zwave.laundry_deadbolt:
+  hidden: false
+lock.laundry_deadbolt_locked:
+  hidden: false
+sensor.laundry_deadbolt_alarm_type:
+  hidden: true
+sensor.laundry_deadbolt_alarm_level:
+  hidden: true
+sensor.laundry_deadbolt_sourcenodeid:
+  hidden: true
+sensor.laundry_deadbolt_access_control:
+  hidden: true
+sensor.laundry_deadbolt_burglar:
+  hidden: true
+sensor.laundry_deadbolt_power_management:
+  hidden: true
+sensor.laundry_deadbolt_system:
+  hidden: true
+
+zwave.mbr_deadbolt:
+  hidden: false
+lock.mbr_deadbolt_locked:
+  hidden: false
+sensor.mbr_deadbolt_alarm_type:
+  hidden: true
+sensor.mbr_deadbolt_alarm_level:
+  hidden: true
+sensor.mbr_deadbolt_sourcenodeid:
+  hidden: true
+sensor.mbr_deadbolt_access_control:
+  hidden: true
+sensor.mbr_deadbolt_burglar:
+  hidden: true
+sensor.mbr_deadbolt_power_management:
+  hidden: true
+sensor.mbr_deadbolt_system:
+  hidden: true
+
+sensor.toms_iphone_battery_level:
+  hidden: true
+sensor.toms_iphone_battery_state:
+  hidden: true
+
+sensor.dark_sky_summary:
+  friendly_name: Current conditions
+sensor.dark_sky_minutely_summary:
+  friendly_name: Next hour
+sensor.dark_sky_hourly_summary:
+  friendly_name: Next 24 hours
+sensor.dark_sky_daily_summary:
+  friendly_name: Next 7 days
+## precip_type returns sensor.dark_sky_precip
+sensor.dark_sky_precip:
+  friendly_name: Precip
+sensor.dark_sky_precip_intensity:
+  friendly_name: Precip intensity
+## precip_intensity_max returns sensor.dark_sky_daily_max_precip_intensity
+sensor.dark_sky_daily_max_precip_intensity:
+  friendly_name: Daily Max Precip Intensity
+sensor.dark_sky_precip_probability:
+  friendly_name: Precip probability
+sensor.dark_sky_precip_accumulation:
+  friendly_name: Precip accumulation
+sensor.dark_sky_temperature:
+  friendly_name: Current temp
+## temperature_high returns sensor.dark_sky_daytime_high_temperature
+sensor.dark_sky_daytime_high_temperature:
+  friendly_name: Daytime high temp
+## temperature_low returns sensor.dark_sky_overnight_low_temperature
+sensor.dark_sky_overnight_low_temperature:
+  friendly_name: Overnight low temp
+sensor.dark_sky_dew_point:
+  friendly_name: Dew point
+sensor.dark_sky_apparent_temperature:
+  friendly_name: "'Feels like' temp"
+## apparent_temperature_high returns sensor.dark_sky_daytime_high_apparent_temperature
+sensor.dark_sky_daytime_high_apparent_temperature:
+  friendly_name: "'Feels like' daytime high temp"
+## apparent_temperature_low returns sensor.dark_sky_overnight_low_apparent_temperature
+sensor.dark_sky_overnight_low_apparent_temperature:
+  friendly_name: "'Feels like' overnight low temp"
+sensor.dark_sky_wind_bearing:
+  friendly_name: Wind direction
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind speed
+## cloud_cover returns sensor.dark_sky_cloud_coverage
+sensor.dark_sky_cloud_coverage:
+  friendly_name: Cloud coverage
+sensor.dark_sky_humidity:
+  friendly_name: Relative Humidity
+sensor.dark_sky_pressure:
+  friendly_name: Pressure
+sensor.dark_sky_visibility:
+  friendly_name: Visibility
+sensor.dark_sky_ozone:
+  friendly_name: Ozone
+sensor.dark_sky_uv_index:
+  friendly_name: UV index
+sensor.dark_sky_icon:
+  friendly_name: Icon
+sensor.dark_sky_nearest_storm_bearing:
+  friendly_name: Nearest storm direction
+sensor.dark_sky_nearest_storm_distance:
+  friendly_name: Nearest storm distance
+
+sensor.yr_symbol:
+  friendly_name: Forecast
+
+sensor.tom_media_closet:
+  friendly_name: Tom's iPhone (media closet)
+sensor.tom_home_occupancy_confidence:
+  friendly_name: Tom's Home Confidence
+sensor.mitzi_media_closet:
+  friendly_name: Mitzi's iPhone (media closet)
+sensor.mitzi_home_occupancy_confidence:
+  friendly_name: Mitzi's Home Confidence
+sensor.brandon_media_closet:
+  friendly_name: Brandon's iPhone (media closet)
+sensor.brandon_home_occupancy_confidence:
+  friendly_name: Brandon's Home Confidence
+sensor.krystle_media_closet:
+  friendly_name: Krystle's iPhone (media closet)
+sensor.krystle_home_occupancy_confidence:
+  friendly_name: Krystle's Home Confidence
+
+#group.input_boolean:
+#  hidden: false
+input_boolean.tom_occupancy:
+  friendly_name: Tom is Home
+input_boolean.mitzi_occupancy:
+  friendly_name: Mitzi is Home
+input_boolean.brandon_occupancy:
+  friendly_name: Brandon is Home
+input_boolean.krystle_occupancy:
+  friendly_name: Krystle is Home
