@@ -148,6 +148,9 @@ input_boolean:
     name: Brandon is Home
   krystle_occupancy:
     name: Krystle is Home
+  lock_all_doors:
+    name: Lock All Doors
+    initial: off
 
 media_player:
   - platform: onkyo
