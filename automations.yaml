@@ -1,387 +1,367 @@
-- alias: 'Lock Front Doors At Sunset'
-  hide_entity: True  
+- alias: Lock Front Doors At Sunset
+  hide_entity: true
   trigger:
     platform: sun
     event: sunset
   action:
     service: lock.lock
     entity_id: group.front_locks
-
-- alias: 'Group is away'
-  hide_entity: True  
+  id: b2ef2fe98dd34386a03e811a17414bc0
+- alias: Group is away
+  hide_entity: true
   trigger:
     platform: state
     entity_id: group.all_devices
-    to: 'not_home'
+    to: not_home
   action:
     service: lock.lock
     entity_id: group.all_locks
-
-- alias: 'Door/Window Open/Close'
-  hide_entity: True  
+  id: 8de11facdb2445929671cf53f26558bb
+- alias: Door/Window Open/Close
+  hide_entity: true
   trigger:
     platform: state
     entity_id: group.doors_windows
   action:
-    - service: switch.turn_on
-      entity_id: switch.beep_beep
-    - service: mqtt.publish
-      data:
-        topic: monitor/scan/depart
-
-- alias: 'Close The Door (2)'
-  hide_entity: True  
+  - service: switch.turn_on
+    entity_id: switch.beep_beep
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/depart
+  id: f212281fcd8e40d7a51bc199c74f08c7
+- alias: Close The Door (2)
+  hide_entity: true
   trigger:
     platform: state
-    entity_id: 
-      - binary_sensor.unknown_door
-      - binary_sensor.frontkitchen_doors
-      - binary_sensor.backlaundry_doors
-      - binary_sensor.master_bedroom_doors
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
     from: 'off'
     to: 'on'
     for:
       minutes: 2
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Please close the door!'
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'Door is open (2)'
-
-- alias: 'Close The Door (10)'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Please close the door!
+  - service: notify.ios_toms_iphone
+    data:
+      message: Door is open (2)
+  id: 6453be947a9a462991d2a8fb8c5d9c60
+- alias: Close The Door (10)
+  hide_entity: true
   trigger:
     platform: state
-    entity_id: 
-      - binary_sensor.unknown_door
-      - binary_sensor.frontkitchen_doors
-      - binary_sensor.backlaundry_doors
-      - binary_sensor.master_bedroom_doors
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
     from: 'off'
     to: 'on'
     for:
       minutes: 10
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'A door has been open for ten minutes. Please close the door!'
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'Door is open (10)'
-
-- alias: 'Close The Door (20)'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: A door has been open for ten minutes. Please close the door!
+  - service: notify.ios_toms_iphone
+    data:
+      message: Door is open (10)
+  id: ac41646a12fc4dbc9e5831dbc0e361fa
+- alias: Close The Door (20)
+  hide_entity: true
   trigger:
     platform: state
-    entity_id: 
-      - binary_sensor.unknown_door
-      - binary_sensor.frontkitchen_doors
-      - binary_sensor.backlaundry_doors
-      - binary_sensor.master_bedroom_doors
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
     from: 'off'
     to: 'on'
     for:
       minutes: 20
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Please check all doors. A door has been open for over twenty minutes. Please close the door!'
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'Door is open (20)'
-
-- alias: 'Front door is unlocked'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Please check all doors. A door has been open for over twenty minutes.
+        Please close the door!
+  - service: notify.ios_toms_iphone
+    data:
+      message: Door is open (20)
+  id: f4c5b718209b4d5599187e93c1814d13
+- alias: Front door is unlocked
+  hide_entity: true
   trigger:
     platform: time
     at: '22:05:00'
   condition:
-    - condition: state
-      entity_id: 'lock.front_deadbolt_locked'
-      state: 'unlocked'
+  - condition: state
+    entity_id: lock.front_deadbolt_locked
+    state: unlocked
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Warning, the front door is still unlocked!'
-
-- alias: 'Kitchen door is unlocked'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Warning, the front door is still unlocked!
+  id: 8083af2bddf543eeb096d29a5a2e2a4d
+- alias: Kitchen door is unlocked
+  hide_entity: true
   trigger:
     platform: time
     at: '22:06:00'
   condition:
-    - condition: state
-      entity_id: 'lock.kitchen_deadbolt_locked'
-      state: 'unlocked'
+  - condition: state
+    entity_id: lock.kitchen_deadbolt_locked
+    state: unlocked
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Warning, the kitchen door is still unlocked!'
-
-- alias: 'Master bedroom door is unlocked'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Warning, the kitchen door is still unlocked!
+  id: 10b5cfe48055496e8825c778c813ed21
+- alias: Master bedroom door is unlocked
+  hide_entity: true
   trigger:
     platform: time
     at: '22:07:00'
   condition:
-    - condition: state
-      entity_id: 'lock.mbr_deadbolt_locked'
-      state: 'unlocked'
+  - condition: state
+    entity_id: lock.mbr_deadbolt_locked
+    state: unlocked
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Warning, the master bedroom door is still unlocked!'
-
-- alias: 'Back door is unlocked'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Warning, the master bedroom door is still unlocked!
+  id: c74bccf7716547ea9d67a6af9c205127
+- alias: Back door is unlocked
+  hide_entity: true
   trigger:
     platform: time
     at: '23:00:00'
   condition:
-    - condition: state
-      entity_id: 'lock.back_deadbolt_locked'
-      state: 'unlocked'
+  - condition: state
+    entity_id: lock.back_deadbolt_locked
+    state: unlocked
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Warning, the back door is still unlocked!'
-
-- alias: 'Laundry door is unlocked'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Warning, the back door is still unlocked!
+  id: 4e530576dfb144da8045e0dceb16a641
+- alias: Laundry door is unlocked
+  hide_entity: true
   trigger:
     platform: time
     at: '23:59:00'
   condition:
-    - condition: state
-      entity_id: 'lock.laundry_deadbolt_locked'
-      state: 'unlocked'
+  - condition: state
+    entity_id: lock.laundry_deadbolt_locked
+    state: unlocked
   action:
-    - service: media_player.alexa_tts
-      data:
-        entity_id: group.amazon_echos
-        message: 'Warning, the laundry room door is still unlocked!'
-
-- alias: 'Device State Change Alert'
-  hide_entity: True  
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Warning, the laundry room door is still unlocked!
+  id: 27e9dfd811a9453fbb532d6a0ba7cb25
+- alias: Device State Change Alert
+  hide_entity: true
   trigger:
     platform: state
-    entity_id: 
-      - group.tom_presence
-      - group.mitzi_presence
-      - group.brandon_presence
-      - group.krystle_presence
+    entity_id:
+    - group.tom_presence
+    - group.mitzi_presence
+    - group.brandon_presence
+    - group.krystle_presence
   action:
-    - service: media_player.alexa_tts
-      data_template:
-        entity_id: media_player.toms_echo_show
-        message: "
-          {{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state == 'home' %}home{% else %}away{% endif %}. "
-    - service: notify.ios_toms_iphone
-      data_template:
-        message: >
-          {{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state == 'home' %}home{% else %}away{% endif %}.
-        title: ""
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.toms_echo_show
+      message: ' {{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
+        == ''home'' %}home{% else %}away{% endif %}. '
+  - service: notify.ios_toms_iphone
+    data_template:
+      message: '{{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
+        == ''home'' %}home{% else %}away{% endif %}.
 
-- alias: 'Welcome Home'
-  hide_entity: True  
+        '
+      title: ''
+  id: e6d329b39afe44c9a233247b861fd128
+- alias: Welcome Home
+  hide_entity: true
   trigger:
     platform: state
-    entity_id: 
-      - group.tom_presence
-      - group.mitzi_presence
-      - group.brandon_presence
-      - group.krystle_presence
-    from: 'not_home'
-    to: 'home'
+    entity_id:
+    - group.tom_presence
+    - group.mitzi_presence
+    - group.brandon_presence
+    - group.krystle_presence
+    from: not_home
+    to: home
   action:
-    - delay: '00:00:45'
-    - service: media_player.alexa_tts
-      data_template:
-        #entity_id: group.amazon_echos
-        entity_id: media_player.toms_echo_show
-        message: "Wecome home, {{ trigger.to_state.attributes.friendly_name }}. "
-
+  - delay: 00:00:45
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.toms_echo_show
+      message: 'Wecome home, {{ trigger.to_state.attributes.friendly_name }}. '
+  id: 035705f4d93f470e843e7190a1446e30
 - alias: Tom is home
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.tom_home_occupancy_confidence
-      above: 10
+  - platform: numeric_state
+    entity_id: sensor.tom_home_occupancy_confidence
+    above: 10
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.tom_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/tom"
-        payload: "home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'T is home'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.tom_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/tom
+      payload: home
+  - service: notify.ios_toms_iphone
+    data:
+      message: T is home
+  id: 1248d66135d74fcc9a0bf5b4bdb04924
 - alias: Mitzi is home
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.mitzi_home_occupancy_confidence
-      above: 10
+  - platform: numeric_state
+    entity_id: sensor.mitzi_home_occupancy_confidence
+    above: 10
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.mitzi_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/mitzi"
-        payload: "home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'M is home'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.mitzi_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/mitzi
+      payload: home
+  - service: notify.ios_toms_iphone
+    data:
+      message: M is home
+  id: 233efb9f57cd45d9b3527cbe09770605
 - alias: Brandon is home
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.brandon_home_occupancy_confidence
-      above: 10
+  - platform: numeric_state
+    entity_id: sensor.brandon_home_occupancy_confidence
+    above: 10
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.brandon_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/brandon"
-        payload: "home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'B is home'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.brandon_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/brandon
+      payload: home
+  - service: notify.ios_toms_iphone
+    data:
+      message: B is home
+  id: db6cd01ca2604d6f94f3b7ee24f8de70
 - alias: Krystle is home
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.krystle_home_occupancy_confidence
-      above: 10
+  - platform: numeric_state
+    entity_id: sensor.krystle_home_occupancy_confidence
+    above: 10
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.krystle_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/krystle"
-        payload: "home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'K is home'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.krystle_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/krystle
+      payload: home
+  - service: notify.ios_toms_iphone
+    data:
+      message: K is home
+  id: bfb241e940e4457381c5d802b8769bb0
 - alias: Tom is away
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.tom_home_occupancy_confidence
-      below: 11
+  - platform: numeric_state
+    entity_id: sensor.tom_home_occupancy_confidence
+    below: 11
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.tom_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/tom"
-        payload: "not_home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'T is away'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.tom_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/tom
+      payload: not_home
+  - service: notify.ios_toms_iphone
+    data:
+      message: T is away
+  id: 04f10a771a35424bb80d5594db8d05f7
 - alias: Mitzi is away
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.mitzi_home_occupancy_confidence
-      below: 11
+  - platform: numeric_state
+    entity_id: sensor.mitzi_home_occupancy_confidence
+    below: 11
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.mitzi_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/mitzi"
-        payload: "not_home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'M is away'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.mitzi_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/mitzi
+      payload: not_home
+  - service: notify.ios_toms_iphone
+    data:
+      message: M is away
+  id: 55aa4b93fcc94dc1a7cace67bf066f63
 - alias: Brandon is away
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.brandon_home_occupancy_confidence
-      below: 11
+  - platform: numeric_state
+    entity_id: sensor.brandon_home_occupancy_confidence
+    below: 11
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.brandon_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/brandon"
-        payload: "not_home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'B is away'
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.brandon_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/brandon
+      payload: not_home
+  - service: notify.ios_toms_iphone
+    data:
+      message: B is away
+  id: 4220c2702e864b3f876ea763f5124aef
 - alias: Krystle is away
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.krystle_home_occupancy_confidence
-      below: 11
+  - platform: numeric_state
+    entity_id: sensor.krystle_home_occupancy_confidence
+    below: 11
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: input_boolean.krystle_occupancy
-    - service: mqtt.publish
-      data:
-        topic: "location/krystle"
-        payload: "not_home"
-    - service: notify.ios_toms_iphone
-      data:
-        message: 'K is away'
-
-#- alias: Hot Day
-#  hide_entity: True
-#  initial_state: 'on'
-#  trigger:
-#    platform: numeric_state
-#    entity_id: sensor.dark_sky_daily_high_temperature
-#    above: 82
-#  action:
-#  - service: homeassistant.turn_on
-#    entity_id: light.garage_hot_day
-#      
-#- alias: Cool Day
-#  hide_entity: True
-#  initial_state: 'on'
-#  trigger:
-#    platform: numeric_state
-#    entity_id: sensor.dark_sky_daily_high_temperature
-#    below: 83
-#  action:
-#  - service: homeassistant.turn_off
-#    entity_id: light.garage_hot_day
-
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.krystle_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/krystle
+      payload: not_home
+  - service: notify.ios_toms_iphone
+    data:
+      message: K is away
+  id: ee03ca65616847bb90390244d4a6ee57
 - alias: Notify iOS that Front Door is Unlocked
-  initial_state: True
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
-    - platform: time
-      at: '22:00:00'
+  - platform: time
+    at: '22:00:00'
   condition:
     condition: state
     entity_id: lock.front_deadbolt_locked
@@ -389,16 +369,16 @@
   action:
     service: notify.ios_toms_iphone
     data:
-      title: "Front Door Security Check"
-      message: "It's 10pm and the Front Door is still unlocked."
+      title: Front Door Security Check
+      message: It's 10pm and the Front Door is still unlocked.
       data:
         push:
-          badge: 0 # this will remove the badge/app icon number
-          category: 'frontdoorlock'
-
+          badge: 0
+          category: frontdoorlock
+  id: f7cbd270c5e942e4b9ba19982fbd63e3
 - alias: iOS push action to lock Front Door
-  initial_state: True
-  hide_entity: True  
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -407,13 +387,13 @@
   action:
     service: lock.lock
     entity_id: lock.front_deadbolt_locked
-
+  id: 0e59148b83244133a05a1740c9d0b53f
 - alias: Notify iOS that Kitchen Door is Unlocked
-  initial_state: True
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
-    - platform: time
-      at: '22:00:00'
+  - platform: time
+    at: '22:00:00'
   condition:
     condition: state
     entity_id: lock.kitchen_deadbolt_locked
@@ -421,16 +401,16 @@
   action:
     service: notify.ios_toms_iphone
     data:
-      title: "Kitchen Door Security Check"
-      message: "It's 10pm and the Kitchen Door is still unlocked."
+      title: Kitchen Door Security Check
+      message: It's 10pm and the Kitchen Door is still unlocked.
       data:
         push:
-          badge: 0 # this will remove the badge/app icon number
-          category: 'kitchendoorlock'
-
+          badge: 0
+          category: kitchendoorlock
+  id: 7da8f11bff6b4e6da2fab3868a151e86
 - alias: iOS push action to lock Kitchen Door
-  initial_state: True
-  hide_entity: True  
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -439,13 +419,13 @@
   action:
     service: lock.lock
     entity_id: lock.kitchen_deadbolt_locked
-
+  id: fc7ea42078ac45e69b6f4705ca937e5c
 - alias: Notify iOS that Back Door is Unlocked
-  initial_state: True
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
-    - platform: time
-      at: '22:00:00'
+  - platform: time
+    at: '22:00:00'
   condition:
     condition: state
     entity_id: lock.back_deadbolt_locked
@@ -453,16 +433,16 @@
   action:
     service: notify.ios_toms_iphone
     data:
-      title: "Back Door Security Check"
-      message: "It's 10pm and the Back Door is still unlocked."
+      title: Back Door Security Check
+      message: It's 10pm and the Back Door is still unlocked.
       data:
         push:
-          badge: 0 # this will remove the badge/app icon number
-          category: 'backdoorlock'
-
+          badge: 0
+          category: backdoorlock
+  id: ae49079fdf054a42826b8f24328d5517
 - alias: iOS push action to lock Back Door
-  initial_state: True
-  hide_entity: True  
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -471,13 +451,13 @@
   action:
     service: lock.lock
     entity_id: lock.back_deadbolt_locked
-
+  id: 23b74e97df9448a8b72ab93ce636c076
 - alias: Notify iOS that Laundry Room Door is Unlocked
-  initial_state: True
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
-    - platform: time
-      at: '22:00:00'
+  - platform: time
+    at: '22:00:00'
   condition:
     condition: state
     entity_id: lock.laundry_deadbolt_locked
@@ -485,16 +465,16 @@
   action:
     service: notify.ios_toms_iphone
     data:
-      title: "Laundry Room Door Security Check"
-      message: "It's 10pm and the Laundry Room Door is still unlocked."
+      title: Laundry Room Door Security Check
+      message: It's 10pm and the Laundry Room Door is still unlocked.
       data:
         push:
-          badge: 0 # this will remove the badge/app icon number
-          category: 'laundrydoorlock'
-
+          badge: 0
+          category: laundrydoorlock
+  id: d4346a5a328b4d43aced6794d1bd0040
 - alias: iOS push action to lock Laundry Room Door
-  initial_state: True
-  hide_entity: True  
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -503,13 +483,13 @@
   action:
     service: lock.lock
     entity_id: lock.laundry_deadbolt_locked
-
+  id: cf2c5e7f27234a1aa15375f97332973b
 - alias: Notify iOS that Master Bedroom Door is Unlocked
-  initial_state: True
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
-    - platform: time
-      at: '22:00:00'
+  - platform: time
+    at: '22:00:00'
   condition:
     condition: state
     entity_id: lock.mbr_deadbolt_locked
@@ -517,16 +497,16 @@
   action:
     service: notify.ios_toms_iphone
     data:
-      title: "Master Bedroom Door Security Check"
-      message: "It's 10pm and the Master Bedroom Door is still unlocked."
+      title: Master Bedroom Door Security Check
+      message: It's 10pm and the Master Bedroom Door is still unlocked.
       data:
         push:
-          badge: 0 # this will remove the badge/app icon number
-          category: 'mbrdoorlock'
-
+          badge: 0
+          category: mbrdoorlock
+  id: 167759bfe2ab427fa787bc6538478c51
 - alias: iOS push action to lock Master Bedroom Door
-  initial_state: True
-  hide_entity: True  
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -535,4 +515,4 @@
   action:
     service: lock.lock
     entity_id: lock.mbr_deadbolt_locked
-
+  id: 34410e714b5548f1a5e15aaecebe0396
