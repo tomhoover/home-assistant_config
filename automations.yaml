@@ -227,9 +227,6 @@
     data:
       topic: location/tom
       payload: home
-  - service: notify.ios_toms_iphone
-    data:
-      message: T is home
   id: 1248d66135d74fcc9a0bf5b4bdb04924
 - alias: Mitzi is home
   hide_entity: true
@@ -245,9 +242,6 @@
     data:
       topic: location/mitzi
       payload: home
-  - service: notify.ios_toms_iphone
-    data:
-      message: M is home
   id: 233efb9f57cd45d9b3527cbe09770605
 - alias: Brandon is home
   hide_entity: true
@@ -263,9 +257,6 @@
     data:
       topic: location/brandon
       payload: home
-  - service: notify.ios_toms_iphone
-    data:
-      message: B is home
   id: db6cd01ca2604d6f94f3b7ee24f8de70
 - alias: Krystle is home
   hide_entity: true
@@ -281,9 +272,6 @@
     data:
       topic: location/krystle
       payload: home
-  - service: notify.ios_toms_iphone
-    data:
-      message: K is home
   id: bfb241e940e4457381c5d802b8769bb0
 - alias: Tom is away
   hide_entity: true
@@ -299,9 +287,6 @@
     data:
       topic: location/tom
       payload: not_home
-  - service: notify.ios_toms_iphone
-    data:
-      message: T is away
   id: 04f10a771a35424bb80d5594db8d05f7
 - alias: Mitzi is away
   hide_entity: true
@@ -317,9 +302,6 @@
     data:
       topic: location/mitzi
       payload: not_home
-  - service: notify.ios_toms_iphone
-    data:
-      message: M is away
   id: 55aa4b93fcc94dc1a7cace67bf066f63
 - alias: Brandon is away
   hide_entity: true
@@ -335,9 +317,6 @@
     data:
       topic: location/brandon
       payload: not_home
-  - service: notify.ios_toms_iphone
-    data:
-      message: B is away
   id: 4220c2702e864b3f876ea763f5124aef
 - alias: Krystle is away
   hide_entity: true
@@ -353,9 +332,6 @@
     data:
       topic: location/krystle
       payload: not_home
-  - service: notify.ios_toms_iphone
-    data:
-      message: K is away
   id: ee03ca65616847bb90390244d4a6ee57
 - alias: Notify iOS that Front Door is Unlocked
   initial_state: true
