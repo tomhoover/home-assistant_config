@@ -516,3 +516,18 @@
     service: lock.lock
     entity_id: lock.mbr_deadbolt_locked
   id: 34410e714b5548f1a5e15aaecebe0396
+- id: '1537639584047'
+  alias: 'Alexa: Lock All Doors'
+  trigger:
+  - entity_id: input_boolean.lock_all_doors
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: group.all_locks
+    service: lock.lock
+  - data:
+      entity_id: input_boolean.lock_all_doors
+    service: input_boolean.turn_off
