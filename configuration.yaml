@@ -44,10 +44,9 @@ sun:
 tts:
   - platform: google
 
-cloud:
-
+cloud: !include cloud.yaml
 group: !include groups.yaml
-#automation: !include automations.yaml
+automation: !include automations.yaml
 #script: !include scripts.yaml
 
 ##### tch additions #####
@@ -65,8 +64,6 @@ notify: !include notify.yaml
 konnected: !include konnected.yaml
 script: !include_dir_merge_named script_configs
 sensor: !include sensors.yaml
-automation: !include editor_automations.yaml
-automation old: !include automations.yaml
 
 ios:
   push:
