@@ -1,0 +1,45 @@
+alexa:
+  filter:
+#      include_entities:
+#        - switch.zooz_zen06_switch
+    include_domains:
+      - input_boolean
+      - light
+      - lock
+      - script
+      - switch
+    exclude_entities:
+      - input_boolean.tom_occupancy
+      - input_boolean.mitzi_occupancy
+      - input_boolean.brandon_occupancy
+      - input_boolean.krystle_occupancy
+      - switch.beep_beep
+      - switch.siren
+      - switch.warning
+    exclude_domains:
+      - alert
+      - automation
+      - cover
+      - fan
+      - group
+      - media_player
+      - sensor
+  entity_config:
+    light.office_dimmer_level:
+      name: Office Lights
+      description: Tom's Office Lights
+    lock.front_deadbolt_locked:
+      name: Front Door
+      description: Front Door Deadbolt
+    lock.kitchen_deadbolt_locked:
+      name: Kitchen Door
+      description: Kitchen Door Deadbolt
+    lock.back_deadbolt_locked:
+      name: Back Door
+      description: Back Door Deadbolt
+    lock.laundry_deadbolt_locked:
+      name: Laundry Room Door
+      description: Laundry Room Door Deadbolt
+    lock.mbr_deadbolt_locked:
+      name: Master Bedroom Door
+      description: Master Bedroom Door Deadbolt
