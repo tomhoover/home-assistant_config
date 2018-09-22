@@ -209,8 +209,9 @@
   - delay: 00:00:45
   - service: media_player.alexa_tts
     data_template:
+      #entity_id: group.amazon_echos
       entity_id: media_player.toms_echo_show
-      message: 'Wecome home, {{ trigger.to_state.attributes.friendly_name }}. '
+      message: 'Welcome home, {{ trigger.to_state.attributes.friendly_name }}. '
   id: 035705f4d93f470e843e7190a1446e30
 - alias: Tom is home
   hide_entity: true
