@@ -166,6 +166,10 @@ sensor.toms_iphone_battery_level:
   hidden: true
 sensor.toms_iphone_battery_state:
   hidden: true
+sensor.mitzis_iphone_battery_level:
+  hidden: true
+sensor.mitzis_iphone_battery_state:
+  hidden: true
 
 sensor.dark_sky_summary:
   friendly_name: Current conditions
