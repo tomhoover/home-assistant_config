@@ -206,12 +206,11 @@
     from: not_home
     to: home
   action:
-  - delay: 00:00:45
+  - delay: 00:00:20
   - service: media_player.alexa_tts
     data_template:
-      #entity_id: group.amazon_echos
-      entity_id: media_player.toms_echo_show
-      message: 'Welcome home, {{ trigger.to_state.attributes.friendly_name }}. '
+      entity_id: media_player.toms_echo
+      message: 'Welcome home {{ trigger.to_state.attributes.friendly_name }}. '
   id: 035705f4d93f470e843e7190a1446e30
 - alias: Tom is home
   hide_entity: true
@@ -493,14 +492,13 @@
     service: lock.lock
     entity_id: lock.mbr_deadbolt_locked
   id: 34410e714b5548f1a5e15aaecebe0396
-- id: '1537639584047'
-  alias: 'Alexa: Lock All Doors'
+- alias: 'Alexa: Lock All Doors'
+  hide_entity: true
   trigger:
   - entity_id: input_boolean.lock_all_doors
     from: 'off'
     platform: state
     to: 'on'
-  condition: []
   action:
   - data:
       entity_id: group.all_locks
