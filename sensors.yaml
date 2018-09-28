@@ -84,7 +84,7 @@
 
 - platform: min_max
   name: "Tom Home Occupancy Confidence"
-  type: mean
+  type: max
   round_digits: 0
   entity_ids:
     - sensor.tom_media_closet
@@ -95,21 +95,21 @@
 
 - platform: min_max
   name: "Mitzi Home Occupancy Confidence"
-  type: mean
+  type: max
   round_digits: 0
   entity_ids:
     - sensor.mitzi_media_closet
 
 - platform: min_max
   name: "Brandon Home Occupancy Confidence"
-  type: mean
+  type: max
   round_digits: 0
   entity_ids:
     - sensor.brandon_media_closet
 
 - platform: min_max
   name: "Krystle Home Occupancy Confidence"
-  type: mean
+  type: max
   round_digits: 0
   entity_ids:
     - sensor.krystle_media_closet
