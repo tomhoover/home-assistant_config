@@ -29,10 +29,7 @@ status:
   name: Status
   view: yes
   entities:
-    - group.tom_presence
-    - group.mitzi_presence
-    - group.brandon_presence
-    - group.krystle_presence
+    - group.presence_entities
     - group.monitor_sensors
     - group.deadbolt_battery_levels
     - zwave.aeotec_zw090_zstick_gen5_us
@@ -82,29 +79,50 @@ presence:
 tom_presence:
   name: Tom
   entities:
-    - device_tracker.toms_iphone_nmap
+#    - device_tracker.toms_iphone_nmap
     - device_tracker.toms_iphone_mqtt
-    - device_tracker.tom_iphone
 # hass
 #    - device_tracker.toms_iphone
+# owntracks
+#    - device_tracker.tom_iphone
 
 mitzi_presence:
   name: Mitzi
   entities:
-    - device_tracker.mitzis_iphone_nmap
+#    - device_tracker.mitzis_iphone_nmap
     - device_tracker.mitzis_iphone_mqtt
+# hass
+#    - device_tracker.mitzis_iphone
 
 brandon_presence:
   name: Brandon
   entities:
-    - device_tracker.brandons_iphone_nmap
+#    - device_tracker.brandons_iphone_nmap
     - device_tracker.brandons_iphone_mqtt
 
 krystle_presence:
   name: Krystle
   entities:
+#    - device_tracker.krystles_iphone_nmap
+    - device_tracker.krystles_iphone_mqtt
+
+presence_entities:
+  name: Presence Entities
+  entities:
+    - device_tracker.toms_iphone_nmap
+    - device_tracker.toms_iphone_mqtt
+    - device_tracker.toms_iphone
+    - device_tracker.tom_iphone
+    - device_tracker.mitzis_iphone_nmap
+    - device_tracker.mitzis_iphone_mqtt
+    - device_tracker.mitzis_iphone
+    - device_tracker.brandons_iphone_nmap
+    - device_tracker.brandons_iphone_mqtt
     - device_tracker.krystles_iphone_nmap
     - device_tracker.krystles_iphone_mqtt
+    - device_tracker.toms_ipad_nmap
+    - device_tracker.toms_work_iphone_nmap
+    - device_tracker.toms_work_ipad_nmap
 
 monitor_sensors:
   name: Monitor Sensors
