@@ -194,24 +194,6 @@
         '
       title: ''
   id: e6d329b39afe44c9a233247b861fd128
-- alias: Welcome Home
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id:
-    - group.tom_presence
-    - group.mitzi_presence
-    - group.brandon_presence
-    - group.krystle_presence
-    from: not_home
-    to: home
-  action:
-  - delay: 00:00:20
-  - service: media_player.alexa_tts
-    data_template:
-      entity_id: media_player.toms_echo
-      message: 'Welcome home {{ trigger.to_state.attributes.friendly_name }}. '
-  id: 035705f4d93f470e843e7190a1446e30
 - alias: Tom is home
   hide_entity: true
   trigger:
