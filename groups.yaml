@@ -238,6 +238,11 @@ deadbolt_battery_levels:
     - sensor.back_deadbolt_batteries
     - sensor.laundry_deadbolt_batteries
     - sensor.mbr_deadbolt_batteries
+    - sensor.front_deadbolt_battery
+    - sensor.kitchen_deadbolt_battery
+    - sensor.back_deadbolt_battery
+    - sensor.laundry_deadbolt_battery
+    - sensor.mbr_deadbolt_battery
 
 zooz_zen06_switch:
   name: Zooz ZEN06 Switch

@@ -119,6 +119,8 @@ mqtt:
   broker: 192.168.2.90
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
 
 device_tracker:
   - platform: nmap_tracker
