@@ -17,7 +17,7 @@
     service: lock.lock
     entity_id: group.all_locks
   id: 8de11facdb2445929671cf53f26558bb
-- alias: Door/Window Open/Close
+- alias: Beep on Door/Window Open/Close
   hide_entity: true
   trigger:
     platform: state
@@ -25,10 +25,38 @@
   action:
   - service: switch.turn_on
     entity_id: switch.beep_beep
+- alias: Trigger monitor.sh departure scan on Door Close
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
+    from: 'on'
+    to: 'off'
+  action:
+  - delay: 00:00:10
   - service: mqtt.publish
     data:
-      topic: monitor/scan/depart
-  id: f212281fcd8e40d7a51bc199c74f08c7
+      topic: monitor/scan/DEPART
+- alias: Trigger monitor.sh arrival scan on Door Open
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
+    from: 'off'
+    to: 'on'
+  action:
+  - delay: 00:00:10
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/ARRIVE
 - alias: Close The Door (2)
   hide_entity: true
   trigger:
