@@ -8,3 +8,14 @@ test_push:
           attachment:
             url: https://s-media-cache-ak0.pinimg.com/originals/c1/55/a1/c155a1b393899ffd7c36ff01090ce8f5.jpg
             content-type: jpeg
+
+test_telegram:
+  alias: 'test_telegram'
+  sequence:
+    - service: notify.telegram
+      data:
+        title: TEST MESSAGE
+        message: 'This is a test!'
+        data:
+          photo:
+            - url: https://s-media-cache-ak0.pinimg.com/originals/c1/55/a1/c155a1b393899ffd7c36ff01090ce8f5.jpg

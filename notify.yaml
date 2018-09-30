@@ -1,0 +1,16 @@
+# the following are now handled automatically by the hass ios app?
+#- platform: ios
+#  name: toms_iphone
+#  target: !secret toms_notify_target
+#
+#- platform: ios
+#  name: mitzis_iphone
+#  target: !secret mitzis_notify_target
+
+- platform: telegram
+  name: telegram
+  chat_id: !secret telegram_tom
+
+- platform: telegram
+  name: telegram_tom
+  chat_id: !secret telegram_tom
