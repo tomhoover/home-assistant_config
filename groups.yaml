@@ -17,6 +17,16 @@ home2:
 #    - zone.home
 #    - zone.office
 
+cameras:
+  name: Cameras
+  view: yes
+  entities:
+    - camera.front_walk
+    - camera.front_door
+    - camera.back_door
+    - camera.back_porch
+    - camera.garge
+
 media_players:
   name: Media Players
   view: yes
