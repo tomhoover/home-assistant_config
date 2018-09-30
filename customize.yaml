@@ -171,6 +171,9 @@ sensor.nanas_iphone_battery_level:
 sensor.nanas_iphone_battery_state:
   hidden: true
 
+sensor.current_week:
+  hidden: true
+
 sensor.dark_sky_summary:
   friendly_name: Current conditions
 sensor.dark_sky_minutely_summary:
