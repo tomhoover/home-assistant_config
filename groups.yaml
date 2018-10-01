@@ -21,11 +21,11 @@ cameras:
   name: Cameras
   view: yes
   entities:
-    - camera.front_walk
-    - camera.front_door
-    - camera.back_door
-    - camera.back_porch
-    - camera.garge
+    - camera.front_walk_camera
+    - camera.front_door_camera
+    - camera.back_door_camera
+    - camera.back_porch_camera
+    - camera.garage_camera
 
 media_players:
   name: Media Players
