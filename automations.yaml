@@ -41,22 +41,6 @@
   - service: mqtt.publish
     data:
       topic: monitor/scan/DEPART
-- alias: Trigger monitor.sh arrival scan on Door Open
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id:
-    - binary_sensor.unknown_door
-    - binary_sensor.frontkitchen_doors
-    - binary_sensor.backlaundry_doors
-    - binary_sensor.master_bedroom_doors
-    from: 'off'
-    to: 'on'
-  action:
-  - delay: 00:00:10
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/ARRIVE
 - alias: Close The Door (2)
   hide_entity: true
   trigger:
