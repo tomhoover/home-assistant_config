@@ -39,10 +39,6 @@ status:
   name: Status
   view: yes
   entities:
-    - group.presence_entities
-    - group.monitor_sensors
-    - group.input_boolean
-    - group.deadbolt_battery_levels
     - zwave.aeotec_zw090_zstick_gen5_us
     - zwave.front_deadbolt
     - zwave.kitchen_deadbolt
@@ -51,6 +47,10 @@ status:
     - zwave.mbr_deadbolt
     - zwave.office_dimmer
     - zwave.zooz_zen06
+    - zwave.washing_machine
+    - group.monitor_sensors
+    - group.presence_entities
+    - group.input_boolean
 
 automation:
   name: Automation
@@ -66,7 +66,7 @@ testing:
     - group.amazon_fire7
     - group.amazon_unused_devices
     - group.zooz_zen06_switch
-    - group.input_boolean
+    - group.washing_machine
 
 default_groups:
   name: Default Groups
