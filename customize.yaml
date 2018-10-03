@@ -266,3 +266,14 @@ input_boolean.brandon_occupancy:
   friendly_name: Brandon is Home
 input_boolean.krystle_occupancy:
   friendly_name: Krystle is Home
+
+# packages/battery_alert.yaml
+device_tracker.tom_iphone:
+  battery_alert_disabled: true
+  battery_sensor_creation_disabled: true
+device_tracker.toms_iphone:
+  battery_alert_disabled: true
+  battery_sensor_creation_disabled: true
+device_tracker.mitzis_iphone:
+  battery_alert_disabled: true
+  battery_sensor_creation_disabled: true
