@@ -14,3 +14,11 @@
 - platform: telegram
   name: telegram_tom
   chat_id: !secret telegram_tom
+
+- platform: telegram
+  name: telegram_mitzi
+  chat_id: !secret telegram_mitzi
+
+- platform: telegram
+  name: telegram_group
+  chat_id: !secret telegram_group
