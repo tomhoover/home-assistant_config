@@ -1,4 +1,5 @@
 - alias: Lock Front Doors At Sunset
+  initial_state: true
   hide_entity: true
   trigger:
     platform: sun
@@ -8,6 +9,7 @@
     entity_id: group.front_locks
   id: b2ef2fe98dd34386a03e811a17414bc0
 - alias: Group is away
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -18,6 +20,7 @@
     entity_id: group.all_locks
   id: 8de11facdb2445929671cf53f26558bb
 - alias: Beep on Door/Window Open/Close
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -26,6 +29,7 @@
   - service: switch.turn_on
     entity_id: switch.beep_beep
 - alias: Trigger monitor.sh departure scan on Door Close
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -42,6 +46,7 @@
     data:
       topic: monitor/scan/DEPART
 - alias: Close The Door (2)
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -64,6 +69,7 @@
       message: Door is open (2)
   id: 6453be947a9a462991d2a8fb8c5d9c60
 - alias: Close The Door (10)
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -86,6 +92,7 @@
       message: Door is open (10)
   id: ac41646a12fc4dbc9e5831dbc0e361fa
 - alias: Close The Door (20)
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -109,6 +116,7 @@
       message: Door is open (20)
   id: f4c5b718209b4d5599187e93c1814d13
 - alias: Front door is unlocked
+  initial_state: true
   hide_entity: true
   trigger:
     platform: time
@@ -124,6 +132,7 @@
       message: Warning, the front door is still unlocked!
   id: 8083af2bddf543eeb096d29a5a2e2a4d
 - alias: Kitchen door is unlocked
+  initial_state: true
   hide_entity: true
   trigger:
     platform: time
@@ -139,6 +148,7 @@
       message: Warning, the kitchen door is still unlocked!
   id: 10b5cfe48055496e8825c778c813ed21
 - alias: Master bedroom door is unlocked
+  initial_state: true
   hide_entity: true
   trigger:
     platform: time
@@ -154,6 +164,7 @@
       message: Warning, the master bedroom door is still unlocked!
   id: c74bccf7716547ea9d67a6af9c205127
 - alias: Back door is unlocked
+  initial_state: true
   hide_entity: true
   trigger:
     platform: time
@@ -169,6 +180,7 @@
       message: Warning, the back door is still unlocked!
   id: 4e530576dfb144da8045e0dceb16a641
 - alias: Laundry door is unlocked
+  initial_state: true
   hide_entity: true
   trigger:
     platform: time
@@ -184,6 +196,7 @@
       message: Warning, the laundry room door is still unlocked!
   id: 27e9dfd811a9453fbb532d6a0ba7cb25
 - alias: Device State Change Alert
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -207,6 +220,7 @@
       title: ''
   id: e6d329b39afe44c9a233247b861fd128
 - alias: Tom is home
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -222,6 +236,7 @@
       payload: home
   id: 1248d66135d74fcc9a0bf5b4bdb04924
 - alias: Mitzi is home
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -237,6 +252,7 @@
       payload: home
   id: 233efb9f57cd45d9b3527cbe09770605
 - alias: Brandon is home
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -252,6 +268,7 @@
       payload: home
   id: db6cd01ca2604d6f94f3b7ee24f8de70
 - alias: Krystle is home
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -267,6 +284,7 @@
       payload: home
   id: bfb241e940e4457381c5d802b8769bb0
 - alias: Tom is away
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -282,6 +300,7 @@
       payload: not_home
   id: 04f10a771a35424bb80d5594db8d05f7
 - alias: Mitzi is away
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -297,6 +316,7 @@
       payload: not_home
   id: 55aa4b93fcc94dc1a7cace67bf066f63
 - alias: Brandon is away
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -312,6 +332,7 @@
       payload: not_home
   id: 4220c2702e864b3f876ea763f5124aef
 - alias: Krystle is away
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
@@ -487,6 +508,7 @@
     entity_id: lock.mbr_deadbolt_locked
   id: 34410e714b5548f1a5e15aaecebe0396
 - alias: 'Alexa: Lock All Doors'
+  initial_state: true
   hide_entity: true
   trigger:
   - entity_id: input_boolean.lock_all_doors
