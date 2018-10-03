@@ -41,6 +41,7 @@ status:
   entities:
     - group.presence_entities
     - group.monitor_sensors
+    - group.input_boolean
     - group.deadbolt_battery_levels
     - zwave.aeotec_zw090_zstick_gen5_us
     - zwave.front_deadbolt
@@ -133,6 +134,10 @@ presence_entities:
     - device_tracker.toms_ipad_nmap
     - device_tracker.toms_work_iphone_nmap
     - device_tracker.toms_work_ipad_nmap
+    - input_boolean.tom_occupancy
+    - input_boolean.mitzi_occupancy
+    - input_boolean.brandon_occupancy
+    - input_boolean.krystle_occupancy
 
 monitor_sensors:
   name: Monitor Sensors
@@ -240,20 +245,6 @@ my_weather_darksky:
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_nearest_storm_distance
 
-deadbolt_battery_levels:
-  name: Battery Levels
-  entities:
-    - sensor.front_deadbolt_batteries
-    - sensor.kitchen_deadbolt_batteries
-    - sensor.back_deadbolt_batteries
-    - sensor.laundry_deadbolt_batteries
-    - sensor.mbr_deadbolt_batteries
-    - sensor.front_deadbolt_battery
-    - sensor.kitchen_deadbolt_battery
-    - sensor.back_deadbolt_battery
-    - sensor.laundry_deadbolt_battery
-    - sensor.mbr_deadbolt_battery
-
 zooz_zen06_switch:
   name: Zooz ZEN06 Switch
   entities:
@@ -263,6 +254,16 @@ zooz_zen06_switch:
     - sensor.zooz_zen06_power
     - sensor.zooz_zen06_previous_reading
     - sensor.zooz_zen06_voltage
+
+washing_machine:
+  name: Washing Machine
+  entities:
+    - switch.washing_machine_switch
+    - sensor.washing_machine_current
+    - sensor.washing_machine_energy
+    - sensor.washing_machine_power
+    - sensor.washing_machine_previous_reading
+    - sensor.washing_machine_voltage
 
 input_boolean:
   name: Input Booleans
