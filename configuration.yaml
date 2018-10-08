@@ -170,14 +170,25 @@ arlo:
   username: !secret arlo_username
   password: !secret arlo_password
 
-alarm_control_panel:
-  - platform: arlo
-
 camera:
   - platform: arlo
     ffmpeg_arguments: '-pred 1 -q:v 2'
 
 ffmpeg:
+
+alarm_control_panel:
+  - platform: arlo
+  - platform: manual
+    name: Home Alarm
+    code: !secret alarm_code
+    pending_time: 30
+    delay_time: 20
+    trigger_time: 4
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
 
 weather:
   - platform: darksky
