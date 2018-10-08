@@ -1,0 +1,67 @@
+- alias: 'Alexa: Lock All Doors'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.lock_all_doors
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.doors_windows
+      state: 'off'
+  action:
+    - service: lock.lock
+      entity_id: group.all_locks
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lock_all_doors
+
+- alias: 'Alexa: Set the Alarm'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.set_the_alarm
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.doors_windows
+      state: 'off'
+  action:
+    - service: lock.lock
+      entity_id: group.all_locks
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.home_alarm
+      data:
+        code: !secret alarm_code
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.set_the_alarm
+  
+- alias: 'Verify Doors/Windows are Closed'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: 
+        - input_boolean.lock_all_doors
+        - input_boolean.set_the_alarm
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 1
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.lock_all_doors
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.set_the_alarm
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Please verify all doors and windows are closed, and then try again.
+  - service: notify.ios_toms_iphone
+    data:
+      message: Please verify all doors and windows are closed, and then try again.
+  - service: notify.telegram_group
+    data:
+      message: Please verify all doors and windows are closed, and then try again.
