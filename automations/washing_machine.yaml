@@ -1,0 +1,23 @@
+- alias: Washing Machine is on
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_current
+    above: 0
+  action:
+    - service: notify.telegram_tom
+      data:
+        message: "The washing machine is now running."
+
+- alias: Washing Machine is off
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_current
+    below: 1
+  action:
+    - service: notify.telegram_tom
+      data:
+        message: "The washing machine has stopped."
