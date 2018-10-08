@@ -7,7 +7,6 @@
   action:
     service: lock.lock
     entity_id: group.front_locks
-  id: b2ef2fe98dd34386a03e811a17414bc0
 
 - alias: Group is away
   initial_state: true
@@ -33,6 +32,7 @@
   action:
   - service: switch.turn_on
     entity_id: switch.beep_beep
+
 - alias: Trigger monitor.sh departure scan on Door Close
   initial_state: true
   hide_entity: true
@@ -50,6 +50,7 @@
   - service: mqtt.publish
     data:
       topic: monitor/scan/DEPART
+
 - alias: Close The Door (2)
   initial_state: true
   hide_entity: true
@@ -72,7 +73,7 @@
   - service: notify.ios_toms_iphone
     data:
       message: Door is open (2)
-  id: 6453be947a9a462991d2a8fb8c5d9c60
+
 - alias: Close The Door (10)
   initial_state: true
   hide_entity: true
@@ -95,7 +96,7 @@
   - service: notify.ios_toms_iphone
     data:
       message: Door is open (10)
-  id: ac41646a12fc4dbc9e5831dbc0e361fa
+
 - alias: Close The Door (20)
   initial_state: true
   hide_entity: true
@@ -119,7 +120,7 @@
   - service: notify.ios_toms_iphone
     data:
       message: Door is open (20)
-  id: f4c5b718209b4d5599187e93c1814d13
+
 - alias: Front door is unlocked
   initial_state: true
   hide_entity: true
@@ -135,7 +136,7 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the front door is still unlocked!
-  id: 8083af2bddf543eeb096d29a5a2e2a4d
+
 - alias: Kitchen door is unlocked
   initial_state: true
   hide_entity: true
@@ -151,7 +152,7 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the kitchen door is still unlocked!
-  id: 10b5cfe48055496e8825c778c813ed21
+
 - alias: Master bedroom door is unlocked
   initial_state: true
   hide_entity: true
@@ -167,7 +168,7 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the master bedroom door is still unlocked!
-  id: c74bccf7716547ea9d67a6af9c205127
+
 - alias: Back door is unlocked
   initial_state: true
   hide_entity: true
@@ -183,7 +184,7 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the back door is still unlocked!
-  id: 4e530576dfb144da8045e0dceb16a641
+
 - alias: Laundry door is unlocked
   initial_state: true
   hide_entity: true
@@ -199,7 +200,7 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the laundry room door is still unlocked!
-  id: 27e9dfd811a9453fbb532d6a0ba7cb25
+
 - alias: Device State Change Alert
   initial_state: true
   hide_entity: true
@@ -221,7 +222,7 @@
       message: '{{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
         == ''home'' %}home{% else %}away{% endif %}. '
       title: ''
-  id: e6d329b39afe44c9a233247b861fd128
+
 - alias: Tom is home
   initial_state: true
   hide_entity: true
@@ -237,7 +238,7 @@
     data:
       topic: location/tom
       payload: home
-  id: 1248d66135d74fcc9a0bf5b4bdb04924
+
 - alias: Mitzi is home
   initial_state: true
   hide_entity: true
@@ -253,7 +254,7 @@
     data:
       topic: location/mitzi
       payload: home
-  id: 233efb9f57cd45d9b3527cbe09770605
+
 - alias: Brandon is home
   initial_state: true
   hide_entity: true
@@ -269,7 +270,7 @@
     data:
       topic: location/brandon
       payload: home
-  id: db6cd01ca2604d6f94f3b7ee24f8de70
+
 - alias: Krystle is home
   initial_state: true
   hide_entity: true
@@ -285,7 +286,7 @@
     data:
       topic: location/krystle
       payload: home
-  id: bfb241e940e4457381c5d802b8769bb0
+
 - alias: Tom is away
   initial_state: true
   hide_entity: true
@@ -301,7 +302,7 @@
     data:
       topic: location/tom
       payload: not_home
-  id: 04f10a771a35424bb80d5594db8d05f7
+
 - alias: Mitzi is away
   initial_state: true
   hide_entity: true
@@ -317,7 +318,7 @@
     data:
       topic: location/mitzi
       payload: not_home
-  id: 55aa4b93fcc94dc1a7cace67bf066f63
+
 - alias: Brandon is away
   initial_state: true
   hide_entity: true
@@ -333,7 +334,7 @@
     data:
       topic: location/brandon
       payload: not_home
-  id: 4220c2702e864b3f876ea763f5124aef
+
 - alias: Krystle is away
   initial_state: true
   hide_entity: true
@@ -349,7 +350,7 @@
     data:
       topic: location/krystle
       payload: not_home
-  id: ee03ca65616847bb90390244d4a6ee57
+
 - alias: Notify iOS that Front Door is Unlocked
   initial_state: true
   hide_entity: true
@@ -369,7 +370,7 @@
         push:
           badge: 0
           category: frontdoorlock
-  id: f7cbd270c5e942e4b9ba19982fbd63e3
+
 - alias: iOS push action to lock Front Door
   initial_state: true
   hide_entity: true
@@ -381,7 +382,7 @@
   action:
     service: lock.lock
     entity_id: lock.front_deadbolt_locked
-  id: 0e59148b83244133a05a1740c9d0b53f
+
 - alias: Notify iOS that Kitchen Door is Unlocked
   initial_state: true
   hide_entity: true
@@ -401,7 +402,7 @@
         push:
           badge: 0
           category: kitchendoorlock
-  id: 7da8f11bff6b4e6da2fab3868a151e86
+
 - alias: iOS push action to lock Kitchen Door
   initial_state: true
   hide_entity: true
@@ -413,7 +414,7 @@
   action:
     service: lock.lock
     entity_id: lock.kitchen_deadbolt_locked
-  id: fc7ea42078ac45e69b6f4705ca937e5c
+
 - alias: Notify iOS that Back Door is Unlocked
   initial_state: true
   hide_entity: true
@@ -433,7 +434,7 @@
         push:
           badge: 0
           category: backdoorlock
-  id: ae49079fdf054a42826b8f24328d5517
+
 - alias: iOS push action to lock Back Door
   initial_state: true
   hide_entity: true
@@ -445,7 +446,7 @@
   action:
     service: lock.lock
     entity_id: lock.back_deadbolt_locked
-  id: 23b74e97df9448a8b72ab93ce636c076
+
 - alias: Notify iOS that Laundry Room Door is Unlocked
   initial_state: true
   hide_entity: true
@@ -465,7 +466,7 @@
         push:
           badge: 0
           category: laundrydoorlock
-  id: d4346a5a328b4d43aced6794d1bd0040
+
 - alias: iOS push action to lock Laundry Room Door
   initial_state: true
   hide_entity: true
@@ -477,7 +478,7 @@
   action:
     service: lock.lock
     entity_id: lock.laundry_deadbolt_locked
-  id: cf2c5e7f27234a1aa15375f97332973b
+
 - alias: Notify iOS that Master Bedroom Door is Unlocked
   initial_state: true
   hide_entity: true
@@ -497,7 +498,7 @@
         push:
           badge: 0
           category: mbrdoorlock
-  id: 167759bfe2ab427fa787bc6538478c51
+
 - alias: iOS push action to lock Master Bedroom Door
   initial_state: true
   hide_entity: true
@@ -509,7 +510,7 @@
   action:
     service: lock.lock
     entity_id: lock.mbr_deadbolt_locked
-  id: 34410e714b5548f1a5e15aaecebe0396
+
 - alias: 'Alexa: Lock All Doors'
   initial_state: true
   hide_entity: true
@@ -525,6 +526,7 @@
   - data:
       entity_id: input_boolean.lock_all_doors
     service: input_boolean.turn_off
+
 - alias: notify via telegram on Home Assistant start
   initial_state: true
   hide_entity: true
@@ -535,6 +537,7 @@
     service: notify.telegram_tom
     data:
       message: Home Assistant booted
+
 - alias: notify via telegram to put trash bin out
   initial_state: true
   hide_entity: true
@@ -556,6 +559,7 @@
         inline_keyboard:
           - '30 Minutes:/30m, 1 Hour:/1h'
           - 'No reminder:/removekeyboard'
+
 - alias: 'Telegram callback to remove keyboard'
   initial_state: true
   hide_entity: true
@@ -574,6 +578,7 @@
       message_id: '{{ trigger.event.data.message.message_id }}'
       chat_id: '{{ trigger.event.data.user_id }}'
       inline_keyboard: []
+
 - alias: 'Telegram callback to repeat message in 30 minutes'
   initial_state: true
   hide_entity: true
@@ -600,6 +605,7 @@
         inline_keyboard:
           - '30 Minutes:/30m, 1 Hour:/1h'
           - 'No reminder:/removekeyboard'
+
 - alias: 'Telegram callback to repeat message in 1 hour'
   initial_state: true
   hide_entity: true
