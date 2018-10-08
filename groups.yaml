@@ -40,6 +40,7 @@ status:
   view: yes
   entities:
     - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.aeotec_zw117_range_extender_6
     - zwave.front_deadbolt
     - zwave.kitchen_deadbolt
     - zwave.back_deadbolt
@@ -48,6 +49,8 @@ status:
     - zwave.office_dimmer
     - zwave.zooz_zen06
     - zwave.washing_machine
+    - zwave.freezer
+    - zwave.ct101_thermostat_downstairs
     - group.monitor_sensors
     - group.presence_entities
     - group.input_boolean
@@ -67,6 +70,9 @@ testing:
     - group.amazon_unused_devices
     - group.zooz_zen06_switch
     - group.washing_machine
+    - group.freezer
+    - group.ct101_thermostat_downstairs
+    - group.front_door
 
 default_groups:
   name: Default Groups
@@ -248,6 +254,7 @@ my_weather_darksky:
 zooz_zen06_switch:
   name: Zooz ZEN06 Switch
   entities:
+    - zwave.zooz_zen06
     - switch.zooz_zen06_switch
     - sensor.zooz_zen06_current
     - sensor.zooz_zen06_energy
@@ -258,12 +265,33 @@ zooz_zen06_switch:
 washing_machine:
   name: Washing Machine
   entities:
+    - zwave.washing_machine
     - switch.washing_machine_switch
     - sensor.washing_machine_current
     - sensor.washing_machine_energy
     - sensor.washing_machine_power
     - sensor.washing_machine_previous_reading
     - sensor.washing_machine_voltage
+
+freezer:
+  name: Freezer
+  entities:
+    - zwave.freezer
+    - switch.freezer_switch
+    - sensor.freezer_current
+    - sensor.freezer_energy
+    - sensor.freezer_power
+    - sensor.freezer_previous_reading
+    - sensor.freezer_voltage
+
+ct101_thermostat_downstairs:
+  name: CT101 Thermostat (Downstairs)
+  entities:
+    - zwave.ct101_thermostat_downstairs
+    - sensor.ct101_thermostat_downstairs_temperature
+    - climate.ct101_thermostat_downstairs_cooling_1
+    - climate.ct101_thermostat_downstairs_heating_1
+    - sensor.ct101_thermostat_downstairs_battery
 
 input_boolean:
   name: Input Booleans
@@ -273,3 +301,19 @@ input_boolean:
     - input_boolean.brandon_occupancy
     - input_boolean.krystle_occupancy
     - input_boolean.lock_all_doors
+
+front_door:
+  name: Front Deadbolt
+  entities:
+  - zwave.front_deadbolt
+  - lock.front_deadbolt_locked
+  - sensor.front_deadbolt_alarm_type
+  - sensor.front_deadbolt_alarm_level
+  - sensor.front_deadbolt_sourcenodeid
+  - sensor.front_deadbolt_access_control
+  - sensor.front_deadbolt_burglar
+  - sensor.front_deadbolt_power_management
+  - sensor.front_deadbolt_system
+  - sensor.frontdoorbattery
+  - sensor.front_door_code
+  - sensor.front_last_action

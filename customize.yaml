@@ -18,10 +18,12 @@ group.my_weather_darksky:
 group.tom_presence:
   entity_picture: !secret tom_pic
 #group.mitzi_presence:
+#  hidden: true
 #  entity_picture: !secret mitzi_pic
 group.brandon_presence:
   entity_picture: !secret brandon_pic
 #group.krystle_presence:
+#  hidden: true
 #  entity_picture: !secret krystle_pic
 
 # default HA groups
@@ -72,19 +74,19 @@ zwave.front_deadbolt:
 lock.front_deadbolt_locked:
   hidden: false
 sensor.front_deadbolt_alarm_type:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_alarm_level:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_sourcenodeid:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_access_control:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_burglar:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_power_management:
-  hidden: true
+  hidden: false
 sensor.front_deadbolt_system:
-  hidden: true
+  hidden: false
 
 zwave.kitchen_deadbolt:
   hidden: false
@@ -160,15 +162,6 @@ sensor.mbr_deadbolt_burglar:
 sensor.mbr_deadbolt_power_management:
   hidden: true
 sensor.mbr_deadbolt_system:
-  hidden: true
-
-sensor.toms_iphone_battery_level:
-  hidden: true
-sensor.toms_iphone_battery_state:
-  hidden: true
-sensor.nanas_iphone_battery_level:
-  hidden: true
-sensor.nanas_iphone_battery_state:
   hidden: true
 
 sensor.current_week:
@@ -266,6 +259,17 @@ input_boolean.brandon_occupancy:
   friendly_name: Brandon is Home
 input_boolean.krystle_occupancy:
   friendly_name: Krystle is Home
+
+sensor.toms_iphone_battery_level:
+  hidden: true
+  battery_alert_disabled: true
+sensor.toms_iphone_battery_state:
+  hidden: true
+sensor.nanas_iphone_battery_level:
+  hidden: true
+  battery_alert_disabled: true
+sensor.nanas_iphone_battery_state:
+  hidden: true
 
 # packages/battery_alert.yaml
 device_tracker.tom_iphone:
