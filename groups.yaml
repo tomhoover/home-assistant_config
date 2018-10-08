@@ -303,6 +303,7 @@ input_boolean:
     - input_boolean.brandon_occupancy
     - input_boolean.krystle_occupancy
     - input_boolean.lock_all_doors
+    - input_boolean.set_the_alarm
 
 front_door:
   name: Front Deadbolt

@@ -48,7 +48,7 @@
   trigger:
     - platform: state
       entity_id: group.doors_windows
-      to: 'open'
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.home_alarm
@@ -61,7 +61,7 @@
   trigger:
     - platform: state
       entity_id: group.doors_windows
-      to: 'open'
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.home_alarm

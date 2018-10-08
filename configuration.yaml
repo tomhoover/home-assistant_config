@@ -163,6 +163,9 @@ input_boolean:
   lock_all_doors:
     name: Lock All Doors
     initial: off
+  set_the_alarm:
+    name: Set the Alarm
+    initial: off
 
 media_player:
   - platform: onkyo
