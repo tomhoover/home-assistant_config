@@ -1,0 +1,159 @@
+- alias: Notify iOS that Front Door is Unlocked
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: lock.front_deadbolt_locked
+    state: unlocked
+  action:
+    service: notify.ios_toms_iphone
+    data:
+      title: Front Door Security Check
+      message: It's 10pm and the Front Door is still unlocked.
+      data:
+        push:
+          badge: 0
+          category: frontdoorlock
+
+- alias: iOS push action to lock Front Door
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_FRONTDOOR
+  action:
+    service: lock.lock
+    entity_id: lock.front_deadbolt_locked
+
+- alias: Notify iOS that Kitchen Door is Unlocked
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: lock.kitchen_deadbolt_locked
+    state: unlocked
+  action:
+    service: notify.ios_toms_iphone
+    data:
+      title: Kitchen Door Security Check
+      message: It's 10pm and the Kitchen Door is still unlocked.
+      data:
+        push:
+          badge: 0
+          category: kitchendoorlock
+
+- alias: iOS push action to lock Kitchen Door
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_KITCHENDOOR
+  action:
+    service: lock.lock
+    entity_id: lock.kitchen_deadbolt_locked
+
+- alias: Notify iOS that Back Door is Unlocked
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: lock.back_deadbolt_locked
+    state: unlocked
+  action:
+    service: notify.ios_toms_iphone
+    data:
+      title: Back Door Security Check
+      message: It's 10pm and the Back Door is still unlocked.
+      data:
+        push:
+          badge: 0
+          category: backdoorlock
+
+- alias: iOS push action to lock Back Door
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_BACKDOOR
+  action:
+    service: lock.lock
+    entity_id: lock.back_deadbolt_locked
+
+- alias: Notify iOS that Laundry Room Door is Unlocked
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: lock.laundry_deadbolt_locked
+    state: unlocked
+  action:
+    service: notify.ios_toms_iphone
+    data:
+      title: Laundry Room Door Security Check
+      message: It's 10pm and the Laundry Room Door is still unlocked.
+      data:
+        push:
+          badge: 0
+          category: laundrydoorlock
+
+- alias: iOS push action to lock Laundry Room Door
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_LAUNDRYDOOR
+  action:
+    service: lock.lock
+    entity_id: lock.laundry_deadbolt_locked
+
+- alias: Notify iOS that Master Bedroom Door is Unlocked
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: lock.mbr_deadbolt_locked
+    state: unlocked
+  action:
+    service: notify.ios_toms_iphone
+    data:
+      title: Master Bedroom Door Security Check
+      message: It's 10pm and the Master Bedroom Door is still unlocked.
+      data:
+        push:
+          badge: 0
+          category: mbrdoorlock
+
+- alias: iOS push action to lock Master Bedroom Door
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_MBRDOOR
+  action:
+    service: lock.lock
+    entity_id: lock.mbr_deadbolt_locked
