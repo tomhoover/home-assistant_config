@@ -13,6 +13,8 @@ home2:
     - group.my_weather_darksky
 #    - sensor.tom_badge
     - sun.sun
+    - alarm_control_panel.arlo_base
+    - alarm_control_panel.home_alarm
     - sensor.yr_symbol
 #    - zone.home
 #    - zone.office
