@@ -8,6 +8,7 @@
     service: lock.lock
     entity_id: group.front_locks
   id: b2ef2fe98dd34386a03e811a17414bc0
+
 - alias: Group is away
   initial_state: true
   hide_entity: true
@@ -16,9 +17,13 @@
     entity_id: group.presence
     to: not_home
   action:
-    service: lock.lock
-    entity_id: group.all_locks
-  id: 8de11facdb2445929671cf53f26558bb
+    - service: lock.lock
+      entity_id: group.all_locks
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.home_alarm
+      data:
+        code: !secret alarm_code
+
 - alias: Beep on Door/Window Open/Close
   initial_state: true
   hide_entity: true
@@ -214,9 +219,7 @@
   - service: notify.ios_toms_iphone
     data_template:
       message: '{{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
-        == ''home'' %}home{% else %}away{% endif %}.
-
-        '
+        == ''home'' %}home{% else %}away{% endif %}. '
       title: ''
   id: e6d329b39afe44c9a233247b861fd128
 - alias: Tom is home
