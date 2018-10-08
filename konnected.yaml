@@ -37,6 +37,7 @@ devices:
       - zone: 6
         type: smoke
         name: 'Smoke Detectors'
+        inverse: true
     switches:
       - zone: out
         name: 'Beep Beep'
