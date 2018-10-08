@@ -1,0 +1,30 @@
+- alias: zwave device dead
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.aeotec_zw117_range_extender_6
+    - zwave.front_deadbolt
+    - zwave.kitchen_deadbolt
+    - zwave.back_deadbolt
+    - zwave.laundry_deadbolt
+    - zwave.mbr_deadbolt
+    - zwave.office_dimmer
+    - zwave.zooz_zen06
+    - zwave.washing_machine
+    - zwave.freezer
+    to: dead
+  action:
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.toms_echo_show
+      message: ' {{ trigger.to_state.attributes.friendly_name }} is dead. '
+  - service: notify.ios_toms_iphone
+    data_template:
+      title: 'zwave error'
+      message: '{{ trigger.to_state.attributes.friendly_name }} is dead.'
+  - service: notify.telegram_tom
+    data_template:
+      message: '{{ trigger.to_state.attributes.friendly_name }} is dead.'

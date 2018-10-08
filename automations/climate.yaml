@@ -1,0 +1,27 @@
+- alias: set daytime temperature
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+        temperature: 78
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_heating_1
+        temperature: 68
+
+- alias: set nighttime temperature
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+        temperature: 75
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_heating_1
+        temperature: 65
