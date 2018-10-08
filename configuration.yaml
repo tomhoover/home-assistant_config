@@ -60,10 +60,14 @@ zwave:
 #      polling_intensity: 1
 
 recorder:
+  purge_keep_days: 2
 
 konnected: !include konnected.yaml
 sensor: !include sensors.yaml
 notify: !include notify.yaml
+
+influxdb:
+  host: 192.168.2.90
 
 telegram_bot:
   - platform: polling
