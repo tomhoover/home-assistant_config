@@ -1,0 +1,149 @@
+- alias: Device State Change Alert
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - group.tom_presence
+    - group.mitzi_presence
+    - group.brandon_presence
+    - group.krystle_presence
+  action:
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.toms_echo_show
+      message: ' {{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
+        == ''home'' %}home{% else %}away{% endif %}. '
+  - service: notify.ios_toms_iphone
+    data_template:
+      message: '{{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
+        == ''home'' %}home{% else %}away{% endif %}. '
+      title: ''
+
+- alias: Tom is home
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.tom_home_occupancy_confidence
+    above: 10
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.tom_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/tom
+      payload: home
+
+- alias: Mitzi is home
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mitzi_home_occupancy_confidence
+    above: 10
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.mitzi_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/mitzi
+      payload: home
+
+- alias: Brandon is home
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.brandon_home_occupancy_confidence
+    above: 10
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.brandon_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/brandon
+      payload: home
+
+- alias: Krystle is home
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.krystle_home_occupancy_confidence
+    above: 10
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.krystle_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/krystle
+      payload: home
+
+- alias: Tom is away
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.tom_home_occupancy_confidence
+    below: 11
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: input_boolean.tom_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/tom
+      payload: not_home
+
+- alias: Mitzi is away
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.mitzi_home_occupancy_confidence
+    below: 11
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: input_boolean.mitzi_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/mitzi
+      payload: not_home
+
+- alias: Brandon is away
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.brandon_home_occupancy_confidence
+    below: 11
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: input_boolean.brandon_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/brandon
+      payload: not_home
+
+- alias: Krystle is away
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.krystle_home_occupancy_confidence
+    below: 11
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: input_boolean.krystle_occupancy
+  - service: mqtt.publish
+    data:
+      topic: location/krystle
+      payload: not_home
