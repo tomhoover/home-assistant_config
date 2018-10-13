@@ -23,7 +23,7 @@
     entity_id: group.presence
     state: home
   action:
-    service: notify.telegram_group
+    service: notify.telegram_tom
     data:
       message: Put trash bin out
       data:

@@ -62,6 +62,6 @@
   - service: notify.ios_toms_iphone
     data:
       message: Please verify all doors and windows are closed, and then try again.
-  - service: notify.telegram_group
+  - service: notify.telegram_tom
     data:
       message: Please verify all doors and windows are closed, and then try again.
