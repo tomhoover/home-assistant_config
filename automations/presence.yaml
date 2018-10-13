@@ -147,3 +147,27 @@
     data:
       topic: location/krystle
       payload: not_home
+
+- alias: Tom has arrived at work
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: device_tracker.tom_iphone
+    to: work
+  action:
+  - service: notify.telegram_tom
+    data:
+      message: 'Tom has arrived at work.'
+
+- alias: Tom has departed work
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: device_tracker.tom_iphone
+    from: work
+  action:
+  - service: notify.telegram_tom
+    data:
+      message: 'Tom has departed work.'
