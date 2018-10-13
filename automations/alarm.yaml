@@ -31,7 +31,7 @@
           {% elif trigger.to_state.state == ''pending'' %}pending switch to away mode
           {% else %}disarmed{% endif %}.
         {% endif %} '
-  - service: notify.telegram_group
+  - service: notify.telegram_tom
     data_template:
       message: ' 
         {% if trigger.to_state.state == ''triggered'' %}ALERT! The alarm has been triggered!
