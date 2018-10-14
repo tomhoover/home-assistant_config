@@ -22,6 +22,7 @@ home2:
 cameras:
   name: Cameras
   view: yes
+  icon: mdi:camera
   entities:
     - camera.front_walk_camera
     - camera.front_door_camera
@@ -32,10 +33,19 @@ cameras:
 media_players:
   name: Media Players
   view: yes
+  icon: mdi:music
   entities:
     - group.amazon_echos
     - media_player.this_device
     - media_player.txnr777_0009b0ebccdf
+
+automation:
+  name: Automation
+  view: yes
+  icon: mdi:home-automation
+  entities:
+    - group.all_automations
+    - group.all_scripts
 
 status:
   name: Status
