@@ -94,6 +94,7 @@ status:
     - zwave.washing_machine
     - zwave.freezer
     - zwave.ct101_thermostat_downstairs
+    - zwave.ct101_thermostat_upstairs
     - group.monitor_sensors
     - group.presence_entities
     - group.input_boolean
@@ -109,6 +110,7 @@ testing:
     - group.washing_machine
     - group.freezer
     - group.ct101_thermostat_downstairs
+    - group.ct101_thermostat_upstairs
     - group.front_door
 
 default_groups:
@@ -322,13 +324,36 @@ freezer:
     - sensor.freezer_voltage
 
 ct101_thermostat_downstairs:
-  name: CT101 Thermostat (Downstairs)
+  name: Thermostat (Downstairs)
   entities:
+    - input_boolean.hvac_master_switch
+    - input_boolean.hvac_away_mode
     - zwave.ct101_thermostat_downstairs
     - sensor.ct101_thermostat_downstairs_temperature
     - climate.ct101_thermostat_downstairs_cooling_1
     - climate.ct101_thermostat_downstairs_heating_1
     - sensor.ct101_thermostat_downstairs_battery
+    - sensor.downstairs_cool_temperature
+    - sensor.downstairs_heat_temperature
+#    - sensor.upstairs_cool_temperature
+#    - sensor.upstairs_heat_temperature
+
+ct101_thermostat_upstairs:
+  name: Thermostat (Upstairs)
+  entities:
+    - input_boolean.hvac_master_switch
+    - input_boolean.hvac_away_mode
+    - zwave.ct101_thermostat_upstairs
+    - sensor.ct101_thermostat_upstairs_temperature
+    - climate.ct101_thermostat_upstairs_cooling_1
+    - climate.ct101_thermostat_upstairs_heating_1
+    - sensor.ct101_thermostat_upstairs_battery
+    - sensor.upstairs_cool_temperature
+    - sensor.upstairs_heat_temperature
+    - sensor.ct101_thermostat_upstairs_indicator
+    - sensor.ct101_thermostat_upstairs_indicator_2
+#    - sensor.upstairs_cool_temperature
+#    - sensor.upstairs_heat_temperature
 
 input_boolean:
   name: Input Booleans
@@ -339,6 +364,10 @@ input_boolean:
     - input_boolean.krystle_occupancy
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
+    - input_boolean.hvac_master_switch
+    - input_boolean.hvac_away_mode
+    - input_boolean.manual_override_downstairs_thermostat
+    - input_boolean.manual_override_upstairs_thermostat
 
 front_door:
   name: Front Deadbolt
