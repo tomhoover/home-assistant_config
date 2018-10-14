@@ -13,8 +13,14 @@ homeassistant:
       order: 10
     group.recycle_schedule:
       order: 11
+      hidden: true
     group.trash_and_recycle_automations:
       order: 12
+
+    input_select.recycle_pickup_day:
+      hidden: true
+    input_select.recycle_pickup_week:
+      hidden: true
 
     sensor.trash_day:
       friendly_name: Is it Trash Day today?
@@ -42,13 +48,6 @@ homeassistant:
     group.trash__recycle:
       friendly_name: Trash & Recycle
       icon: mdi:recycle
-
-    group.recycle_schedule:
-      hidden: true
-    input_select.recycle_pickup_day:
-      hidden: true
-    input_select.recycle_pickup_week:
-      hidden: true
 
 group:
   Trash Schedule:
