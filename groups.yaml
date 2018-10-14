@@ -66,13 +66,7 @@ status:
     - group.monitor_sensors
     - group.presence_entities
     - group.input_boolean
-
-automation:
-  name: Automation
-  view: yes
-  entities:
-    - group.all_automations
-    - group.all_scripts
+    - group.pi_hole
 
 testing:
   name: Testing
@@ -330,3 +324,16 @@ front_door:
   - sensor.frontdoorbattery
   - sensor.front_door_code
   - sensor.front_last_action
+
+pi_hole:
+  name: Pi-hole statistics
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_queries_forwarded
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients
+    - sensor.pihole_dns_unique_domains
+    - sensor.pihole_domains_blocked
+    - sensor.pihole_seen_clients
