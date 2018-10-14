@@ -11,6 +11,14 @@
       data:
         entity_id: climate.ct101_thermostat_downstairs_heating_1
         temperature: 68
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_cooling_1
+        temperature: 78
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_heating_1
+        temperature: 68
 
 - alias: set nighttime temperature
   trigger:
@@ -24,4 +32,12 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.ct101_thermostat_downstairs_heating_1
+        temperature: 65
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_cooling_1
+        temperature: 75
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_heating_1
         temperature: 65
