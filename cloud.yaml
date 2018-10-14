@@ -3,16 +3,14 @@ alexa:
 #      include_entities:
 #        - switch.zooz_zen06_switch
     include_domains:
-      - input_boolean
       - light
       - lock
       - script
       - switch
+    include_entities:
+      - input_boolean.lock_all_doors
+      - input_boolean.set_the_alarm
     exclude_entities:
-      - input_boolean.tom_occupancy
-      - input_boolean.mitzi_occupancy
-      - input_boolean.brandon_occupancy
-      - input_boolean.krystle_occupancy
       - switch.beep_beep
       - switch.siren
       - switch.warning
@@ -22,8 +20,10 @@ alexa:
       - cover
       - fan
       - group
+      - input_boolean
       - media_player
       - sensor
+
   entity_config:
     light.office_dimmer_level:
       name: Office Lights
