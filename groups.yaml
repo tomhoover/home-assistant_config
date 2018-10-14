@@ -29,6 +29,37 @@ cameras:
     - camera.back_door_camera
     - camera.back_porch_camera
     - camera.garage_camera
+    - sensor.arlo_cameras
+    - group.camera_captured_today
+    - group.camera_last_capture
+    - group.camera_signal_strength
+
+camera_captured_today:
+  name: '# of videos captured today'
+  entities:
+    - sensor.captured_today_front_walk_camera
+    - sensor.captured_today_front_door_camera
+    - sensor.captured_today_back_door_camera
+    - sensor.captured_today_back_porch_camera
+    - sensor.captured_today_garage_camera
+
+camera_last_capture:
+  name: Date/time of last video
+  entities:
+    - sensor.last_front_walk_camera
+    - sensor.last_front_door_camera
+    - sensor.last_back_door_camera
+    - sensor.last_back_porch_camera
+    - sensor.last_garage_camera
+
+camera_signal_strength:
+  name: Wireless signal strength
+  entities:
+    - sensor.signal_strength_front_walk_camera
+    - sensor.signal_strength_front_door_camera
+    - sensor.signal_strength_back_door_camera
+    - sensor.signal_strength_back_porch_camera
+    - sensor.signal_strength_garage_camera
 
 media_players:
   name: Media Players
