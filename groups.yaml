@@ -183,6 +183,7 @@ presence_entities:
     - input_boolean.mitzi_occupancy
     - input_boolean.brandon_occupancy
     - input_boolean.krystle_occupancy
+    - input_boolean.departure_scan_needed
 
 monitor_sensors:
   name: Monitor Sensors
@@ -362,6 +363,7 @@ input_boolean:
     - input_boolean.mitzi_occupancy
     - input_boolean.brandon_occupancy
     - input_boolean.krystle_occupancy
+    - input_boolean.departure_scan_needed
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
     - input_boolean.hvac_master_switch

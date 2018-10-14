@@ -46,10 +46,9 @@
     from: 'on'
     to: 'off'
   action:
-  - delay: 00:00:10
-  - service: mqtt.publish
+  - service: input_boolean.turn_on
     data:
-      topic: monitor/scan/DEPART
+      entity_id: input_boolean.departure_scan_needed
 
 - alias: Close The Door (2)
   initial_state: true
