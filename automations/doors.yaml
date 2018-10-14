@@ -115,12 +115,61 @@
   - service: media_player.alexa_tts
     data:
       entity_id: group.amazon_echos
-      message: Please check all doors. A door has been open for over twenty minutes.
-        Please close the door!
+      message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.hvac_master_switch
   - service: notify.ios_toms_iphone
     data:
       message: Door is open (20)
-# turn hvac off
+
+- alias: Close The Window (2)
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - binary_sensor.kitchendining_windows
+    - binary_sensor.living_room_windows
+    - binary_sensor.officecraftbath_windows
+    - binary_sensor.upstairs_windows
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 2
+  action:
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: Please check all windows. A window is open, so I am turning off the thermostat.
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.hvac_master_switch
+  - service: notify.ios_toms_iphone
+    data:
+      message: Window is open (2)
+
+- alias: Reset HVAC master switch
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: group.doors_windows
+    from: 'on'
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+  - service: media_player.alexa_tts
+    data:
+      entity_id: group.amazon_echos
+      message: All doors and windows have been closed, so I am reseting the thermostat.
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.hvac_master_switch
+  - service: notify.ios_toms_iphone
+    data:
+      message: HVAC master switch has been reset
 
 - alias: Front door is unlocked
   initial_state: true
