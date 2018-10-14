@@ -10,6 +10,7 @@ alexa:
     include_entities:
       - input_boolean.lock_all_doors
       - input_boolean.set_the_alarm
+      - input_boolean.departure_scan_needed
     exclude_entities:
       - switch.beep_beep
       - switch.siren
