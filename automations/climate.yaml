@@ -41,3 +41,83 @@
       data:
         entity_id: climate.ct101_thermostat_upstairs_heating_1
         temperature: 65
+
+- alias: report manual temp adjustment (downstairs)
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.downstairs_cool_temperature
+      - sensor.downstairs_heat_temperature
+  condition:
+    - condition: template
+      value_template: '{{ trigger.from_state.state != ''unknown'' }}'
+    - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.manual_override_downstairs_thermostat
+  - service: notify.telegram_tom
+    data_template:
+      message: ' {{ trigger.to_state.attributes.friendly_name }} has been changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}. '
+
+- alias: report manual temp adjustment (upstairs)
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.upstairs_cool_temperature
+      - sensor.upstairs_heat_temperature
+  condition:
+    - condition: template
+      value_template: '{{ trigger.from_state.state != ''unknown'' }}'
+    - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.manual_override_upstairs_thermostat
+  - service: notify.telegram_tom
+    data_template:
+      message: ' {{ trigger.to_state.attributes.friendly_name }} has been changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}. '
+
+- alias: reset downstairs temperature
+  trigger:
+    platform: state
+    entity_id: input_boolean.manual_override_downstairs_thermostat
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+        temperature: 78
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_heating_1
+        temperature: 68
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.manual_override_downstairs_thermostat
+
+- alias: reset upstairs temperature
+  trigger:
+    platform: state
+    entity_id: input_boolean.manual_override_upstairs_thermostat
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_cooling_1
+        temperature: 78
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_heating_1
+        temperature: 68
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.manual_override_upstairs_thermostat
