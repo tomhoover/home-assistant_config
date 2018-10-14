@@ -121,3 +121,59 @@
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.manual_override_upstairs_thermostat
+
+- alias: HVAC master turned off
+  trigger:
+    platform: state
+    entity_id: input_boolean.hvac_master_switch
+    from: 'on'
+    to: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+        operation_mode: 'off'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_cooling_1
+        operation_mode: 'off'
+
+- alias: HVAC master turned on
+  trigger:
+    platform: state
+    entity_id: input_boolean.hvac_master_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+        operation_mode: 'auto'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.ct101_thermostat_upstairs_cooling_1
+        operation_mode: 'auto'
+
+#- alias: HVAC away mode off
+#  trigger:
+#    platform: state
+#    entity_id: input_boolean.hvac_away_mode
+#    from: 'on'
+#    to: 'off'
+#  action:
+#    - service: climate.set_away_mode
+#      data:
+#        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+#        away_mode: false
+#
+#- alias: HVAC away mode on
+#  trigger:
+#    platform: state
+#    entity_id: input_boolean.hvac_away_mode
+#    from: 'off'
+#    to: 'on'
+#  action:
+#    - service: climate.set_away_mode
+#      data:
+#        entity_id: climate.ct101_thermostat_downstairs_cooling_1
+#        away_mode: true
