@@ -15,7 +15,7 @@
           {% if trigger.to_state.state == ''armed_away'' %}in away mode
           {% elif trigger.to_state.state == ''armed_home'' %}in home mode
           {% elif trigger.to_state.state == ''armed_night'' %}in night mode
-          {% elif trigger.to_state.state == ''pending'' %}pending switch to away mode
+          {% elif trigger.to_state.state == ''pending'' %}pending mode change
           {% else %}disarmed{% endif %}.
         {% endif %} '
   - service: notify.ios_toms_iphone
@@ -28,7 +28,7 @@
           {% if trigger.to_state.state == ''armed_away'' %}in away mode
           {% elif trigger.to_state.state == ''armed_home'' %}in home mode
           {% elif trigger.to_state.state == ''armed_night'' %}in night mode
-          {% elif trigger.to_state.state == ''pending'' %}pending switch to away mode
+          {% elif trigger.to_state.state == ''pending'' %}pending mode change
           {% else %}disarmed{% endif %}.
         {% endif %} '
   - service: notify.telegram_tom
@@ -40,7 +40,7 @@
           {% if trigger.to_state.state == ''armed_away'' %}in away mode
           {% elif trigger.to_state.state == ''armed_home'' %}in home mode
           {% elif trigger.to_state.state == ''armed_night'' %}in night mode
-          {% elif trigger.to_state.state == ''pending'' %}pending switch to away mode
+          {% elif trigger.to_state.state == ''pending'' %}pending mode change
           {% else %}disarmed{% endif %}.
         {% endif %} '
 
