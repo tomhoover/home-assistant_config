@@ -156,11 +156,6 @@
 
 - platform: template
   sensors:
-#    frontdoorbattery:
-#      entity_id: zwave.front_deadbolt
-#      value_template: "{{ states.zwave.front_deadbolt.attributes.battery_level }}"
-#      friendly_name: 'Front Door Lock Battery'
-#      unit_of_measurement: '%'
     # this sensor is intended to capture the user number that was used during
     # the last operation that required a code to be entered.  it will persist
     # after subsequent other events (manual locking, etc.) that didn't involve
@@ -206,19 +201,19 @@
         {% endif %}
 
     downstairs_cool_temperature:
-      friendly_name: "Cool setting"
+      friendly_name: "Cool setting (downstairs)"
       unit_of_measurement: 'degrees'
       value_template: "{{ states.climate.ct101_thermostat_downstairs_cooling_1.attributes.temperature }}"
     downstairs_heat_temperature:
-      friendly_name: "Heat setting"
+      friendly_name: "Heat setting (downstairs)"
       unit_of_measurement: 'degrees'
       value_template: "{{ states.climate.ct101_thermostat_downstairs_heating_1.attributes.temperature }}"
 
     upstairs_cool_temperature:
-      friendly_name: "Cool setting"
+      friendly_name: "Cool setting (upstairs)"
       unit_of_measurement: 'degrees'
       value_template: "{{ states.climate.ct101_thermostat_upstairs_cooling_1.attributes.temperature }}"
     upstairs_heat_temperature:
-      friendly_name: "Heat setting"
+      friendly_name: "Heat setting (upstairs)"
       unit_of_measurement: 'degrees'
       value_template: "{{ states.climate.ct101_thermostat_upstairs_heating_1.attributes.temperature }}"
