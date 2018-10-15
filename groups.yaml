@@ -329,7 +329,6 @@ freezer:
     - sensor.freezer_power
     - sensor.freezer_previous_reading
     - sensor.freezer_voltage
-    - sensor.zooz_zen15_power_switch_previous_reading
 
 ct101_thermostat_downstairs:
   name: Thermostat (Downstairs)
