@@ -46,7 +46,7 @@ tts:
 
 cloud: !include cloud.yaml
 group: !include groups.yaml
-automation: !include_dir_merge_list automations
+automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 
 ##### tch additions #####
