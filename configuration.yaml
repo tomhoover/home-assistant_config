@@ -33,7 +33,7 @@ mqtt: !include includes/mqtt.yaml
 notify: !include includes/notify.yaml
 recorder: !include includes/recorder.yaml
 script: !include scripts.yaml
-sensor: !include sensors.yaml
+sensor: !include_dir_merge_list sensors
 telegram_bot: !include includes/telegram_bot.yaml
 zone: !include includes/zone.yaml
 

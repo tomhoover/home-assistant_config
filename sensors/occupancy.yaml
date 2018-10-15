@@ -1,0 +1,105 @@
+- platform: mqtt
+  state_topic: !secret tom_pizw-0_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Tom Media Closet'
+
+- platform: mqtt
+  state_topic: !secret mitzi_pizw-0_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Mitzi Media Closet'
+
+- platform: mqtt
+  state_topic: !secret brandon_pizw-0_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Brandon Media Closet'
+
+- platform: mqtt
+  state_topic: !secret krystle_pizw-0_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Krystle Media Closet'
+
+#- platform: mqtt
+#  state_topic: 'location/second floor/00:00:00:00:00:00'
+#  value_template: '{{ value_json.confidence }}'
+#  unit_of_measurement: '%'
+#  name: 'Andrew Second Floor'
+#
+#- platform: mqtt
+#  state_topic: 'location/third floor/00:00:00:00:00:00'
+#  value_template: '{{ value_json.confidence }}'
+#  unit_of_measurement: '%'
+#  name: 'Andrew Third Floor'
+#
+#- platform: mqtt
+#  state_topic: 'location/garage/00:00:00:00:00:00'
+#  value_template: '{{ value_json.confidence }}'
+#  unit_of_measurement: '%'
+#  name: 'Andrew Garage'
+
+- platform: min_max
+  name: "Tom Home Occupancy Confidence"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.tom_media_closet
+#    - sensor.andrew_garage
+#    - sensor.andrew_third_floor
+#    - sensor.andrew_second_floor
+#    - sensor.andrew_first_floor
+
+- platform: min_max
+  name: "Mitzi Home Occupancy Confidence"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.mitzi_media_closet
+
+- platform: min_max
+  name: "Brandon Home Occupancy Confidence"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.brandon_media_closet
+
+- platform: min_max
+  name: "Krystle Home Occupancy Confidence"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.krystle_media_closet
+
+#- platform: template
+#  sensors:
+#    tom_badge:
+#      unit_of_measurement: Tom
+#      entity_id: group.tom_presence
+#      friendly_name_template: >
+#        {% if is_state('group.tom_presence', 'home') %}
+#          Home
+#        {% else %}
+#          Away
+#        {% endif %}
+#      value_template: >
+#        {% if is_state('group.tom_presence', 'home') %}
+#          Home
+#        {% else %}
+#          Away
+#        {% endif %}
+#      entity_picture_template: !secret tom_pic
+
+- platform: template
+  sensors:
+    occupancy:
+      value_template: >
+        {% if states.group.presence.state  %}
+        {% if states.group.presence.state == 'home' or states.input_boolean.guest_mode.state == 'on' %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+        {% else %}
+        {% endif %}

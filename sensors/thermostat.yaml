@@ -1,0 +1,21 @@
+- platform: template
+  sensors:
+    downstairs_cool_temperature:
+      friendly_name: "Cool setting (downstairs)"
+      unit_of_measurement: 'degrees'
+      value_template: "{{ states.climate.ct101_thermostat_downstairs_cooling_1.attributes.temperature }}"
+
+    downstairs_heat_temperature:
+      friendly_name: "Heat setting (downstairs)"
+      unit_of_measurement: 'degrees'
+      value_template: "{{ states.climate.ct101_thermostat_downstairs_heating_1.attributes.temperature }}"
+
+    upstairs_cool_temperature:
+      friendly_name: "Cool setting (upstairs)"
+      unit_of_measurement: 'degrees'
+      value_template: "{{ states.climate.ct101_thermostat_upstairs_cooling_1.attributes.temperature }}"
+
+    upstairs_heat_temperature:
+      friendly_name: "Heat setting (upstairs)"
+      unit_of_measurement: 'degrees'
+      value_template: "{{ states.climate.ct101_thermostat_upstairs_heating_1.attributes.temperature }}"
