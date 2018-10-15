@@ -42,33 +42,6 @@ cameras:
     - group.camera_last_capture
     - group.camera_signal_strength
 
-camera_captured_today:
-  name: '# of videos captured today'
-  entities:
-    - sensor.captured_today_front_walk_camera
-    - sensor.captured_today_front_door_camera
-    - sensor.captured_today_back_door_camera
-    - sensor.captured_today_back_porch_camera
-    - sensor.captured_today_garage_camera
-
-camera_last_capture:
-  name: Date/time of last video
-  entities:
-    - sensor.last_front_walk_camera
-    - sensor.last_front_door_camera
-    - sensor.last_back_door_camera
-    - sensor.last_back_porch_camera
-    - sensor.last_garage_camera
-
-camera_signal_strength:
-  name: Wireless signal strength
-  entities:
-    - sensor.signal_strength_front_walk_camera
-    - sensor.signal_strength_front_door_camera
-    - sensor.signal_strength_back_door_camera
-    - sensor.signal_strength_back_porch_camera
-    - sensor.signal_strength_garage_camera
-
 media_players:
   name: Media Players
   view: yes
@@ -297,6 +270,33 @@ my_weather_darksky:
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_nearest_storm_distance
 
+camera_captured_today:
+  name: '# of videos captured today'
+  entities:
+    - sensor.captured_today_front_walk_camera
+    - sensor.captured_today_front_door_camera
+    - sensor.captured_today_back_door_camera
+    - sensor.captured_today_back_porch_camera
+    - sensor.captured_today_garage_camera
+
+camera_last_capture:
+  name: Date/time of last video
+  entities:
+    - sensor.last_front_walk_camera
+    - sensor.last_front_door_camera
+    - sensor.last_back_door_camera
+    - sensor.last_back_porch_camera
+    - sensor.last_garage_camera
+
+camera_signal_strength:
+  name: Wireless signal strength
+  entities:
+    - sensor.signal_strength_front_walk_camera
+    - sensor.signal_strength_front_door_camera
+    - sensor.signal_strength_back_door_camera
+    - sensor.signal_strength_back_porch_camera
+    - sensor.signal_strength_garage_camera
+
 zooz_zen06_switch:
   name: Zooz ZEN06 Switch
   entities:
@@ -329,6 +329,7 @@ freezer:
     - sensor.freezer_power
     - sensor.freezer_previous_reading
     - sensor.freezer_voltage
+    - sensor.zooz_zen15_power_switch_previous_reading
 
 ct101_thermostat_downstairs:
   name: Thermostat (Downstairs)
