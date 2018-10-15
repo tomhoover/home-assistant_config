@@ -281,3 +281,8 @@ device_tracker.toms_iphone:
 device_tracker.mitzis_iphone:
   battery_alert_disabled: true
   battery_sensor_creation_disabled: true
+
+##### hide misc unused sensors #####
+# duplicate freezer sensor
+sensor.zooz_zen15_power_switch_previous_reading:
+  hidden: true
