@@ -158,6 +158,10 @@
     to: 'off'
     for:
       minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.hvac_master_switch
+    state: 'off'
   action:
   - service: media_player.alexa_tts
     data:
