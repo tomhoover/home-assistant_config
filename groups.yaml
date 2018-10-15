@@ -333,7 +333,7 @@ freezer:
 ct101_thermostat_downstairs:
   name: Thermostat (Downstairs)
   entities:
-    - input_boolean.hvac_master_switch
+    - input_boolean.thermostat_enable
     - input_boolean.hvac_away_mode
     - input_boolean.manual_override_downstairs_thermostat
     - zwave.ct101_thermostat_downstairs
@@ -348,7 +348,7 @@ ct101_thermostat_downstairs:
 ct101_thermostat_upstairs:
   name: Thermostat (Upstairs)
   entities:
-    - input_boolean.hvac_master_switch
+    - input_boolean.thermostat_enable
     - input_boolean.hvac_away_mode
     - input_boolean.manual_override_upstairs_thermostat
     - zwave.ct101_thermostat_upstairs

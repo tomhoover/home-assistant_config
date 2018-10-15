@@ -161,7 +161,7 @@ input_boolean:
     name: Krystle is Home
   departure_scan_needed:
     name: Departure scan needed
-  hvac_master_switch:
+  thermostat_enable:
     name: HVAC master switch
   hvac_away_mode:
     name: HVAC away mode

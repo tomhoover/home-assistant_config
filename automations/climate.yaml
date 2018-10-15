@@ -125,7 +125,7 @@
 - alias: HVAC master turned off
   trigger:
     platform: state
-    entity_id: input_boolean.hvac_master_switch
+    entity_id: input_boolean.thermostat_enable
     from: 'on'
     to: 'off'
   action:
@@ -141,7 +141,7 @@
 - alias: HVAC master turned on
   trigger:
     platform: state
-    entity_id: input_boolean.hvac_master_switch
+    entity_id: input_boolean.thermostat_enable
     from: 'off'
     to: 'on'
   action:
