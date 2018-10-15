@@ -117,7 +117,7 @@
       message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
   - service: input_boolean.turn_off
     data:
-      entity_id: input_boolean.hvac_master_switch
+      entity_id: input_boolean.thermostat_enable
   - service: notify.ios_toms_iphone
     data:
       message: Door is open (20)
@@ -143,7 +143,7 @@
       message: Please check all windows. A window is open, so I am turning off the thermostat.
   - service: input_boolean.turn_off
     data:
-      entity_id: input_boolean.hvac_master_switch
+      entity_id: input_boolean.thermostat_enable
   - service: notify.ios_toms_iphone
     data:
       message: Window is open (2)
@@ -160,7 +160,7 @@
       minutes: 5
   condition:
   - condition: state
-    entity_id: input_boolean.hvac_master_switch
+    entity_id: input_boolean.thermostat_enable
     state: 'off'
   action:
   - service: media_player.alexa_tts
@@ -169,7 +169,7 @@
       message: All doors and windows have been closed, so I am reseting the thermostat.
   - service: input_boolean.turn_on
     data:
-      entity_id: input_boolean.hvac_master_switch
+      entity_id: input_boolean.thermostat_enable
   - service: notify.ios_toms_iphone
     data:
       message: HVAC master switch has been reset
