@@ -6,18 +6,26 @@ home2:
   entities:
     - group.presence
     - group.all_deadbolts
-    - group.binary_sensors
     - group.doors_windows
+    - group.binary_sensors
 #    - group.front_locks
-    - weather.dark_sky
-    - group.my_weather_darksky
 #    - sensor.tom_badge
-    - sun.sun
     - alarm_control_panel.arlo_base
     - alarm_control_panel.home_alarm
-    - sensor.yr_symbol
 #    - zone.home
 #    - zone.office
+
+climate:
+  name: Climate
+  view: yes
+  icon: mdi:weather-partlycloudy
+  entities:
+    - weather.dark_sky
+    - group.my_weather_darksky
+    - sun.sun
+    - sensor.yr_symbol
+    - group.ct101_thermostat_downstairs
+    - group.ct101_thermostat_upstairs
 
 cameras:
   name: Cameras
@@ -109,8 +117,6 @@ testing:
     - group.zooz_zen06_switch
     - group.washing_machine
     - group.freezer
-    - group.ct101_thermostat_downstairs
-    - group.ct101_thermostat_upstairs
     - group.front_door
 
 default_groups:
@@ -329,6 +335,7 @@ ct101_thermostat_downstairs:
   entities:
     - input_boolean.hvac_master_switch
     - input_boolean.hvac_away_mode
+    - input_boolean.manual_override_downstairs_thermostat
     - zwave.ct101_thermostat_downstairs
     - sensor.ct101_thermostat_downstairs_temperature
     - climate.ct101_thermostat_downstairs_cooling_1
@@ -336,14 +343,14 @@ ct101_thermostat_downstairs:
     - sensor.ct101_thermostat_downstairs_battery
     - sensor.downstairs_cool_temperature
     - sensor.downstairs_heat_temperature
-#    - sensor.upstairs_cool_temperature
-#    - sensor.upstairs_heat_temperature
+    - sensor.ct101_thermostat_downstairs_indicator
 
 ct101_thermostat_upstairs:
   name: Thermostat (Upstairs)
   entities:
     - input_boolean.hvac_master_switch
     - input_boolean.hvac_away_mode
+    - input_boolean.manual_override_upstairs_thermostat
     - zwave.ct101_thermostat_upstairs
     - sensor.ct101_thermostat_upstairs_temperature
     - climate.ct101_thermostat_upstairs_cooling_1
@@ -352,9 +359,6 @@ ct101_thermostat_upstairs:
     - sensor.upstairs_cool_temperature
     - sensor.upstairs_heat_temperature
     - sensor.ct101_thermostat_upstairs_indicator
-    - sensor.ct101_thermostat_upstairs_indicator_2
-#    - sensor.upstairs_cool_temperature
-#    - sensor.upstairs_heat_temperature
 
 input_boolean:
   name: Input Booleans
@@ -366,10 +370,6 @@ input_boolean:
     - input_boolean.departure_scan_needed
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
-    - input_boolean.hvac_master_switch
-    - input_boolean.hvac_away_mode
-    - input_boolean.manual_override_downstairs_thermostat
-    - input_boolean.manual_override_upstairs_thermostat
 
 front_door:
   name: Front Deadbolt
