@@ -10,14 +10,55 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
-#introduction:
-frontend:
-config:
-
 http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
+
+#=====================
+# Includes
+#=====================
+
+alarm_control_panel: !include includes/alarm_control_panel.yaml
+automation: !include_dir_merge_list automation
+cloud: !include includes/cloud.yaml
+device_tracker: !include includes/device_tracker.yaml
+emulated_hue: !include includes/emulated_hue.yaml
+group: !include groups.yaml
+input_boolean: !include includes/input_boolean.yaml
+ios: !include includes/ios.yaml
+konnected: !include includes/konnected.yaml
+media_player: !include includes/media_player.yaml
+mqtt: !include includes/mqtt.yaml
+notify: !include includes/notify.yaml
+recorder: !include includes/recorder.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+telegram_bot: !include includes/telegram_bot.yaml
+zone: !include includes/zone.yaml
+
+#=====================
+# Enabled components
+#=====================
+
+#introduction:
+frontend:
+config:
+history:
+logbook:
+map:
+sun:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Discover some devices automatically
+# NOTE: the discovery component must be enabled for konnected
+discovery:
+
+# Text to speech
+tts:
+  - platform: google
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -28,160 +69,9 @@ updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
-# Discover some devices automatically
-# NOTE: the discovery component must be enabled for konnected
-discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
-history:
-logbook:
-map:
-sun:
-
-# Text to speech
-tts:
-  - platform: google
-
-cloud: !include cloud.yaml
-group: !include groups.yaml
-automation: !include_dir_merge_list automation
-script: !include scripts.yaml
-
-##### tch additions #####
-
-zwave:
-  usb_path: /dev/zwave
-  network_key: !secret zwave_network_key
-#  polling_interval: 30000
-#    device_config:
-#      light.office_dimmer_level:
-#      polling_intensity: 1
-
-recorder:
-  purge_keep_days: 2
-
-konnected: !include konnected.yaml
-sensor: !include sensors.yaml
-notify: !include notify.yaml
-
-influxdb:
-  host: 192.168.2.90
-
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids: 
-      - !secret telegram_tom
-      - !secret telegram_mitzi
-      - !secret telegram_group
-
-ios:
-  push:
-    categories:
-      - name: frontdoorlock
-        identifier: 'frontdoorlock'
-        actions:
-          - identifier: 'LOCK_FRONTDOOR'
-            title: 'Lock front door'
-      - name: kitchendoorlock
-        identifier: 'kitchendoorlock'
-        actions:
-          - identifier: 'LOCK_KITCHENDOOR'
-            title: 'Lock kitchen door'
-      - name: backdoorlock
-        identifier: 'backdoorlock'
-        actions:
-          - identifier: 'LOCK_BACKDOOR'
-            title: 'Lock back door'
-      - name: laundrydoorlock
-        identifier: 'laundrydoorlock'
-        actions:
-          - identifier: 'LOCK_LAUNDRYDOOR'
-            title: 'Lock laundry room door'
-      - name: mbrdoorlock
-        identifier: 'mbrdoorlock'
-        actions:
-          - identifier: 'LOCK_MBRDOOR'
-            title: 'Lock master bedroom door'
-
-emulated_hue:
-  expose_by_default: false
-  entities:
-    light.office_dimmer_level:
-      name: "Office Lights"
-      hidden: false
-    lock.front_deadbolt_locked:
-      name: "Front Door"
-      hidden: false
-    lock.kitchen_deadbolt_locked:
-      name: "Kitchen Door"
-      hidden: false
-    lock.back_deadbolt_locked:
-      name: "Back Door"
-      hidden: false
-    lock.laundry_deadbolt_locked:
-      name: "Laundry Room Door"
-      hidden: false
-    lock.mbr_deadbolt_locked:
-      name: "Master Bedroom Door"
-      hidden: false
-
-mqtt:
-  broker: 192.168.2.90
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  discovery: true
-  discovery_prefix: homeassistant
-
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.2.80-89
-    home_interval: 1
-    consider_home: 60
-  - platform: owntracks
-    max_gps_accuracy: 200
-    consider_home: 180
-  - platform: mqtt
-    devices:
-      toms_iphone_mqtt: 'location/tom'
-      mitzis_iphone_mqtt: 'location/mitzi'
-      brandons_iphone_mqtt: 'location/brandon'
-      krystles_iphone_mqtt: 'location/krystle'
-
-input_boolean:
-  tom_occupancy:
-    name: Tom is Home
-  mitzi_occupancy:
-    name: Mitzi is Home
-  brandon_occupancy:
-    name: Brandon is Home
-  krystle_occupancy:
-    name: Krystle is Home
-  departure_scan_needed:
-    name: Departure scan needed
-  thermostat_enable:
-    name: HVAC master switch
-  hvac_away_mode:
-    name: HVAC away mode
-  manual_override_downstairs_thermostat:
-    name: Manual Override - Downstairs Thermostat
-  manual_override_upstairs_thermostat:
-    name: Manual Override - Upstairs Thermostat
-  lock_all_doors:
-    name: Lock All Doors
-    initial: off
-  set_the_alarm:
-    name: Set the Alarm
-    initial: off
-
-media_player:
-  - platform: onkyo
-  - platform: alexa
-    email: !secret amazon_email
-    password: !secret amazon_password
-    url: "amazon.com"
+#=====================
+# Other components
+#=====================
 
 arlo:
   username: !secret arlo_username
@@ -191,40 +81,18 @@ camera:
   - platform: arlo
     ffmpeg_arguments: '-pred 1 -q:v 2'
 
+climate:
+  - platform: zwave
+
 ffmpeg:
 
-alarm_control_panel:
-  - platform: arlo
-  - platform: manual
-    name: Home Alarm
-    code: !secret alarm_code
-    pending_time: 30
-    delay_time: 20
-    trigger_time: 4
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      pending_time: 0
-      delay_time: 0
+influxdb:
+  host: 192.168.2.90
 
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
 
-climate:
-  - platform: zwave
-
-zone:
-  - name: Work
-    latitude: 32.927203
-    longitude: -97.010597
-    radius: 250
-    icon: mdi:office-building
-
-# this will override the default home zone
-#  - name: Home
-#    latitude: !secret home_latitude
-#    longitude: !secret home_longitude
-#    radius: 100
-#    icon: mdi:home
-#    icon: mdi:account-multiple
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_network_key

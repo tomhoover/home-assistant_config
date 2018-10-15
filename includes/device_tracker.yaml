@@ -1,0 +1,16 @@
+#device_tracker:
+- platform: nmap_tracker
+  hosts: 192.168.2.80-89
+  home_interval: 1
+  consider_home: 60
+
+- platform: owntracks
+  max_gps_accuracy: 200
+  consider_home: 180
+
+- platform: mqtt
+  devices:
+    toms_iphone_mqtt: 'location/tom'
+    mitzis_iphone_mqtt: 'location/mitzi'
+    brandons_iphone_mqtt: 'location/brandon'
+    krystles_iphone_mqtt: 'location/krystle'

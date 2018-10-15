@@ -1,0 +1,21 @@
+#emulated_hue:
+expose_by_default: false
+entities:
+  light.office_dimmer_level:
+    name: "Office Lights"
+    hidden: false
+  lock.front_deadbolt_locked:
+    name: "Front Door"
+    hidden: false
+  lock.kitchen_deadbolt_locked:
+    name: "Kitchen Door"
+    hidden: false
+  lock.back_deadbolt_locked:
+    name: "Back Door"
+    hidden: false
+  lock.laundry_deadbolt_locked:
+    name: "Laundry Room Door"
+    hidden: false
+  lock.mbr_deadbolt_locked:
+    name: "Master Bedroom Door"
+    hidden: false
