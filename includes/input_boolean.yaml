@@ -1,0 +1,44 @@
+#input_boolean:
+tom_occupancy:
+  name: Tom is Home
+
+mitzi_occupancy:
+  name: Mitzi is Home
+
+brandon_occupancy:
+  name: Brandon is Home
+
+krystle_occupancy:
+  name: Krystle is Home
+
+departure_scan_needed:
+  name: Departure scan needed
+
+hvac_away_mode:
+  name: HVAC away mode
+
+manual_override_downstairs_thermostat:
+  name: Manual Override - Downstairs Thermostat
+
+manual_override_upstairs_thermostat:
+  name: Manual Override - Upstairs Thermostat
+
+lock_all_doors:
+  name: Lock All Doors
+  initial: off
+
+set_the_alarm:
+  name: Set the Alarm
+  initial: off
+
+on_the_way_home:
+  name: On the Way Home
+  initial: off
+
+guest_mode:
+  name: Guest Mode
+  initial: off
+
+thermostat_enable:
+  name: Thermostat Enable
+  initial: on

@@ -1,0 +1,28 @@
+#ios:
+push:
+  categories:
+    - name: frontdoorlock
+      identifier: 'frontdoorlock'
+      actions:
+        - identifier: 'LOCK_FRONTDOOR'
+          title: 'Lock front door'
+    - name: kitchendoorlock
+      identifier: 'kitchendoorlock'
+      actions:
+        - identifier: 'LOCK_KITCHENDOOR'
+          title: 'Lock kitchen door'
+    - name: backdoorlock
+      identifier: 'backdoorlock'
+      actions:
+        - identifier: 'LOCK_BACKDOOR'
+          title: 'Lock back door'
+    - name: laundrydoorlock
+      identifier: 'laundrydoorlock'
+      actions:
+        - identifier: 'LOCK_LAUNDRYDOOR'
+          title: 'Lock laundry room door'
+    - name: mbrdoorlock
+      identifier: 'mbrdoorlock'
+      actions:
+        - identifier: 'LOCK_MBRDOOR'
+          title: 'Lock master bedroom door'
