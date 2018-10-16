@@ -28,7 +28,7 @@
     entity_id: sensor.tom_home_occupancy_confidence
     above: 10
   action:
-  - service: homeassistant.turn_on
+  - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.tom_occupancy
   - service: mqtt.publish
@@ -44,7 +44,7 @@
     entity_id: sensor.mitzi_home_occupancy_confidence
     above: 10
   action:
-  - service: homeassistant.turn_on
+  - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.mitzi_occupancy
   - service: mqtt.publish
@@ -60,7 +60,7 @@
     entity_id: sensor.brandon_home_occupancy_confidence
     above: 10
   action:
-  - service: homeassistant.turn_on
+  - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.brandon_occupancy
   - service: mqtt.publish
@@ -76,7 +76,7 @@
     entity_id: sensor.krystle_home_occupancy_confidence
     above: 10
   action:
-  - service: homeassistant.turn_on
+  - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.krystle_occupancy
   - service: mqtt.publish
@@ -92,7 +92,7 @@
     entity_id: sensor.tom_home_occupancy_confidence
     below: 11
   action:
-  - service: homeassistant.turn_off
+  - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.tom_occupancy
   - service: mqtt.publish
@@ -108,7 +108,7 @@
     entity_id: sensor.mitzi_home_occupancy_confidence
     below: 11
   action:
-  - service: homeassistant.turn_off
+  - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.mitzi_occupancy
   - service: mqtt.publish
@@ -124,7 +124,7 @@
     entity_id: sensor.brandon_home_occupancy_confidence
     below: 11
   action:
-  - service: homeassistant.turn_off
+  - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.brandon_occupancy
   - service: mqtt.publish
@@ -140,7 +140,7 @@
     entity_id: sensor.krystle_home_occupancy_confidence
     below: 11
   action:
-  - service: homeassistant.turn_off
+  - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.krystle_occupancy
   - service: mqtt.publish
