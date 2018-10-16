@@ -346,8 +346,8 @@ ct101_thermostat_downstairs:
     - climate.ct101_thermostat_downstairs_cooling_1
     - climate.ct101_thermostat_downstairs_heating_1
     - sensor.ct101_thermostat_downstairs_battery
-    - sensor.downstairs_cool_temperature
-    - sensor.downstairs_heat_temperature
+    - sensor.ct101_thermostat_downstairs_cool_setting
+    - sensor.ct101_thermostat_downstairs_heat_setting
     - sensor.ct101_thermostat_downstairs_indicator
 
 ct101_thermostat_upstairs:
@@ -358,8 +358,8 @@ ct101_thermostat_upstairs:
     - climate.ct101_thermostat_upstairs_cooling_1
     - climate.ct101_thermostat_upstairs_heating_1
     - sensor.ct101_thermostat_upstairs_battery
-    - sensor.upstairs_cool_temperature
-    - sensor.upstairs_heat_temperature
+    - sensor.ct101_thermostat_upstairs_cool_setting
+    - sensor.ct101_thermostat_upstairs_heat_setting
     - sensor.ct101_thermostat_upstairs_indicator
 
 input_boolean:
