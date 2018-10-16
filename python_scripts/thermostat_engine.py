@@ -5,32 +5,35 @@
 # Thermostat thresholds
 THRESHOLD_FOR_HEAT = 55
 THRESHOLD_FOR_AC   = 77
-AC   = {'home': 75, 'away': 79, 'sleep': 77}
-HEAT = {'home': 67, 'away': 59, 'sleep': 64}
+AC   = {'home': 78, 'away': 80, 'sleep': 75}
+HEAT = {'home': 68, 'away': 63, 'sleep': 65}
 
-SLEEP_TIME = [5, 21]
+SLEEP_TIME = [6, 22]
 
 # Get current temperatures
-temp2 = hass.states.get('sensor.pws_temp_f').state
+#temp2 = hass.states.get('sensor.pws_temp_f').state
 temp1 = hass.states.get('sensor.dark_sky_temperature').state
 
-AC['home'] = hass.states.get('input_number.ac_home').state
-AC['away'] = hass.states.get('input_number.ac_away').state
-AC['sleep'] = hass.states.get('input_number.ac_sleep').state
+#AC['home'] = hass.states.get('input_number.ac_home').state
+#AC['away'] = hass.states.get('input_number.ac_away').state
+#AC['sleep'] = hass.states.get('input_number.ac_sleep').state
 
 try:
     outside_temp = float(temp1)
-except TypeError:
-    outside_temp = float(temp2)
+#except TypeError:
+#    outside_temp = float(temp2)
+except:
+    logger.warning("Unable to read outside_temp")
 
-living_room_temp = float(hass.states.get('sensor.living_room_temperature').state)
+downstairs_temp = float(hass.states.get('sensor.ct101_thermostat_downstairs_temperature').state)
+upstairs_temp = float(hass.states.get('sensor.ct101_thermostat_upstairs_temperature').state)
 
-try:
-    bedroom_temp = float(hass.states.get('sensor.bedroom_temperature').state)
-except ValueError:
-    bedroom_temp = living_room_temp
+#try:
+#    bedroom_temp = float(hass.states.get('sensor.bedroom_temperature').state)
+#except ValueError:
+#    bedroom_temp = living_room_temp
 
-living_room_humidity = float(hass.states.get('sensor.living_room_humidity').state)
+#living_room_humidity = float(hass.states.get('sensor.living_room_humidity').state)
 
 # Get various system stats
 thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state == 'on')
@@ -39,7 +42,8 @@ on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
 
-current_mode = hass.states.get('climate.living_room').state
+downstairs_current_mode = hass.states.get('climate.ct101_thermostat_downstairs_cooling_1').state
+upstairs_current_mode = hass.states.get('climate.ct101_thermostat_upstairs_cooling_1').state
 
 # Determine home, away, or sleep
 if someone_home or on_the_way_home:
@@ -50,10 +54,10 @@ else:
     state_key = 'away'
 
 # Some logic for high humidity or high indoor temp
-too_humid = living_room_humidity > 59
-too_hot_inside = (outside_temp > 74 and (living_room_temp >= (outside_temp + 1)))
+#too_humid = living_room_humidity > 59
+too_hot_inside = (outside_temp > 74 and ( (downstairs_temp >= (outside_temp + 1)) or (upstairs_temp >= (outside_temp + 1)) ))
 
-logger.warning("Outside: {}, Living Room: {}, Home: {}, Time: {}, State: {}".format(outside_temp, living_room_temp, someone_home, current_time, state_key))
+logger.warning("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, State: {}".format(outside_temp, downstairs_temp, upstairs_temp, someone_home, current_time, state_key))
 
 # Only fire if thermostat is enabled
 
@@ -76,14 +80,26 @@ if thermostat_enable:
 #        nominal_temp = living_room_temp - 1
     # Now make service call
     logger.warning('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
-    if current_mode != mode:
-        data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
+    if downstairs_current_mode != mode:
+        data_mode = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'operation_mode': mode}
+        hass.services.call('climate', 'set_operation_mode', data_mode)
+    if upstairs_current_mode != mode:
+        data_mode = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'operation_mode': mode}
         hass.services.call('climate', 'set_operation_mode', data_mode)
     if mode != 'off':
-        data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp}
-        hass.services.call('climate', 'set_temperature', data_temps)
+        if mode == 'cool':
+            data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'temperature': nominal_temp}
+            hass.services.call('climate', 'set_temperature', data_temps)
+            data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
+            hass.services.call('climate', 'set_temperature', data_temps)
+        if mode == 'heat':
+            data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'temperature': nominal_temp}
+            hass.services.call('climate', 'set_temperature', data_temps)
+            data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': nominal_temp}
+            hass.services.call('climate', 'set_temperature', data_temps)
 else:
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.living_room', 'operation_mode': 'off'})
+    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'operation_mode': 'off'})
+    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'operation_mode': 'off'})
 
 if on_the_way_home:
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})

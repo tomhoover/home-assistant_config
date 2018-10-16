@@ -24,6 +24,7 @@ climate:
     - group.my_weather_darksky
     - sun.sun
     - sensor.yr_symbol
+    - group.thermostat_controls
     - group.ct101_thermostat_downstairs
     - group.ct101_thermostat_upstairs
 
@@ -330,12 +331,16 @@ freezer:
     - sensor.freezer_previous_reading
     - sensor.freezer_voltage
 
+thermostat_controls:
+  name: Thermostat Controls
+  entities:
+    - input_boolean.thermostat_enable
+    - input_boolean.thermostat_away_mode
+    - input_boolean.thermostat_manual_override
+
 ct101_thermostat_downstairs:
   name: Thermostat (Downstairs)
   entities:
-    - input_boolean.thermostat_enable
-    - input_boolean.hvac_away_mode
-    - input_boolean.manual_override_downstairs_thermostat
     - zwave.ct101_thermostat_downstairs
     - sensor.ct101_thermostat_downstairs_temperature
     - climate.ct101_thermostat_downstairs_cooling_1
@@ -348,9 +353,6 @@ ct101_thermostat_downstairs:
 ct101_thermostat_upstairs:
   name: Thermostat (Upstairs)
   entities:
-    - input_boolean.thermostat_enable
-    - input_boolean.hvac_away_mode
-    - input_boolean.manual_override_upstairs_thermostat
     - zwave.ct101_thermostat_upstairs
     - sensor.ct101_thermostat_upstairs_temperature
     - climate.ct101_thermostat_upstairs_cooling_1
