@@ -1,18 +1,24 @@
 #input_boolean:
 tom_occupancy:
   name: Tom is Home
+  initial: off
 
 mitzi_occupancy:
   name: Mitzi is Home
+  initial: off
 
 brandon_occupancy:
   name: Brandon is Home
+  initial: off
 
 krystle_occupancy:
   name: Krystle is Home
+  initial: off
 
 departure_scan_needed:
   name: Departure scan needed
+  initial: off
+
 lock_all_doors:
   name: Lock All Doors
   initial: off
