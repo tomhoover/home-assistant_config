@@ -1,0 +1,79 @@
+- alias: report manual temp adjustment
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.downstairs_cool_temperature
+      - sensor.downstairs_heat_temperature
+      - sensor.upstairs_cool_temperature
+      - sensor.upstairs_heat_temperature
+  condition:
+    - condition: template
+      value_template: '{{ trigger.from_state.state != ''unknown'' }}'
+    - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.thermostat_manual_override
+  - service: notify.telegram_tom
+    data_template:
+      message: ' {{ trigger.to_state.attributes.friendly_name }} has been changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}. '
+
+- alias: Thermostat Change on Weather
+  trigger:
+    - platform: time
+      at: '22:00:00'
+    - platform: time
+      at: '06:00:00'
+    - platform: state
+      entity_id: 
+        - input_boolean.thermostat_enable
+        - input_boolean.guest_mode
+        - input_boolean.warmer_night_mode
+        - sensor.occupancy
+    - platform: state
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.thermostat_manual_override
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 30
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_temperature
+      above: 77
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_temperature
+      below: 55
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_temperature
+      above: 58
+      below: 74
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      above: 58
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      below: 55
+    - platform: template
+      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id:
+        - input_number.ac_home
+        - input_number.ac_away
+        - input_number.ac_sleep
+  action:
+    - service: python_script.thermostat_engine
+    - delay:
+        seconds: 5
+    - service: python_script.thermostat_engine
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.thermostat_manual_override

@@ -13,16 +13,6 @@ krystle_occupancy:
 
 departure_scan_needed:
   name: Departure scan needed
-
-hvac_away_mode:
-  name: HVAC away mode
-
-manual_override_downstairs_thermostat:
-  name: Manual Override - Downstairs Thermostat
-
-manual_override_upstairs_thermostat:
-  name: Manual Override - Upstairs Thermostat
-
 lock_all_doors:
   name: Lock All Doors
   initial: off
@@ -42,3 +32,11 @@ guest_mode:
 thermostat_enable:
   name: Thermostat Enable
   initial: on
+
+thermostat_away_mode:
+  name: Thermostat away mode
+  initial: off
+
+thermostat_manual_override:
+  name: Thermostat Manual Override
+  initial: off
