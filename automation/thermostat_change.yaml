@@ -31,6 +31,7 @@
         - input_boolean.guest_mode
         - input_boolean.warmer_night_mode
         - sensor.occupancy
+        - group.brandon_presence
     - platform: state
       entity_id: input_boolean.on_the_way_home
       to: 'on'

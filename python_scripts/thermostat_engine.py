@@ -5,8 +5,8 @@
 # Thermostat thresholds
 THRESHOLD_FOR_HEAT = 55
 THRESHOLD_FOR_AC   = 77
-AC   = {'home': 78, 'away': 80, 'sleep': 75}
-HEAT = {'home': 68, 'away': 63, 'sleep': 65}
+AC   = {'home': 78, 'away': 80, 'sleep': 75, 'brandon': 75}
+HEAT = {'home': 68, 'away': 60, 'sleep': 65}
 
 SLEEP_TIME = [6, 22]
 
@@ -38,6 +38,7 @@ upstairs_temp = float(hass.states.get('sensor.ct101_thermostat_upstairs_temperat
 # Get various system stats
 thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state == 'on')
 someone_home = (hass.states.get('sensor.occupancy').state == 'home' or hass.states.get('input_boolean.guest_mode').state == 'on')
+brandon_home = (hass.states.get('group.brandon_presence').state == 'home')
 on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
@@ -90,6 +91,9 @@ if thermostat_enable:
         if mode == 'cool':
             data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
+            if brandon_home:
+                state_key = 'brandon'
+                nominal_temp = AC[state_key]
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':
