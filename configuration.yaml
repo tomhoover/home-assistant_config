@@ -29,8 +29,10 @@ input_boolean: !include includes/input_boolean.yaml
 ios: !include includes/ios.yaml
 konnected: !include includes/konnected.yaml
 media_player: !include includes/media_player.yaml
+logger: !include includes/logger.yaml
 mqtt: !include includes/mqtt.yaml
 notify: !include includes/notify.yaml
+python_script:
 recorder: !include includes/recorder.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensors
@@ -73,13 +75,13 @@ updater:
 # Other components
 #=====================
 
-arlo:
-  username: !secret arlo_username
-  password: !secret arlo_password
-
-camera:
-  - platform: arlo
-    ffmpeg_arguments: '-pred 1 -q:v 2'
+#arlo:
+#  username: !secret arlo_username
+#  password: !secret arlo_password
+#
+#camera:
+#  - platform: arlo
+#    ffmpeg_arguments: '-pred 1 -q:v 2'
 
 climate:
   - platform: zwave
