@@ -1,5 +1,5 @@
 #alarm_control_panel:
-- platform: arlo
+#- platform: arlo
 
 - platform: manual
   name: Home Alarm
