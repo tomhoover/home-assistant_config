@@ -94,6 +94,7 @@ if thermostat_enable:
             if brandon_home:
                 state_key = 'brandon'
                 nominal_temp = AC[state_key]
+                logger.warning('Brandon is home - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':
