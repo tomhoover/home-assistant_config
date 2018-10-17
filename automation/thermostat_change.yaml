@@ -32,6 +32,8 @@
     - platform: state
       entity_id: 
         - input_boolean.thermostat_enable
+        - input_boolean.thermostat_away_mode
+        - input_boolean.thermostat_aux_heat
         - input_boolean.guest_mode
         - input_boolean.warmer_night_mode
         - sensor.occupancy

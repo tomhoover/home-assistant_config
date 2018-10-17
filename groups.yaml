@@ -336,6 +336,7 @@ thermostat_controls:
   entities:
     - input_boolean.thermostat_enable
     - input_boolean.thermostat_away_mode
+    - input_boolean.thermostat_aux_heat
     - input_boolean.thermostat_manual_override
 
 ct101_thermostat_downstairs:
