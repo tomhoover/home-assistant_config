@@ -40,7 +40,11 @@ thermostat_enable:
   initial: on
 
 thermostat_away_mode:
-  name: Thermostat away mode
+  name: Thermostat Away Mode
+  initial: off
+
+thermostat_aux_heat:
+  name: Thermostat Aux Heat
   initial: off
 
 thermostat_manual_override:

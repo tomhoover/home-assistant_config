@@ -8,7 +8,7 @@ THRESHOLD_FOR_AC   = 77
 AC   = {'home': 78, 'away': 80, 'sleep': 75, 'brandon': 75}
 HEAT = {'home': 68, 'away': 60, 'sleep': 65}
 
-SLEEP_TIME = [6, 22]
+SLEEP_TIME = [5, 22]
 
 # Get current temperatures
 #temp2 = hass.states.get('sensor.pws_temp_f').state
@@ -37,6 +37,7 @@ upstairs_temp = float(hass.states.get('sensor.ct101_thermostat_upstairs_temperat
 
 # Get various system stats
 thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state == 'on')
+aux_heat = (hass.states.get('input_boolean.thermostat_aux_heat').state == 'on')
 someone_home = (hass.states.get('sensor.occupancy').state == 'home' or hass.states.get('input_boolean.guest_mode').state == 'on')
 brandon_home = (hass.states.get('group.brandon_presence').state == 'home')
 on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
@@ -62,7 +63,13 @@ logger.warning("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, S
 
 # Only fire if thermostat is enabled
 
-if thermostat_enable:
+if aux_heat:
+    logger.warning('AUX HEAT IS ON - Outside: {}, Downstairs: {}, Upstairs: {}'.format(outside_temp, downstairs_temp, upstairs_temp))
+    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'operation_mode': 'aux heat'})
+    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'operation_mode': 'aux heat'})
+    hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'temperature': 55})
+    hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': 55})
+elif thermostat_enable:
     target_high = 82
     target_low = 58
     nominal_temp = 70
@@ -92,9 +99,9 @@ if thermostat_enable:
             data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
             if brandon_home:
+                logger.warning('Brandon is home - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
                 state_key = 'brandon'
                 nominal_temp = AC[state_key]
-                logger.warning('Brandon is home - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':
