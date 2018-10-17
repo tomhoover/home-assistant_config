@@ -63,12 +63,14 @@
       below: 55
     - platform: template
       value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
-    - platform: homeassistant
-      event: start
+#    - platform: template
+#      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
+#    - platform: template
+#      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
+#    - platform: homeassistant
+#      event: start
+    - platform: event
+      event_type: zwave.network_ready
     - platform: state
       entity_id:
         - input_number.ac_home
