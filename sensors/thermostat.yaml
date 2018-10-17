@@ -3,19 +3,19 @@
     ct101_thermostat_downstairs_cool_setting:
       friendly_name: "Cool setting (downstairs)"
       unit_of_measurement: 'degrees'
-      value_template: "{{ states.climate.ct101_thermostat_downstairs_cooling_1.attributes.temperature }}"
+      value_template: "{% if states.climate.ct101_thermostat_downstairs_cooling_1.state %} {{ states.climate.ct101_thermostat_downstairs_cooling_1.attributes.temperature }} {% endif %}"
 
     ct101_thermostat_downstairs_heat_setting:
       friendly_name: "Heat setting (downstairs)"
       unit_of_measurement: 'degrees'
-      value_template: "{{ states.climate.ct101_thermostat_downstairs_heating_1.attributes.temperature }}"
+      value_template: "{% if states.climate.ct101_thermostat_downstairs_heating_1.state %} {{ states.climate.ct101_thermostat_downstairs_heating_1.attributes.temperature }} {% endif %}"
 
     ct101_thermostat_upstairs_cool_setting:
       friendly_name: "Cool setting (upstairs)"
       unit_of_measurement: 'degrees'
-      value_template: "{{ states.climate.ct101_thermostat_upstairs_cooling_1.attributes.temperature }}"
+      value_template: "{% if states.climate.ct101_thermostat_upstairs_cooling_1.state %} {{ states.climate.ct101_thermostat_upstairs_cooling_1.attributes.temperature }} {% endif %}"
 
     ct101_thermostat_upstairs_heat_setting:
       friendly_name: "Heat setting (upstairs)"
       unit_of_measurement: 'degrees'
-      value_template: "{{ states.climate.ct101_thermostat_upstairs_heating_1.attributes.temperature }}"
+      value_template: "{% if states.climate.ct101_thermostat_upstairs_heating_1.state %} {{ states.climate.ct101_thermostat_upstairs_heating_1.attributes.temperature }} {% endif %}"
