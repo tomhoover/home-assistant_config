@@ -2,10 +2,14 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.downstairs_cool_temperature
-      - sensor.downstairs_heat_temperature
-      - sensor.upstairs_cool_temperature
-      - sensor.upstairs_heat_temperature
+#      - sensor.downstairs_cool_temperature
+#      - sensor.downstairs_heat_temperature
+#      - sensor.upstairs_cool_temperature
+#      - sensor.upstairs_heat_temperature
+      - sensor.ct101_thermostat_downstairs_cool_setting
+      - sensor.ct101_thermostat_downstairs_heat_setting
+      - sensor.ct101_thermostat_upstairs_cool_setting
+      - sensor.ct101_thermostat_upstairs_heat_setting
   condition:
     - condition: template
       value_template: '{{ trigger.from_state.state != ''unknown'' }}'
