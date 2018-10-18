@@ -52,10 +52,12 @@
       above: 77
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
-      below: 55
+#      below: 55
+      below: 66
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
-      above: 58
+#      above: 58
+      above: 69
       below: 74
     - platform: numeric_state
       entity_id: sensor.living_room_humidity
