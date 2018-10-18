@@ -3,10 +3,10 @@
 #-----------------------------------------------------------------------------
 
 # Thermostat thresholds
-THRESHOLD_FOR_HEAT = 55
+THRESHOLD_FOR_HEAT = 66
 THRESHOLD_FOR_AC   = 77
 AC   = {'home': 78, 'away': 80, 'sleep': 75, 'brandon': 75}
-HEAT = {'home': 68, 'away': 60, 'sleep': 65}
+HEAT = {'home': 68, 'away': 55, 'sleep': 65}
 
 SLEEP_TIME = [5, 22]
 
@@ -60,8 +60,6 @@ else:
 too_hot_inside = (outside_temp > 74 and ( (downstairs_temp >= (outside_temp + 1)) or (upstairs_temp >= (outside_temp + 1)) ))
 
 logger.warning("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, State: {}".format(outside_temp, downstairs_temp, upstairs_temp, someone_home, current_time, state_key))
-
-# Only fire if thermostat is enabled
 
 if aux_heat:
     logger.warning('AUX HEAT IS ON - Outside: {}, Downstairs: {}, Upstairs: {}'.format(outside_temp, downstairs_temp, upstairs_temp))
