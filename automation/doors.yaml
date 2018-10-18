@@ -22,6 +22,9 @@
       entity_id: alarm_control_panel.home_alarm
       data:
         code: !secret alarm_code
+    - service: notify.telegram_tom
+      data:
+        message: The house is now empty.
 
 - alias: Beep on Door/Window Open/Close
   initial_state: true
@@ -69,7 +72,7 @@
     data:
       entity_id: group.amazon_echos
       message: Please close the door!
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data:
       message: Door is open (2)
 
@@ -92,7 +95,7 @@
     data:
       entity_id: group.amazon_echos
       message: A door has been open for ten minutes. Please close the door!
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data:
       message: Door is open (10)
 
@@ -118,7 +121,7 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.thermostat_enable
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data:
       message: Door is open (20)
 
@@ -144,7 +147,7 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.thermostat_enable
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data:
       message: Window is open (2)
 
@@ -170,7 +173,7 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.thermostat_enable
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data:
       message: HVAC master switch has been reset
 
