@@ -36,6 +36,23 @@
   - service: switch.turn_on
     entity_id: switch.beep_beep
 
+- alias: Trigger monitor.sh arrival scan on Door Open
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
+    from: 'off'
+    to: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/arrive
+
 - alias: Trigger monitor.sh departure scan on Door Close
   initial_state: true
   hide_entity: true
