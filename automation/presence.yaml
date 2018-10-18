@@ -14,11 +14,10 @@
       entity_id: media_player.toms_echo_show
       message: ' {{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
         == ''home'' %}home{% else %}away{% endif %}. '
-  - service: notify.ios_toms_iphone
+  - service: notify.telegram_tom
     data_template:
       message: '{{ trigger.to_state.attributes.friendly_name }} is {% if trigger.to_state.state
         == ''home'' %}home{% else %}away{% endif %}. '
-      title: ''
 
 - alias: Tom is home
   initial_state: true
