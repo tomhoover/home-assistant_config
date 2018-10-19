@@ -178,23 +178,11 @@
     from: 'off'
     to: 'on'
   action:
-  - delay: 00:00:10
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/depart
   - delay: 00:00:20
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
-  - delay: 00:00:30
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/depart
   - delay: 00:00:40
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/depart
-  - delay: 00:00:50
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
