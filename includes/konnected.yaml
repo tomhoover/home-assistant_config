@@ -6,8 +6,8 @@ devices:
         type: window
         name: 'Upstairs Windows'
       - zone: 4
-        type: door
-        name: 'Unknown Door'
+        type: window
+        name: 'Office/Craft/Bath Windows'
       - zone: 5
         type: door
         name: 'Front/Kitchen Doors'
@@ -29,8 +29,8 @@ devices:
         type: window
         name: 'Living Room Windows'
       - zone: 4
-        type: window
-        name: 'Office/Craft/Bath Windows'
+        type: door
+        name: 'Unknown Door'
       - zone: 5
         type: door
         name: 'Master Bedroom Doors'
