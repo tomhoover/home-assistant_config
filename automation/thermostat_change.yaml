@@ -8,7 +8,7 @@
       - sensor.ct101_thermostat_upstairs_heat_setting
   condition:
     - condition: template
-      value_template: '{{ trigger.from_state.state != ''unknown'' }}'
+      value_template: '{{ trigger.from_state.state != '''' }}'
     - condition: template
       value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
   action:
