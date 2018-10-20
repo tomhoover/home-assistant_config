@@ -17,6 +17,10 @@
   - platform: numeric_state
     entity_id: sensor.washing_machine_current
     below: 1
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.ha_runtime_in_minutes
+    above: 5
   action:
     - service: notify.telegram_tom
       data:
