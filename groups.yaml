@@ -373,6 +373,7 @@ input_boolean:
     - input_boolean.departure_scan_needed
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
+    - input_boolean.trash_day
 
 front_door:
   name: Front Deadbolt

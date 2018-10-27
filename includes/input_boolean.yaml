@@ -50,3 +50,7 @@ thermostat_aux_heat:
 thermostat_manual_override:
   name: Thermostat Manual Override
   initial: off
+
+trash_day:
+  name: Trash Day
+  initial: off
