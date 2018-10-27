@@ -1,0 +1,77 @@
+- alias: 'Set trash_day boolean to on'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '17:00:00'
+  condition:
+    condition: time
+    weekday: mon
+  action:
+   service: input_boolean.turn_on
+   data:
+     entity_id: input_boolean.trash_day
+
+- alias: 'Put out the trash bin'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: time
+    minutes: '/30'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.trash_day
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_boolean.tom_occupancy
+          state: 'on'
+          for:
+            minutes: 10
+        - condition: state
+          entity_id: input_boolean.mitzi_occupancy
+          state: 'on'
+          for:
+            minutes: 10
+  action:
+    - service: telegram_bot.send_message
+      data_template:
+        target: !secret telegram_group
+        title: 'Trash Day'
+        message: 'Please roll the trash bin to the street'
+        inline_keyboard:
+          - 'Completed:/trashdone'
+          - 'Remind me later:/remindmelater'
+
+- alias: 'Remind me later'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/remindmelater'
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: "Ok, I'll remind you later"
+
+- alias: 'Trash done'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/trashdone'
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: 'Thank you!'
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.trash_day
