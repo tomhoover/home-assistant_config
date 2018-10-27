@@ -144,6 +144,9 @@
     data:
       entity_id: group.amazon_echos
       message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
+  - service: notify.living_room_tv
+    data:
+      message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.thermostat_enable
@@ -169,6 +172,9 @@
   - service: media_player.alexa_tts
     data:
       entity_id: group.amazon_echos
+      message: Please check all windows. A window is open, so I am turning off the thermostat.
+  - service: notify.living_room_tv
+    data:
       message: Please check all windows. A window is open, so I am turning off the thermostat.
   - service: input_boolean.turn_off
     data:
@@ -196,6 +202,9 @@
     data:
       entity_id: group.amazon_echos
       message: All doors and windows have been closed, so I am reseting the thermostat.
+  - service: notify.living_room_tv
+    data:
+      message: All doors and windows have been closed, so I am reseting the thermostat.
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.thermostat_enable
@@ -218,6 +227,9 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the front door is still unlocked!
+  - service: notify.living_room_tv
+    data:
+      message: Warning, the front door is still unlocked!
 
 - alias: Kitchen door is unlocked
   initial_state: true
@@ -233,6 +245,9 @@
   - service: media_player.alexa_tts
     data:
       entity_id: group.amazon_echos
+      message: Warning, the kitchen door is still unlocked!
+  - service: notify.living_room_tv
+    data:
       message: Warning, the kitchen door is still unlocked!
 
 - alias: Master bedroom door is unlocked
@@ -250,6 +265,9 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the master bedroom door is still unlocked!
+  - service: notify.living_room_tv
+    data:
+      message: Warning, the master bedroom door is still unlocked!
 
 - alias: Back door is unlocked
   initial_state: true
@@ -265,6 +283,9 @@
   - service: media_player.alexa_tts
     data:
       entity_id: group.amazon_echos
+      message: Warning, the back door is still unlocked!
+  - service: notify.living_room_tv
+    data:
       message: Warning, the back door is still unlocked!
 
 - alias: Laundry door is unlocked
@@ -282,4 +303,6 @@
     data:
       entity_id: group.amazon_echos
       message: Warning, the laundry room door is still unlocked!
-
+  - service: notify.living_room_tv
+    data:
+      message: Warning, the laundry room door is still unlocked!

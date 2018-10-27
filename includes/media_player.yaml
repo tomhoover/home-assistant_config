@@ -5,3 +5,9 @@
   email: !secret amazon_email
   password: !secret amazon_password
   url: "amazon.com"
+
+- platform: webostv
+  host: 192.168.2.10
+  name: Living Room TV
+  filename: webostv.conf
+  timeout: 5
