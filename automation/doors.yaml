@@ -24,14 +24,14 @@
         code: !secret alarm_code
     - service: notify.telegram_tom
       data:
-        message: The house is now empty.
+        message: The house is now empty, so I locked all doors.
 
 - alias: Beep on Door/Window Open/Close
   initial_state: true
   hide_entity: true
   trigger:
     platform: state
-    entity_id: 
+    entity_id:
     - binary_sensor.unknown_door
     - binary_sensor.frontkitchen_doors
     - binary_sensor.backlaundry_doors
