@@ -22,3 +22,8 @@
 - platform: telegram
   name: telegram_group
   chat_id: !secret telegram_group
+
+- platform: webostv
+  host: 192.168.2.10
+  name: living_room_tv
+  filename: webostv.conf

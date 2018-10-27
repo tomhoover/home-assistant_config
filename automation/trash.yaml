@@ -50,6 +50,9 @@
         inline_keyboard:
           - 'Completed:/trashdone'
           - 'Remind me later:/removekeyboard'
+    - service: notify.living_room_tv
+      data:
+        message: 'Please roll the trash bin to the street.'
 
 - alias: 'Trash done'
   initial_state: true
