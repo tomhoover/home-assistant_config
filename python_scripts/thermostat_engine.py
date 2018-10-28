@@ -3,10 +3,10 @@
 #-----------------------------------------------------------------------------
 
 # Thermostat thresholds
-THRESHOLD_FOR_HEAT = 66
-THRESHOLD_FOR_AC   = 77
+THRESHOLD_FOR_HEAT = 65
+THRESHOLD_FOR_AC   = 75
 AC   = {'home': 78, 'away': 80, 'sleep': 75, 'brandon': 75}
-HEAT = {'home': 68, 'away': 55, 'sleep': 65}
+HEAT = {'home': 67, 'away': 60, 'sleep': 65}
 
 SLEEP_TIME = [5, 22]
 
@@ -59,7 +59,7 @@ else:
 #too_humid = living_room_humidity > 59
 too_hot_inside = (outside_temp > 74 and ( (downstairs_temp >= (outside_temp + 1)) or (upstairs_temp >= (outside_temp + 1)) ))
 
-logger.warning("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, State: {}".format(outside_temp, downstairs_temp, upstairs_temp, someone_home, current_time, state_key))
+logger.info("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, State: {}".format(outside_temp, downstairs_temp, upstairs_temp, someone_home, current_time, state_key))
 
 if aux_heat:
     logger.warning('AUX HEAT IS ON - Outside: {}, Downstairs: {}, Upstairs: {}'.format(outside_temp, downstairs_temp, upstairs_temp))
@@ -68,15 +68,15 @@ if aux_heat:
     hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'temperature': 55})
     hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': 55})
 elif thermostat_enable:
-    target_high = 82
-    target_low = 58
-    nominal_temp = 70
+    target_high = 80
+    target_low = 64
+    nominal_temp = 72
     mode = 'off'
-    if outside_temp > THRESHOLD_FOR_AC:
+    if outside_temp > THRESHOLD_FOR_AC or downstairs_temp >= (nominal_temp + 2):
         mode = 'cool'
         target_high = AC[state_key]
         nominal_temp = AC[state_key]
-    elif outside_temp < THRESHOLD_FOR_HEAT:
+    elif outside_temp < THRESHOLD_FOR_HEAT or downstairs_temp <= (nominal_temp -2):
         mode = 'heat'
         target_low = HEAT[state_key]
         nominal_temp = HEAT[state_key]
@@ -85,7 +85,7 @@ elif thermostat_enable:
 #        target_high = living_room_temp - 1
 #        nominal_temp = living_room_temp - 1
     # Now make service call
-    logger.warning('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
+    logger.info('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
     if downstairs_current_mode != mode:
         data_mode = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'operation_mode': mode}
         hass.services.call('climate', 'set_operation_mode', data_mode)
@@ -97,9 +97,9 @@ elif thermostat_enable:
             data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
             if brandon_home:
-                logger.warning('Brandon is home - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
                 state_key = 'brandon'
                 nominal_temp = AC[state_key]
+                logger.warning('Brandon - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':

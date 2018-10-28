@@ -45,14 +45,14 @@
         minutes: 30
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
-      above: 77
+      above: 75
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
-      below: 66
+      below: 65
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
-      above: 69
-      below: 74
+      above: 68
+      below: 72
     - platform: numeric_state
       entity_id: sensor.living_room_humidity
       above: 58
