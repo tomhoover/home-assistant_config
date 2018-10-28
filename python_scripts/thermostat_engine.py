@@ -43,6 +43,7 @@ brandon_home = (hass.states.get('group.brandon_presence').state == 'home')
 on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
+sunday = current_time.weekday() == 6
 
 downstairs_current_mode = hass.states.get('climate.ct101_thermostat_downstairs_cooling_1').state
 upstairs_current_mode = hass.states.get('climate.ct101_thermostat_upstairs_cooling_1').state
@@ -94,6 +95,9 @@ elif thermostat_enable:
         hass.services.call('climate', 'set_operation_mode', data_mode)
     if mode != 'off':
         if mode == 'cool':
+            if sunday and state_key == 'home':
+                nominal_temp = nominal_temp - 1
+                logger.warning('Sunday - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
             data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
             if brandon_home:
@@ -103,6 +107,9 @@ elif thermostat_enable:
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':
+            if sunday and state_key == 'home':
+                nominal_temp = nominal_temp + 1
+                logger.warning('Sunday - Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
             data_temps = {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': nominal_temp}
