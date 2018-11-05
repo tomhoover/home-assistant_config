@@ -10,7 +10,7 @@ home2:
     - group.binary_sensors
 #    - group.front_locks
 #    - sensor.tom_badge
-#    - alarm_control_panel.arlo_base
+    - alarm_control_panel.arlo_base
     - alarm_control_panel.home_alarm
 #    - zone.home
 #    - zone.office
@@ -28,20 +28,21 @@ climate:
     - group.ct101_thermostat_downstairs
     - group.ct101_thermostat_upstairs
 
-#cameras:
-#  name: Cameras
-#  view: yes
-#  icon: mdi:camera
-#  entities:
-#    - camera.front_walk_camera
-#    - camera.front_door_camera
-#    - camera.back_door_camera
-#    - camera.back_porch_camera
-#    - camera.garage_camera
-#    - sensor.arlo_cameras
-#    - group.camera_captured_today
-#    - group.camera_last_capture
-#    - group.camera_signal_strength
+cameras:
+  name: Cameras
+  view: yes
+  icon: mdi:camera
+  entities:
+    - camera.front_walk_camera
+    - camera.front_door_camera
+    - camera.back_door_camera
+    - camera.back_porch_camera
+    - camera.garage_camera
+    - alarm_control_panel.arlo_base
+    - sensor.arlo_cameras
+    - group.camera_captured_today
+    - group.camera_last_capture
+    - group.camera_signal_strength
 
 media_players:
   name: Media Players
@@ -287,32 +288,32 @@ my_weather_darksky:
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_nearest_storm_distance
 
-#camera_captured_today:
-#  name: '# of videos captured today'
-#  entities:
-#    - sensor.captured_today_front_walk_camera
-#    - sensor.captured_today_front_door_camera
-#    - sensor.captured_today_back_door_camera
-#    - sensor.captured_today_back_porch_camera
-#    - sensor.captured_today_garage_camera
-#
-#camera_last_capture:
-#  name: Date/time of last video
-#  entities:
-#    - sensor.last_front_walk_camera
-#    - sensor.last_front_door_camera
-#    - sensor.last_back_door_camera
-#    - sensor.last_back_porch_camera
-#    - sensor.last_garage_camera
-#
-#camera_signal_strength:
-#  name: Wireless signal strength
-#  entities:
-#    - sensor.signal_strength_front_walk_camera
-#    - sensor.signal_strength_front_door_camera
-#    - sensor.signal_strength_back_door_camera
-#    - sensor.signal_strength_back_porch_camera
-#    - sensor.signal_strength_garage_camera
+camera_captured_today:
+  name: '# of videos captured today'
+  entities:
+    - sensor.captured_today_front_walk_camera
+    - sensor.captured_today_front_door_camera
+    - sensor.captured_today_back_door_camera
+    - sensor.captured_today_back_porch_camera
+    - sensor.captured_today_garage_camera
+
+camera_last_capture:
+  name: Date/time of last video
+  entities:
+    - sensor.last_front_walk_camera
+    - sensor.last_front_door_camera
+    - sensor.last_back_door_camera
+    - sensor.last_back_porch_camera
+    - sensor.last_garage_camera
+
+camera_signal_strength:
+  name: Wireless signal strength
+  entities:
+    - sensor.signal_strength_front_walk_camera
+    - sensor.signal_strength_front_door_camera
+    - sensor.signal_strength_back_door_camera
+    - sensor.signal_strength_back_porch_camera
+    - sensor.signal_strength_garage_camera
 
 zooz_zen06_switch:
   name: Zooz ZEN06 Switch

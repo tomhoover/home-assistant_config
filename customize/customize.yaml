@@ -282,6 +282,28 @@ device_tracker.mitzis_iphone:
   battery_alert_disabled: true
   battery_sensor_creation_disabled: true
 
+sensor.battery_level_back_door_camera:
+  hidden: true
+sensor.battery_level_back_porch_camera:
+  hidden: true
+sensor.battery_level_front_door_camera:
+  hidden: true
+sensor.battery_level_front_walk_camera:
+  hidden: true
+sensor.battery_level_garage_camera:
+  hidden: true
+
+#sensor.back_door_camera_battery:
+#  hidden: true
+#sensor.back_porch_camera_battery:
+#  hidden: true
+#sensor.front_door_camera_battery:
+#  hidden: true
+#sensor.front_walk_camera_battery:
+#  hidden: true
+#sensor.garage_camera_battery:
+#  hidden: true
+
 ##### hide misc unused sensors #####
 # duplicate freezer sensor
 sensor.zooz_zen15_power_switch_previous_reading:
