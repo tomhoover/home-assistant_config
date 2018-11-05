@@ -139,14 +139,18 @@
     to: 'on'
     for:
       minutes: 20
+  condition:
+  - condition: state
+    entity_id: input_boolean.thermostat_enable
+    state: 'on'
   action:
   - service: media_player.alexa_tts
-    data:
+    data_template:
       entity_id: group.amazon_echos
-      message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
+      message: ' Please check all doors, as a door has been open for twenty minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: notify.living_room_tv
-    data:
-      message: Please check all doors. A door has been open for over twenty minutes, so I am turning off the thermostat.
+    data_template:
+      message: ' Please check all doors, as a door has been open for twenty minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.thermostat_enable
@@ -170,12 +174,12 @@
       minutes: 2
   action:
   - service: media_player.alexa_tts
-    data:
+    data_template:
       entity_id: group.amazon_echos
-      message: Please check all windows. A window is open, so I am turning off the thermostat.
+      message: ' Please check all windows, as a window has been open for two minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: notify.living_room_tv
-    data:
-      message: Please check all windows. A window is open, so I am turning off the thermostat.
+    data_template:
+      message: ' Please check all windows, as a window has been open for two minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.thermostat_enable
