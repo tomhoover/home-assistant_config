@@ -36,7 +36,7 @@
     - binary_sensor.frontkitchen_doors
     - binary_sensor.backlaundry_doors
     - binary_sensor.master_bedroom_doors
-    - binary_sensor.garage_windows_storage_doors
+#    - binary_sensor.garage_windows_storage_doors
     - binary_sensor.kitchendining_windows
     - binary_sensor.living_room_windows
     - binary_sensor.officecraftbath_windows
