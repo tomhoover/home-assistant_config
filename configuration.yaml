@@ -75,13 +75,13 @@ updater:
 # Other components
 #=====================
 
-#arlo:
-#  username: !secret arlo_username
-#  password: !secret arlo_password
-#
-#camera:
-#  - platform: arlo
-#    ffmpeg_arguments: '-pred 1 -q:v 2'
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+camera:
+  - platform: arlo
+    ffmpeg_arguments: '-pred 1 -q:v 2'
 
 climate:
   - platform: zwave
