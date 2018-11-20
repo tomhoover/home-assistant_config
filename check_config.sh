@@ -1,5 +1,5 @@
 #!/bin/bash
-docker exec -it home-assistant python -m homeassistant --config /config --script check_config
+docker exec -it hass python -m homeassistant --config /config --script check_config
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 RED=`tput setaf 1`
 RESET=`tput sgr0`
@@ -9,5 +9,5 @@ if [ "$BRANCH" != "master" ] ; then
 else
     read -n 1 -s -r -p "Restart Home Assistant? [Y/n] " YN
 fi
-    [[ $YN == "y" || $YN == "Y" || $YN == "" ]] && echo "" && echo "  Restarting..." && docker restart home-assistant && ssh pizw-0 sudo reboot
+    [[ $YN == "y" || $YN == "Y" || $YN == "" ]] && echo "" && echo "  Restarting..." && docker restart hass && ssh pizw-0 sudo reboot
     echo ""
