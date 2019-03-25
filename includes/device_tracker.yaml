@@ -4,9 +4,9 @@
   home_interval: 1
   consider_home: 60
 
-- platform: owntracks
-  max_gps_accuracy: 200
-  consider_home: 180
+#- platform: owntracks
+#  max_gps_accuracy: 200
+#  consider_home: 180
 
 - platform: mqtt
   devices:
