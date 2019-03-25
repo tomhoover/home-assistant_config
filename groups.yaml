@@ -393,6 +393,7 @@ input_boolean:
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
     - input_boolean.trash_day
+    - input_boolean.alexa_enable
 
 front_door:
   name: Front Deadbolt
