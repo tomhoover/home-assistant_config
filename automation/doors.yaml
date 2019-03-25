@@ -192,7 +192,16 @@
   hide_entity: true
   trigger:
     platform: state
-    entity_id: group.doors_windows
+#    entity_id: group.doors_windows
+    entity_id:
+    - binary_sensor.unknown_door
+    - binary_sensor.frontkitchen_doors
+    - binary_sensor.backlaundry_doors
+    - binary_sensor.master_bedroom_doors
+    - binary_sensor.kitchendining_windows
+    - binary_sensor.living_room_windows
+    - binary_sensor.officecraftbath_windows
+    - binary_sensor.upstairs_windows
     from: 'on'
     to: 'off'
     for:
