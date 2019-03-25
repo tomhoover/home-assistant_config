@@ -361,6 +361,7 @@ ct101_thermostat_downstairs:
   entities:
     - zwave.ct101_thermostat_downstairs
     - sensor.ct101_thermostat_downstairs_temperature
+    - sensor.ct101_thermostat_downstairs_humidity
     - climate.ct101_thermostat_downstairs_cooling_1
     - climate.ct101_thermostat_downstairs_heating_1
     - sensor.ct101_thermostat_downstairs_battery
@@ -373,6 +374,7 @@ ct101_thermostat_upstairs:
   entities:
     - zwave.ct101_thermostat_upstairs
     - sensor.ct101_thermostat_upstairs_temperature
+    - sensor.ct101_thermostat_upstairs_humidity
     - climate.ct101_thermostat_upstairs_cooling_1
     - climate.ct101_thermostat_upstairs_heating_1
     - sensor.ct101_thermostat_upstairs_battery
