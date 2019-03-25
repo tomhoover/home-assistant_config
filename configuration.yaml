@@ -89,7 +89,7 @@ climate:
 ffmpeg:
 
 influxdb:
-  host: 192.168.2.90
+  host: 192.168.2.4
 
 weather:
   - platform: darksky

@@ -308,3 +308,8 @@ sensor.battery_level_garage_camera:
 # duplicate freezer sensor
 sensor.zooz_zen15_power_switch_previous_reading:
   hidden: true
+# duplicate thermostat temperature sensors
+sensor.ct101_thermostat_downstairs_temperature_dup:
+  hidden: true
+sensor.ct101_thermostat_upstairs_temperature_dup:
+  hidden: true
