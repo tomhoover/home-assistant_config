@@ -246,9 +246,21 @@ amazon_unused_devices:
 amazon_echos:
   name: All Amazon Echos
   entities:
-    - media_player.pool_house_echo_dot
+    - media_player.bedroom_echo_dot
+    - media_player.craft_room_echo_dot
+    - media_player.living_room_echo_dot
     - media_player.toms_echo
     - media_player.toms_echo_show
+#    - media_player.pool_house_echo_dot
+
+amazon_echos_except_office:
+  name: All Amazon Echos, except Office
+  entities:
+    - media_player.bedroom_echo_dot
+    - media_player.craft_room_echo_dot
+    - media_player.living_room_echo_dot
+    - media_player.toms_echo
+#    - media_player.pool_house_echo_dot
 
 my_weather_darksky:
   name: Weather from Dark Sky
