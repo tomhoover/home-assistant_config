@@ -7,7 +7,7 @@
   url: "amazon.com"
 
 - platform: webostv
-  host: 192.168.2.10
+  host: 192.168.2.20
   name: Living Room TV
   filename: webostv.conf
   timeout: 5

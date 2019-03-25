@@ -1,5 +1,5 @@
 #mqtt:
-broker: 192.168.2.90
+broker: 192.168.2.4
 username: !secret mqtt_username
 password: !secret mqtt_password
 discovery: true
