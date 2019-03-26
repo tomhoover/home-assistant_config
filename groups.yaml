@@ -203,29 +203,29 @@ doors_windows:
   entities:
     #    - binary_sensor.doors
     - binary_sensor.unknown_door
-    - binary_sensor.frontkitchen_doors
-    - binary_sensor.backlaundry_doors
+    - binary_sensor.front_kitchen_doors
+    - binary_sensor.back_laundry_doors
     - binary_sensor.master_bedroom_doors
     - binary_sensor.garage_windows_storage_doors
-    - binary_sensor.kitchendining_windows
+    - binary_sensor.kitchen_dining_windows
     - binary_sensor.living_room_windows
-    - binary_sensor.officecraftbath_windows
+    - binary_sensor.office_craft_bath_windows
     - binary_sensor.upstairs_windows
 
 doors:
   name: Doors
   entities:
     - binary_sensor.unknown_door
-    - binary_sensor.frontkitchen_doors
-    - binary_sensor.backlaundry_doors
+    - binary_sensor.front_kitchen_doors
+    - binary_sensor.back_laundry_doors
     - binary_sensor.master_bedroom_doors
 
 windows:
   name: Windows
   entities:
-    - binary_sensor.kitchendining_windows
+    - binary_sensor.kitchen_dining_windows
     - binary_sensor.living_room_windows
-    - binary_sensor.officecraftbath_windows
+    - binary_sensor.office_craft_bath_windows
     - binary_sensor.upstairs_windows
 
 amazon_fire7:
@@ -246,9 +246,21 @@ amazon_unused_devices:
 amazon_echos:
   name: All Amazon Echos
   entities:
-    - media_player.pool_house_echo_dot
+    - media_player.bedroom_echo_dot
+    - media_player.craft_room_echo_dot
+    - media_player.living_room_echo_dot
     - media_player.toms_echo
     - media_player.toms_echo_show
+#    - media_player.pool_house_echo_dot
+
+amazon_echos_except_office:
+  name: All Amazon Echos, except Office
+  entities:
+    - media_player.bedroom_echo_dot
+    - media_player.craft_room_echo_dot
+    - media_player.living_room_echo_dot
+    - media_player.toms_echo
+#    - media_player.pool_house_echo_dot
 
 my_weather_darksky:
   name: Weather from Dark Sky
@@ -361,6 +373,7 @@ ct101_thermostat_downstairs:
   entities:
     - zwave.ct101_thermostat_downstairs
     - sensor.ct101_thermostat_downstairs_temperature
+    - sensor.ct101_thermostat_downstairs_humidity
     - climate.ct101_thermostat_downstairs_cooling_1
     - climate.ct101_thermostat_downstairs_heating_1
     - sensor.ct101_thermostat_downstairs_battery
@@ -373,6 +386,7 @@ ct101_thermostat_upstairs:
   entities:
     - zwave.ct101_thermostat_upstairs
     - sensor.ct101_thermostat_upstairs_temperature
+    - sensor.ct101_thermostat_upstairs_humidity
     - climate.ct101_thermostat_upstairs_cooling_1
     - climate.ct101_thermostat_upstairs_heating_1
     - sensor.ct101_thermostat_upstairs_battery
@@ -391,6 +405,7 @@ input_boolean:
     - input_boolean.lock_all_doors
     - input_boolean.set_the_alarm
     - input_boolean.trash_day
+    - input_boolean.alexa_enable
 
 front_door:
   name: Front Deadbolt

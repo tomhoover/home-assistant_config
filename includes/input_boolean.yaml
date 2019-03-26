@@ -54,3 +54,7 @@ thermostat_manual_override:
 trash_day:
   name: Trash Day
   initial: off
+
+alexa_enable:
+  name: Alexa Enable
+  initial: on
