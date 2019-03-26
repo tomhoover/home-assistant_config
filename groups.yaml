@@ -203,29 +203,29 @@ doors_windows:
   entities:
     #    - binary_sensor.doors
     - binary_sensor.unknown_door
-    - binary_sensor.frontkitchen_doors
-    - binary_sensor.backlaundry_doors
+    - binary_sensor.front_kitchen_doors
+    - binary_sensor.back_laundry_doors
     - binary_sensor.master_bedroom_doors
     - binary_sensor.garage_windows_storage_doors
-    - binary_sensor.kitchendining_windows
+    - binary_sensor.kitchen_dining_windows
     - binary_sensor.living_room_windows
-    - binary_sensor.officecraftbath_windows
+    - binary_sensor.office_craft_bath_windows
     - binary_sensor.upstairs_windows
 
 doors:
   name: Doors
   entities:
     - binary_sensor.unknown_door
-    - binary_sensor.frontkitchen_doors
-    - binary_sensor.backlaundry_doors
+    - binary_sensor.front_kitchen_doors
+    - binary_sensor.back_laundry_doors
     - binary_sensor.master_bedroom_doors
 
 windows:
   name: Windows
   entities:
-    - binary_sensor.kitchendining_windows
+    - binary_sensor.kitchen_dining_windows
     - binary_sensor.living_room_windows
-    - binary_sensor.officecraftbath_windows
+    - binary_sensor.office_craft_bath_windows
     - binary_sensor.upstairs_windows
 
 amazon_fire7:
