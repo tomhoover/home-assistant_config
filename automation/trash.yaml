@@ -16,7 +16,7 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/30'
     seconds: 00
   condition:
