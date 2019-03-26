@@ -1,11 +1,6 @@
 #media_player:
 - platform: onkyo
 
-- platform: alexa
-  email: !secret amazon_email
-  password: !secret amazon_password
-  url: "amazon.com"
-
 - platform: webostv
   host: 192.168.2.20
   name: Living Room TV
