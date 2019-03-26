@@ -94,9 +94,12 @@
     for:
       minutes: 2
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Please close the door!
   - service: notify.telegram_tom
     data:
@@ -117,9 +120,12 @@
     for:
       minutes: 10
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: A door has been open for ten minutes. Please close the door!
   - service: notify.telegram_tom
     data:
@@ -144,9 +150,12 @@
     entity_id: input_boolean.thermostat_enable
     state: 'on'
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data_template:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: ' Please check all doors, as a door has been open for twenty minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: notify.living_room_tv
     data_template:
@@ -173,9 +182,12 @@
     for:
       minutes: 2
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data_template:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: ' Please check all windows, as a window has been open for two minutes. {% if input_boolean.thermostat_enable %} I am turning off the thermostat, so you may enjoy the fresh outside air. {% endif %} '
   - service: notify.living_room_tv
     data_template:
@@ -211,9 +223,12 @@
     entity_id: input_boolean.thermostat_enable
     state: 'off'
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: All doors and windows have been closed, so I am reseting the thermostat.
   - service: notify.living_room_tv
     data:
@@ -236,9 +251,12 @@
     entity_id: lock.front_deadbolt_locked
     state: unlocked
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Warning, the front door is still unlocked!
   - service: notify.living_room_tv
     data:
@@ -255,9 +273,12 @@
     entity_id: lock.kitchen_deadbolt_locked
     state: unlocked
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Warning, the kitchen door is still unlocked!
   - service: notify.living_room_tv
     data:
@@ -274,9 +295,12 @@
     entity_id: lock.mbr_deadbolt_locked
     state: unlocked
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Warning, the master bedroom door is still unlocked!
   - service: notify.living_room_tv
     data:
@@ -293,9 +317,12 @@
     entity_id: lock.back_deadbolt_locked
     state: unlocked
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Warning, the back door is still unlocked!
   - service: notify.living_room_tv
     data:
@@ -312,9 +339,12 @@
     entity_id: lock.laundry_deadbolt_locked
     state: unlocked
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Warning, the laundry room door is still unlocked!
   - service: notify.living_room_tv
     data:

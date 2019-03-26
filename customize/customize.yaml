@@ -55,13 +55,13 @@ media_player.toms_4th_fire:
 
 #group.amazon_unused_devices:
 #  hidden: true
-media_player.mitzis_alexa_apps:
+media_player.mitzi_s_alexa_apps:
   hidden: true
-media_player.toms_alexa_apps:
+media_player.tom_s_alexa_apps:
   hidden: true
-media_player.toms_echo_dot:
+media_player.tom_s_echo_dot:
   hidden: true
-media_player.toms_fire_tv_stick:
+media_player.tom_s_fire_tv_stick:
   hidden: true
 
 media_player.onkyo_txnr777_ebccdf:
