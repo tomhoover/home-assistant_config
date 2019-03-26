@@ -5,9 +5,12 @@
     platform: state
     entity_id: alarm_control_panel.home_alarm
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data_template:
-      entity_id: media_player.toms_echo_show
+      target: media_player.office_alexa
+      data:
+        type: announce
+        method: all
       message: ' 
         {% if trigger.to_state.state == ''triggered'' %}ALERT! The alarm has been triggered!
         {% else %}

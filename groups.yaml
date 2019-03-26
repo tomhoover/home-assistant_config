@@ -165,6 +165,7 @@ presence_entities:
     - input_boolean.brandon_occupancy
     - input_boolean.krystle_occupancy
     - input_boolean.departure_scan_needed
+    - input_boolean.guest_mode
 
 monitor_sensors:
   name: Monitor Sensors
@@ -238,29 +239,32 @@ amazon_fire7:
 amazon_unused_devices:
   name: Unused Amazon Devices
   entities:
-    - media_player.mitzis_alexa_apps
-    - media_player.toms_alexa_apps
-    - media_player.toms_echo_dot
-    - media_player.toms_fire_tv_stick
+    - media_player.mitzi_s_alexa_apps
+    - media_player.tom_s_alexa_apps
+    - media_player.tom_s_echo_dot
+    - media_player.tom_s_fire_tv_stick
+    - media_player.tom_s_2nd_fire
+    - media_player.tom_s_3rd_fire
+    - media_player.tom_s_4th_fire
 
 amazon_echos:
   name: All Amazon Echos
   entities:
-    - media_player.bedroom_echo_dot
-    - media_player.craft_room_echo_dot
-    - media_player.living_room_echo_dot
-    - media_player.toms_echo
-    - media_player.toms_echo_show
-#    - media_player.pool_house_echo_dot
+    - media_player.bedroom_alexa
+    - media_player.craft_room_alexa
+    - media_player.living_room_alexa
+    - media_player.kitchen_alexa
+    - media_player.office_alexa
+#    - media_player.pool_alexa
 
 amazon_echos_except_office:
   name: All Amazon Echos, except Office
   entities:
-    - media_player.bedroom_echo_dot
-    - media_player.craft_room_echo_dot
-    - media_player.living_room_echo_dot
-    - media_player.toms_echo
-#    - media_player.pool_house_echo_dot
+    - media_player.bedroom_alexa
+    - media_player.craft_room_alexa
+    - media_player.living_room_alexa
+    - media_player.kitchen_alexa
+#    - media_player.pool_alexa
 
 my_weather_darksky:
   name: Weather from Dark Sky
@@ -269,36 +273,40 @@ my_weather_darksky:
     - sensor.dark_sky_minutely_summary
     - sensor.dark_sky_hourly_summary
     - sensor.dark_sky_daily_summary
-#   - precip_type returns sensor.dark_sky_precip
+##  - precip_type returns sensor.dark_sky_precip
     - sensor.dark_sky_precip
     - sensor.dark_sky_precip_intensity
-#   - precip_intensity_max returns sensor.dark_sky_daily_max_precip_intensity
+##  - precip_intensity_max returns sensor.dark_sky_daily_max_precip_intensity
     - sensor.dark_sky_daily_max_precip_intensity
     - sensor.dark_sky_precip_probability
     - sensor.dark_sky_precip_accumulation
     - sensor.dark_sky_temperature
-#   - temperature_high returns sensor.dark_sky_daytime_high_temperature
+##  - temperature_high returns sensor.dark_sky_daytime_high_temperature
     - sensor.dark_sky_daytime_high_temperature
-#   - temperature_low returns sensor.dark_sky_overnight_low_temperature
+##  - temperature_low returns sensor.dark_sky_overnight_low_temperature
     - sensor.dark_sky_overnight_low_temperature
-    - sensor.dark_sky_dew_point
+#    - sensor.dark_sky_dew_point
     - sensor.dark_sky_apparent_temperature
-#   - apparent_temperature_high returns sensor.dark_sky_daytime_high_apparent_temperature
+##  - apparent_temperature_high returns sensor.dark_sky_daytime_high_apparent_temperature
     - sensor.dark_sky_daytime_high_apparent_temperature
-#   - apparent_temperature_low returns sensor.dark_sky_overnight_low_apparent_temperature
+##  - apparent_temperature_low returns sensor.dark_sky_overnight_low_apparent_temperature
     - sensor.dark_sky_overnight_low_apparent_temperature
     - sensor.dark_sky_wind_bearing
     - sensor.dark_sky_wind_speed
-#   - cloud_cover returns sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_wind_gust
+##  - cloud_cover returns sensor.dark_sky_cloud_coverage
     - sensor.dark_sky_cloud_coverage
     - sensor.dark_sky_humidity
-    - sensor.dark_sky_pressure
+#    - sensor.dark_sky_pressure
     - sensor.dark_sky_visibility
-    - sensor.dark_sky_ozone
-    - sensor.dark_sky_uv_index
+#    - sensor.dark_sky_ozone
+#    - sensor.dark_sky_uv_index
 #    - sensor.dark_sky_icon
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_nearest_storm_distance
+#    - sensor.dark_sky_moon_phase
+    - sensor.dark_sky_sunrise_time
+    - sensor.dark_sky_sunset_time
 
 camera_captured_today:
   name: '# of videos captured today'

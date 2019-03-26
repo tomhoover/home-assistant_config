@@ -55,9 +55,12 @@
     entity_id: input_boolean.lock_all_doors
   - service: input_boolean.turn_off
     entity_id: input_boolean.set_the_alarm
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data:
-      entity_id: group.amazon_echos
+      target: group.amazon_echos
+      data:
+        type: announce
+        method: all
       message: Please verify all doors and windows are closed, and then try again.
   - service: notify.ios_toms_iphone
     data:

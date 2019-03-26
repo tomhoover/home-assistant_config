@@ -17,9 +17,12 @@
     - zwave.freezer
     to: dead
   action:
-  - service: media_player.alexa_tts
+  - service: notify.alexa_media
     data_template:
-      entity_id: media_player.toms_echo_show
+      target: media_player.office_alexa
+      data:
+        type: announce
+        method: all
       message: ' {{ trigger.to_state.attributes.friendly_name }} is dead. '
   - service: notify.ios_toms_iphone
     data_template:
