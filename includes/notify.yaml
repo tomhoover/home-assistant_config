@@ -27,3 +27,6 @@
   host: 192.168.2.20
   name: living_room_tv
   filename: webostv.conf
+
+- platform: alexa_media
+  name: alexa_media

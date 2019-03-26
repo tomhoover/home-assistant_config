@@ -1,1 +1,21 @@
 # automations.yaml
+
+- alias: Notification Test Weekly TTS
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '17:00:00'
+  condition:
+    condition: time
+    weekday:
+      - sat
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.office_alexa
+        title: "Weekly TTS test"
+        data:
+          type: announce
+          method: all
+        message: "This is a weekly test of the announcing system."
