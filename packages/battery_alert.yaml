@@ -336,7 +336,7 @@ automation:
 - alias: battery_notification
   initial_state: 'on'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
       seconds: 00
     - platform: state
@@ -397,7 +397,7 @@ automation:
 - alias: battery_notification_clear
   initial_state: 'on'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
       seconds: 00
     - platform: state
@@ -538,7 +538,7 @@ automation:
             "value_template": "{{ "{{" }} value_json.value | int {{ "}}" }}",
             {% endif -%}
             "unique_id": "{{ trigger.event.data.entity_id.split('.')[1] }}_battery",
-            "json_attributes": [
+            "json_attributes_topic": [
               "entity_id",
               "attribute",
               "mqtt_config_topic",
@@ -587,7 +587,7 @@ automation:
   trigger:
     - platform: homeassistant
       event: start
-    - platform: time
+    - platform: time_pattern
       minutes: '/5'
       seconds: 00
   action:
