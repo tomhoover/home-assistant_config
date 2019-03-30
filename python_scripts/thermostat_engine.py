@@ -5,8 +5,8 @@
 # Thermostat thresholds
 THRESHOLD_FOR_HEAT = 65
 THRESHOLD_FOR_AC   = 75
-AC   = {'home': 78, 'away': 80, 'sleep': 75, 'brandon': 75}
-HEAT = {'home': 67, 'away': 60, 'sleep': 65}
+AC   = {'home': 77, 'away': 80, 'sleep': 75, 'brandon': 75}
+HEAT = {'home': 68, 'away': 60, 'sleep': 65}
 
 SLEEP_TIME = [5, 22]
 
