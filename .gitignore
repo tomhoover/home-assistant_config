@@ -27,6 +27,5 @@ __pycache__
 alexa_media.pickle
 zwcfg_*
 /.cloud
-/.storage
 /examples
 zwave_device_config.yaml
