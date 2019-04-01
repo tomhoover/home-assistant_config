@@ -45,6 +45,7 @@ zone: !include includes/zone.yaml
 #=====================
 
 #introduction:
+system_health:
 frontend:
 config:
 history:
@@ -95,6 +96,7 @@ influxdb:
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
+    mode: daily
 
 zwave:
   usb_path: /dev/zwave
