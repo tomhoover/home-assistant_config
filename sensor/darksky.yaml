@@ -1,7 +1,16 @@
 - platform: darksky
   api_key: !secret darksky_api_key
-  update_interval:
+  scan_interval:
     minutes: 3
+#  forecast:
+#    - 0
+#    - 1
+#    - 2
+#    - 3
+#    - 4
+#    - 5
+#    - 6
+#    - 7
   monitored_conditions:
     - summary
     - minutely_summary
@@ -27,6 +36,7 @@
 #   - apparent_temperature_low
     - wind_bearing
     - wind_speed
+    - wind_gust
 ##  - cloud_cover returns sensor.dark_sky_cloud_coverage
     - cloud_cover
     - humidity
@@ -37,3 +47,6 @@
 #   - icon
     - nearest_storm_bearing
     - nearest_storm_distance
+#    - moon_phase
+    - sunrise_time
+    - sunset_time
