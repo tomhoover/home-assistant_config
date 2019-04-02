@@ -4,8 +4,14 @@
 .google*
 .shopping_list.json
 .spotify*
+.storage/auth*
+.storage/cloud
+.storage/core.*
+.storage/onboarding
 .uuid
+*.bak
 *.conf
+*.pickle
 *.sqlite
 *.txt
 *.xml
@@ -23,8 +29,6 @@ session-*.json
 #
 .config_entities.json
 __pycache__
-*.bak
-alexa_media.pickle
 zwcfg_*
 /.cloud
 /examples
