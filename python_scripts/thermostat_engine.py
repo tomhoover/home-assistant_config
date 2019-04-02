@@ -34,7 +34,7 @@ upstairs_humidity = float(hass.states.get('sensor.ct101_thermostat_upstairs_humi
 thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state == 'on')
 aux_heat = (hass.states.get('input_boolean.thermostat_aux_heat').state == 'on')
 someone_home = (hass.states.get('sensor.occupancy').state == 'home' or hass.states.get('input_boolean.guest_mode').state == 'on')
-guest_home = hass.states.get('input_boolean.guest_mode').state == 'on')
+guest_home = (hass.states.get('input_boolean.guest_mode').state == 'on')
 brandon_home = (hass.states.get('group.brandon_presence').state == 'home')
 krystle_home = (hass.states.get('group.krystle_presence').state == 'home')
 on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
@@ -117,8 +117,8 @@ elif thermostat_enable:
           # upstairs HEAT
             if brandon_home or krystle_home or guest_home:
                 state_key = 'home'
-               if current_hour <= SLEEP_TIME[0] or current_hour >= SLEEP_TIME[1]:
-                 state_key = 'sleep'
+                if current_hour <= SLEEP_TIME[0] or current_hour >= SLEEP_TIME[1]:
+                    state_key = 'sleep'
             else:
                 state_key = 'away'
             nominal_temp = HEAT[state_key]
