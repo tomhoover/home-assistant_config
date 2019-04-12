@@ -35,8 +35,8 @@ thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state ==
 aux_heat = (hass.states.get('input_boolean.thermostat_aux_heat').state == 'on')
 someone_home = (hass.states.get('sensor.occupancy').state == 'home' or hass.states.get('input_boolean.guest_mode').state == 'on')
 guest_home = (hass.states.get('input_boolean.guest_mode').state == 'on')
-# set the following to true for kensie
-guest_home = true
+# set the following to True for kensie
+guest_home = True
 brandon_home = (hass.states.get('group.brandon_presence').state == 'home')
 krystle_home = (hass.states.get('group.krystle_presence').state == 'home')
 on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
