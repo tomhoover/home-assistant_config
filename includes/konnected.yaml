@@ -44,8 +44,8 @@ devices:
         momentary: 65
         pause: 55
         repeat: 2
-#      - zone: out
-#        name: 'Warning'
-#        momentary: 65
-#        pause: 55
-#        repeat: -1
+      - zone: out
+        name: 'Warning'
+        momentary: 65
+        pause: 55
+        repeat: -1
