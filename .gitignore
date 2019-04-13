@@ -4,10 +4,7 @@
 .google*
 .shopping_list.json
 .spotify*
-.storage/auth*
-.storage/cloud
-.storage/core.*
-.storage/onboarding
+.storage
 .uuid
 *.bak
 *.conf
