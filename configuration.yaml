@@ -88,6 +88,8 @@ camera:
 climate:
   - platform: zwave
 
+custom_updater:
+
 ffmpeg:
 
 influxdb:
