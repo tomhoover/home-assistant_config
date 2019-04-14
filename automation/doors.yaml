@@ -8,6 +8,72 @@
     service: lock.lock
     entity_id: group.front_locks
 
+- alias: Lock Front Doors at 9pm
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: '/5'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.front_kitchen_doors
+        state: 'off'
+        for:
+          minutes: 10
+      - condition: or
+        conditions:
+        - condition: time
+          after: '21:00:00'
+        - condition: time
+          before: '09:00:00'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: lock.front_deadbolt_locked
+          state: unlocked
+        - condition: state
+          entity_id: lock.kitchen_deadbolt_locked
+          state: unlocked
+  action:
+    service: lock.lock
+    entity_id: group.front_locks
+
+- alias: Lock Back Doors at 10pm
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: '/5'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.back_laundry_doors
+        state: 'off'
+        for:
+          minutes: 10
+      - condition: or
+        conditions:
+        - condition: time
+          after: '22:00:00'
+        - condition: time
+          before: '07:00:00'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: lock.back_deadbolt_locked
+          state: unlocked
+        - condition: state
+          entity_id: lock.laundry_deadbolt_locked
+          state: unlocked
+  action:
+    service: lock.lock
+    entity_id: group.back_locks
+
 - alias: Group is away
   initial_state: true
   hide_entity: true
@@ -45,22 +111,22 @@
   - service: switch.turn_on
     entity_id: switch.beep_beep
 
-- alias: Trigger monitor.sh arrival scan on Door Open
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id:
-    - binary_sensor.unknown_door
-    - binary_sensor.front_kitchen_doors
-    - binary_sensor.back_laundry_doors
-    - binary_sensor.master_bedroom_doors
-    from: 'off'
-    to: 'on'
-  action:
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/arrive
+#- alias: Trigger monitor.sh arrival scan on Door Open
+#  initial_state: true
+#  hide_entity: true
+#  trigger:
+#    platform: state
+#    entity_id:
+#    - binary_sensor.unknown_door
+#    - binary_sensor.front_kitchen_doors
+#    - binary_sensor.back_laundry_doors
+#    - binary_sensor.master_bedroom_doors
+#    from: 'off'
+#    to: 'on'
+#  action:
+#  - service: mqtt.publish
+#    data:
+#      topic: monitor/scan/arrive
 
 - alias: Trigger monitor.sh departure scan on Door Close
   initial_state: true
