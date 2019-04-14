@@ -185,6 +185,12 @@ front_locks:
     - lock.front_deadbolt_locked
     - lock.kitchen_deadbolt_locked
 
+back_locks:
+  name: Back Locks
+  entities:
+    - lock.back_deadbolt_locked
+    - lock.laundry_deadbolt_locked
+
 all_deadbolts:
   name: All Deadbolts
   entities:
