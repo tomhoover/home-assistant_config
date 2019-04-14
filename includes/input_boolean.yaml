@@ -15,6 +15,18 @@ krystle_occupancy:
   name: Krystle is Home
   initial: off
 
+on_the_way_home:
+  name: On the Way Home
+  initial: off
+
+guest_mode:
+  name: Guest Mode
+  initial: off
+
+home_occupied:
+  name: Home Occupied
+  initial: off
+
 departure_scan_needed:
   name: Departure scan needed
   initial: off
@@ -25,14 +37,6 @@ lock_all_doors:
 
 set_the_alarm:
   name: Set the Alarm
-  initial: off
-
-on_the_way_home:
-  name: On the Way Home
-  initial: off
-
-guest_mode:
-  name: Guest Mode
   initial: off
 
 thermostat_enable:
@@ -57,4 +61,8 @@ trash_day:
 
 alexa_enable:
   name: Alexa Enable
+  initial: on
+
+node_red:
+  name: Node RED Watchdog
   initial: on
