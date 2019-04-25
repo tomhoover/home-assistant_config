@@ -62,7 +62,7 @@ discovery:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
 
 # Checks for available updates
 # Note: This component will send some information about your system to
