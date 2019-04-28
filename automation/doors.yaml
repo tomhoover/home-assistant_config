@@ -141,6 +141,7 @@
     from: 'on'
     to: 'off'
   action:
+  - delay: 00:01:00
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.departure_scan_needed
