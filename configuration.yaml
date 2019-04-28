@@ -22,9 +22,11 @@ http:
 alarm_control_panel: !include includes/alarm_control_panel.yaml
 alexa_media: !include includes/alexa_media.yaml
 automation: !include_dir_merge_list automation
+#automation: !include automations.yaml
 cloud: !include includes/cloud.yaml
 device_tracker: !include includes/device_tracker.yaml
 emulated_hue: !include includes/emulated_hue.yaml
+frontend: !include includes/frontend.yaml
 group: !include groups.yaml
 input_boolean: !include includes/input_boolean.yaml
 ios: !include includes/ios.yaml
@@ -46,7 +48,6 @@ zone: !include includes/zone.yaml
 
 #introduction:
 system_health:
-frontend:
 config:
 history:
 logbook:
