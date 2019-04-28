@@ -55,13 +55,21 @@
       above: 68
       below: 72
     - platform: numeric_state
-      entity_id: sensor.living_room_humidity
+      entity_id: sensor.ct101_thermostat_downstairs_humidity
       above: 58
     - platform: numeric_state
-      entity_id: sensor.living_room_humidity
+      entity_id: sensor.ct101_thermostat_downstairs_humidity
       below: 55
     - platform: template
-      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+      value_template: '{{ (states.sensor.ct101_thermostat_downstairs_temperature.state | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.sensor.ct101_thermostat_upstairs_temperature.state | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.climate.ct101_thermostat_downstairs_cooling_1.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.climate.ct101_thermostat_upstairs_cooling_1.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
+##    - platform: template
+##      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
 #    - platform: template
 #      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
 #    - platform: template
