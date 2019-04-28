@@ -17,14 +17,14 @@ group.my_weather_darksky:
 
 group.tom_presence:
   entity_picture: !secret tom_pic
-#group.mitzi_presence:
+group.mitzi_presence:
+  entity_picture: !secret mitzi_pic
 #  hidden: true
-#  entity_picture: !secret mitzi_pic
 group.brandon_presence:
   entity_picture: !secret brandon_pic
-#group.krystle_presence:
+group.krystle_presence:
+  entity_picture: !secret krystle_pic
 #  hidden: true
-#  entity_picture: !secret krystle_pic
 
 # default HA groups
 group.all_automations:
