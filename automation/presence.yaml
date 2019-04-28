@@ -37,6 +37,7 @@
     data:
       topic: location/tom
       payload: home
+      retain: true
 
 - alias: Mitzi is home
   initial_state: true
@@ -53,6 +54,7 @@
     data:
       topic: location/mitzi
       payload: home
+      retain: true
 
 - alias: Brandon is home
   initial_state: true
@@ -69,6 +71,7 @@
     data:
       topic: location/brandon
       payload: home
+      retain: true
 
 - alias: Krystle is home
   initial_state: true
@@ -85,6 +88,7 @@
     data:
       topic: location/krystle
       payload: home
+      retain: true
 
 - alias: Tom is away
   initial_state: true
@@ -101,6 +105,7 @@
     data:
       topic: location/tom
       payload: not_home
+      retain: true
 
 - alias: Mitzi is away
   initial_state: true
@@ -117,6 +122,7 @@
     data:
       topic: location/mitzi
       payload: not_home
+      retain: true
 
 - alias: Brandon is away
   initial_state: true
@@ -133,6 +139,7 @@
     data:
       topic: location/brandon
       payload: not_home
+      retain: true
 
 - alias: Krystle is away
   initial_state: true
@@ -149,6 +156,7 @@
     data:
       topic: location/krystle
       payload: not_home
+      retain: true
 
 - alias: Tom has arrived at work
   initial_state: true
@@ -181,11 +189,11 @@
     from: 'off'
     to: 'on'
   action:
-  - delay: 00:00:20
-  - service: mqtt.publish
-    data:
-      topic: monitor/scan/depart
-  - delay: 00:00:40
+#  - delay: 00:00:20
+#  - service: mqtt.publish
+#    data:
+#      topic: monitor/scan/depart
+#  - delay: 00:00:40
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
