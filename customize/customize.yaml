@@ -313,3 +313,15 @@ sensor.ct101_thermostat_downstairs_temperature_dup:
   hidden: true
 sensor.ct101_thermostat_upstairs_temperature_dup:
   hidden: true
+
+sensor.speedtest_download:
+  friendly_name: Download Speed
+  icon: mdi:cloud-download
+sensor.speedtest_upload:
+  friendly_name: Upload Speed
+  icon: mdi:cloud-upload
+sensor.speedtest_ping:
+  friendly_name: Ping
+  icon: mdi:mixcloud
+sensor.speedtest_last_updated:
+  icon: mdi:clock-outline
