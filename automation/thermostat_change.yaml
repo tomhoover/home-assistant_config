@@ -88,9 +88,9 @@
       value_template: "{{ is_state('zwave.ct101_thermostat_upstairs', 'ready') }}"
   action:
     - service: python_script.thermostat_engine
-    - delay:
-        seconds: 5
-    - service: python_script.thermostat_engine
+#    - delay:
+#        seconds: 5
+#    - service: python_script.thermostat_engine
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.thermostat_manual_override
