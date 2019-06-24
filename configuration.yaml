@@ -54,6 +54,7 @@ config:
 history:
 logbook:
 map:
+#mobile_app:
 sun:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
@@ -91,11 +92,17 @@ camera:
 climate:
   - platform: zwave
 
-custom_updater:
-  component_urls:
-    - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
+#custom_updater:
+#  component_urls:
+#    - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
 
 ffmpeg:
+
+hacs:
+  token: !secret hacs_access_token
+  #appdaemon: True
+  #python_script: True
+  #theme: True
 
 influxdb:
   host: 192.168.2.4
