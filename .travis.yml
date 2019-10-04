@@ -3,7 +3,7 @@ python:
   - "3.6"
 install:
   - sudo apt-get install -y libudev-dev
-  - pip3 install homeassistant==0.95.4
+  - pip3 install homeassistant==0.96.5
 script:
   - hass -c . --script check_config
 before_install:
