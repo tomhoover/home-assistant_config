@@ -182,6 +182,25 @@
     data:
       message: 'Tom has departed work.'
 
+- alias: perform arrival scan
+  trigger:
+    platform: state
+    entity_id: input_boolean.arrival_scan_needed
+    from: 'off'
+    to: 'on'
+  action:
+#  - delay: 00:00:20
+#  - service: mqtt.publish
+#    data:
+#      topic: monitor/scan/arrive
+#  - delay: 00:00:40
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/arrive
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.arrival_scan_needed
+
 - alias: perform departure scan
   trigger:
     platform: state
@@ -189,7 +208,7 @@
     from: 'off'
     to: 'on'
   action:
-#  - delay: 00:00:20
+  - delay: 00:00:20
 #  - service: mqtt.publish
 #    data:
 #      topic: monitor/scan/depart
