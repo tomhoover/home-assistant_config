@@ -27,6 +27,10 @@ home_occupied:
   name: Home Occupied
   initial: off
 
+arrival_scan_needed:
+  name: Arrival scan needed
+  initial: off
+
 departure_scan_needed:
   name: Departure scan needed
   initial: off
