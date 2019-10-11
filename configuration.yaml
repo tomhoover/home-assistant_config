@@ -77,6 +77,9 @@ updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
+# HACS (Home Assistant Community Store)
+breaking_changes:
+
 #=====================
 # Other components
 #=====================
