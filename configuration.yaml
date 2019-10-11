@@ -105,7 +105,7 @@ hacs:
   #theme: True
 
 influxdb:
-  host: 192.168.2.4
+  host: 192.168.2.111
 
 weather:
   - platform: darksky
