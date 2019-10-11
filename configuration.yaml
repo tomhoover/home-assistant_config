@@ -110,6 +110,12 @@ hacs:
 influxdb:
   host: 192.168.2.111
 
+pi_hole:
+  - host: 192.168.2.50
+  - host: 192.168.2.51
+    ssl: false
+    verify_ssl: false
+
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
