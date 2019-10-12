@@ -26,6 +26,15 @@ group.krystle_presence:
   entity_picture: !secret krystle_pic
 #  hidden: true
 
+person.tom:
+  entity_picture: !secret tom_pic
+person.mitzi:
+  entity_picture: !secret mitzi_pic
+person.brandon:
+  entity_picture: !secret brandon_pic
+person.krystle:
+  entity_picture: !secret krystle_pic
+
 # default HA groups
 group.all_automations:
   hidden: false

@@ -116,47 +116,75 @@ presence:
 tom_presence:
   name: Tom
   entities:
+# nmap
 #    - device_tracker.toms_iphone_nmap
-    - device_tracker.toms_iphone_mqtt
-# hass
-#    - device_tracker.toms_iphone
 # owntracks
 #    - device_tracker.tom_iphone
+# hass
+    - device_tracker.toms_iphone
+# monitor
+    - device_tracker.toms_iphone_monitor
+# iphonedetect
+    - device_tracker.toms_iphone_detect
 
 mitzi_presence:
   name: Mitzi
   entities:
+# nmap
 #    - device_tracker.mitzis_iphone_nmap
-    - device_tracker.mitzis_iphone_mqtt
 # hass
-#    - device_tracker.mitzis_iphone
+    - device_tracker.mitzis_iphone
+# monitor
+    - device_tracker.mitzis_iphone_monitor
+# iphonedetect
+    - device_tracker.mitzis_iphone_detect
 
 brandon_presence:
   name: Brandon
   entities:
+# nmap
 #    - device_tracker.brandons_iphone_nmap
-    - device_tracker.brandons_iphone_mqtt
+# monitor
+    - device_tracker.brandons_iphone_monitor
+# iphonedetect
+    - device_tracker.brandons_iphone_detect
 
 krystle_presence:
   name: Krystle
   entities:
+# nmap
 #    - device_tracker.krystles_iphone_nmap
-    - device_tracker.krystles_iphone_mqtt
+# monitor
+    - device_tracker.krystles_iphone_monitor
+# iphonedetect
+    - device_tracker.krystles_iphone_detect
 
 presence_entities:
   name: Presence Entities
   entities:
+    - person.tom
+    - device_tracker.tom
     - device_tracker.toms_iphone_nmap
-    - device_tracker.toms_iphone_mqtt
-    - device_tracker.toms_iphone
     - device_tracker.tom_iphone
+    - device_tracker.toms_iphone
+    - device_tracker.toms_iphone_monitor
+    - device_tracker.toms_iphone_detect
+    - person.mitzi
+    - device_tracker.mitzi
     - device_tracker.mitzis_iphone_nmap
-    - device_tracker.mitzis_iphone_mqtt
     - device_tracker.mitzis_iphone
+    - device_tracker.mitzis_iphone_monitor
+    - device_tracker.mitzis_iphone_detect
+    - person.brandon
+    - device_tracker.brandon
     - device_tracker.brandons_iphone_nmap
-    - device_tracker.brandons_iphone_mqtt
+    - device_tracker.brandons_iphone_monitor
+    - device_tracker.brandons_iphone_detect
+    - person.krystle
+    - device_tracker.krystle
     - device_tracker.krystles_iphone_nmap
-    - device_tracker.krystles_iphone_mqtt
+    - device_tracker.krystles_iphone_monitor
+    - device_tracker.krystles_iphone_detect
     - device_tracker.toms_ipad_nmap
     - device_tracker.toms_work_iphone_nmap
     - device_tracker.toms_work_ipad_nmap

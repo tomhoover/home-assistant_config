@@ -10,7 +10,66 @@
 
 - platform: mqtt
   devices:
-    toms_iphone_mqtt: 'location/tom'
-    mitzis_iphone_mqtt: 'location/mitzi'
-    brandons_iphone_mqtt: 'location/brandon'
-    krystles_iphone_mqtt: 'location/krystle'
+    toms_iphone_monitor: 'location/tom'
+    mitzis_iphone_monitor: 'location/mitzi'
+    brandons_iphone_monitor: 'location/brandon'
+    krystles_iphone_monitor: 'location/krystle'
+
+- platform: iphonedetect
+  consider_home: 60
+  hosts:
+    toms_iphone_detect: 192.168.2.80
+    mitzis_iphone_detect: 192.168.2.81
+    brandons_iphone_detect: 192.168.2.82
+    krystles_iphone_detect: 192.168.2.83
+
+- platform: composite
+  name: Tom
+  time_as: device_or_local
+  entity_id:
+# nmap
+#    - device_tracker.toms_iphone_nmap
+# owntracks
+#    - device_tracker.tom_iphone
+# hass
+    - device_tracker.toms_iphone
+# monitor
+    - device_tracker.toms_iphone_monitor
+# iphonedetect
+    - device_tracker.toms_iphone_detect
+
+- platform: composite
+  name: Mitzi
+  time_as: device_or_local
+  entity_id:
+# nmap
+#    - device_tracker.mitzis_iphone_nmap
+# hass
+    - device_tracker.mitzis_iphone
+# monitor
+    - device_tracker.mitzis_iphone_monitor
+# iphonedetect
+    - device_tracker.mitzis_iphone_detect
+
+- platform: composite
+  name: Brandon
+  time_as: device_or_local
+  entity_id:
+# nmap
+#    - device_tracker.brandons_iphone_nmap
+# monitor
+    - device_tracker.brandons_iphone_monitor
+# iphonedetect
+    - device_tracker.brandons_iphone_detect
+
+- platform: composite
+  name: Krystle
+  time_as: device_or_local
+  entity_id:
+# nmap
+#    - device_tracker.krystles_iphone_nmap
+# monitor
+    - device_tracker.krystles_iphone_monitor
+# iphonedetect
+    - device_tracker.krystles_iphone_detect
+
