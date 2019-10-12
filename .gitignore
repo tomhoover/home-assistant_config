@@ -4,7 +4,8 @@
 .google*
 .shopping_list.json
 .spotify*
-.storage
+.storage/*
+!.storage/hacs*
 .uuid
 *.bak
 *.conf
