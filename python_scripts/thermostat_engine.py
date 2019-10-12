@@ -5,7 +5,7 @@
 # Thermostat thresholds
 THRESHOLD_FOR_HEAT = 60
 THRESHOLD_FOR_AC   = 80
-AC   = {'home': 76, 'away': 80, 'sleep': 75, 'brandon': 75}
+AC   = {'home': 76, 'away': 80, 'sleep': 75}
 HEAT = {'home': 68, 'away': 60, 'sleep': 65}
 
 SLEEP_TIME = [5, 22]
@@ -68,8 +68,8 @@ logger.info("Outside: {}, Downstairs: {}, Upstairs: {}, Home: {}, Time: {}, Stat
 
 if aux_heat:
     logger.warning('AUX HEAT IS ON - Outside: {}, Downstairs: {}, Upstairs: {}'.format(outside_temp, downstairs_temp, upstairs_temp))
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'operation_mode': 'aux heat'})
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'operation_mode': 'aux heat'})
+    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'hvac_mode': 'aux heat'})
+    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'hvac_mode': 'aux heat'})
     hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_downstairs_heating_1', 'temperature': 55})
     hass.services.call('climate', 'set_temperature', {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': 55})
 elif thermostat_enable:
@@ -80,7 +80,7 @@ elif thermostat_enable:
     if outside_temp > THRESHOLD_FOR_AC or downstairs_temp >= (nominal_temp + 2):
         mode = 'cool'
         nominal_temp = AC[state_key]
-    elif outside_temp < THRESHOLD_FOR_HEAT or downstairs_temp <= (nominal_temp -2):
+    elif outside_temp < THRESHOLD_FOR_HEAT or downstairs_temp <= (nominal_temp - 2):
         mode = 'heat'
         nominal_temp = HEAT[state_key]
 #    elif state_key != 'sleep' and (too_hot_inside or too_humid):
@@ -90,11 +90,11 @@ elif thermostat_enable:
     # Now make service call
     logger.info('Mode: {}, Temperature: {}'.format(mode, nominal_temp))
     if downstairs_current_mode != mode:
-        data_mode = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'operation_mode': mode}
-        hass.services.call('climate', 'set_operation_mode', data_mode)
+        data_mode = {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'hvac_mode': mode}
+        hass.services.call('climate', 'set_hvac_mode', data_mode)
     if upstairs_current_mode != mode:
-        data_mode = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'operation_mode': mode}
-        hass.services.call('climate', 'set_operation_mode', data_mode)
+        data_mode = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'hvac_mode': mode}
+        hass.services.call('climate', 'set_hvac_mode', data_mode)
     if mode != 'off':
         if mode == 'cool':
           # downstairs AC
@@ -108,7 +108,7 @@ elif thermostat_enable:
                     state_key = 'sleep'
             else:
                 state_key = 'away'
-            nominal_temp = AC[state_key]
+            nominal_temp = AC[state_key] + 2
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
         if mode == 'heat':
@@ -123,13 +123,13 @@ elif thermostat_enable:
                     state_key = 'sleep'
             else:
                 state_key = 'away'
-            nominal_temp = HEAT[state_key]
+            nominal_temp = HEAT[state_key] - 4
             data_temps = {'entity_id': 'climate.ct101_thermostat_upstairs_heating_1', 'temperature': nominal_temp}
             hass.services.call('climate', 'set_temperature', data_temps)
 else:
     logger.warning('THERMOSTAT IS DISABLED - Outside: {}, Downstairs: {}, Upstairs: {}'.format(outside_temp, downstairs_temp, upstairs_temp))
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'operation_mode': 'off'})
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'operation_mode': 'off'})
+    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.ct101_thermostat_downstairs_cooling_1', 'hvac_mode': 'off'})
+    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.ct101_thermostat_upstairs_cooling_1', 'hvac_mode': 'off'})
 
 if on_the_way_home:
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
