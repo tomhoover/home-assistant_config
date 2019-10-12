@@ -32,3 +32,4 @@ zwcfg_*
 zwave_device_config.yaml
 custom_components/*
 #!custom_components/xxx
+www/community
