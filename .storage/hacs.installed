@@ -1,0 +1,30 @@
+{
+    "data": {
+        "custom-components/alexa_media_player": {
+            "version_type": "version",
+            "version_installed": "v2.3.2",
+            "version_available": "v2.3.2"
+        },
+        "custom-components/breaking_changes": {
+            "version_type": "version",
+            "version_installed": "0.3.6",
+            "version_available": "0.3.6"
+        },
+        "enriqg9/dual-thermostat": {
+            "version_type": "version",
+            "version_installed": "0.3.0",
+            "version_available": "0.3.0"
+        },
+        "pnbruckner/ha-composite-tracker": {
+            "version_type": "version",
+            "version_installed": "1.10.0",
+            "version_available": "1.10.0"
+        },
+        "mudape/iphonedetect": {
+            "version_type": "version",
+            "version_installed": "1.1.0",
+            "version_available": "1.1.0"
+        }
+    },
+    "schema": "5"
+}
