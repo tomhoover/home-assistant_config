@@ -312,7 +312,7 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '22:05:00'
+    at: '22:15:00'
   condition:
   - condition: state
     entity_id: lock.front_deadbolt_locked
@@ -334,7 +334,7 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '22:06:00'
+    at: '22:16:00'
   condition:
   - condition: state
     entity_id: lock.kitchen_deadbolt_locked
@@ -356,7 +356,7 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '22:07:00'
+    at: '22:17:00'
   condition:
   - condition: state
     entity_id: lock.mbr_deadbolt_locked
@@ -378,7 +378,7 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '23:00:00'
+    at: '23:15:00'
   condition:
   - condition: state
     entity_id: lock.back_deadbolt_locked
