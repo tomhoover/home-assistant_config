@@ -3,7 +3,7 @@
         "custom-components/alexa_media_player": {
             "version_type": "version",
             "version_installed": "v2.3.2",
-            "version_available": "v2.3.2"
+            "version_available": "v2.3.3"
         },
         "custom-components/breaking_changes": {
             "version_type": "version",
@@ -24,6 +24,11 @@
             "version_type": "version",
             "version_installed": "1.1.0",
             "version_available": "1.1.0"
+        },
+        "custom-components/weatheralerts": {
+            "version_type": "commit",
+            "version_installed": "d6a7ec3",
+            "version_available": "d6a7ec3"
         }
     },
     "schema": "5"
