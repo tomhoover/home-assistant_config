@@ -113,9 +113,15 @@ influxdb:
 
 pi_hole:
   - host: 192.168.2.50
-  - host: 192.168.2.51
+    name: 'pihole1'
     ssl: false
     verify_ssl: false
+    api_key: !secret pihole1_api_key
+  - host: 192.168.2.51
+    name: 'pihole2'
+    ssl: false
+    verify_ssl: false
+    api_key: !secret pihole2_api_key
 
 weather:
   - platform: darksky
