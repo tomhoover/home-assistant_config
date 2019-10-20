@@ -2,8 +2,32 @@
 - name: Work
   latitude: 32.927203
   longitude: -97.010597
-  radius: 250
+  radius: 100
   icon: mdi:office-building
+
+- name: Lana
+  latitude: !secret lana_latitude
+  longitude: !secret lana_longitude
+  radius: 100
+  icon: mdi:home
+
+- name: Walmart - Bellmead
+  latitude: 31.600603
+  longitude: -97.105807
+  radius: 100
+  icon: mdi:cart
+
+- name: Walmart - Hewitt
+  latitude: 31.461983
+  longitude: -97.172903
+  radius: 100
+  icon: mdi:cart
+
+- name: Walmart - Woodway
+  latitude: 31.493030
+  longitude: -97.213990
+  radius: 100
+  icon: mdi:cart
 
 # this will override the default home zone
 #- name: Home
@@ -11,4 +35,3 @@
 #  longitude: !secret home_longitude
 #  radius: 100
 #  icon: mdi:home
-#  icon: mdi:account-multiple
