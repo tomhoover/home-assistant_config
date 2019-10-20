@@ -18,7 +18,7 @@
             "hide": false,
             "installed_commit": "b543426",
             "installed": true,
-            "last_commit": "e367098",
+            "last_commit": "3ba020d",
             "last_release_tag": "0.15.7",
             "repository_manifest": {
                 "name": "HACS (Home Assistant Community Store)",
@@ -276,7 +276,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "5082d28",
+            "last_commit": "e2c6c62",
             "last_release_tag": "v1.10.3",
             "repository_manifest": {},
             "name": "BWAlarm (ak74 edition)",
@@ -702,7 +702,7 @@
             "installed_commit": null,
             "installed": false,
             "last_commit": "eebcbe8",
-            "last_release_tag": "0.8.6",
+            "last_release_tag": "0.8.7",
             "repository_manifest": {
                 "name": "Airly",
                 "homeassistant": "0.98.0"
@@ -729,8 +729,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "a54f978",
-            "last_release_tag": "0.4.5",
+            "last_commit": "6373d00",
+            "last_release_tag": "0.5.0",
             "repository_manifest": {
                 "name": "GIO\u015a",
                 "homeassistant": "0.98.0"
@@ -945,8 +945,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "a09f09b",
-            "last_release_tag": "v2.5.1",
+            "last_commit": "06411b2",
+            "last_release_tag": "v2.5.3",
             "repository_manifest": {},
             "name": "Afvalbeheer",
             "new": false,
@@ -1601,8 +1601,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "70a587a",
-            "last_release_tag": "v2.3",
+            "last_commit": "4579bcc",
+            "last_release_tag": "v2.4",
             "repository_manifest": {},
             "name": "Start Spotify on chromecast",
             "new": false,
@@ -1787,7 +1787,11 @@
             "version_installed": null
         },
         "201445202": {
-            "authors": [],
+            "authors": [
+                "@Vloris",
+                "@Cadsters",
+                "@aritmeester"
+            ],
             "topics": [
                 "acv-groep",
                 "component",
@@ -1803,8 +1807,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "96cbebd",
-            "last_release_tag": "0.1",
+            "last_commit": "fe43030",
+            "last_release_tag": "0.2",
             "repository_manifest": {},
             "name": "ACV garbage collection sensor",
             "new": false,
@@ -1986,7 +1990,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "eda064c",
+            "last_commit": "6b95f64",
             "last_release_tag": "0.7.4",
             "repository_manifest": {
                 "name": "Bosch Indego Mower",
@@ -2177,7 +2181,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "e885cb8",
+            "last_commit": "92b1fd5",
             "last_release_tag": "v1.11",
             "repository_manifest": {
                 "name": "CZ Public Transport",
@@ -2210,8 +2214,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "5759387",
-            "last_release_tag": "v1.14",
+            "last_commit": "eca5c9f",
+            "last_release_tag": "v2.0",
             "repository_manifest": {
                 "name": "Garbage Collection",
                 "domains": [
@@ -2462,7 +2466,7 @@
             "last_commit": "b24de63",
             "last_release_tag": "0.0.2",
             "repository_manifest": {
-                "name": "Integration for bin/waste collection by Area Reiniging",
+                "name": "Afvalkalender voor Area Reiniging",
                 "domains": [
                     "sensor"
                 ],
@@ -2485,13 +2489,13 @@
                 "smart-home"
             ],
             "category": "integration",
-            "description": "FRITZ!Box Tools: control guest wifi, reconnect internet, ...  \ud83e\udd16\u2728",
+            "description": "Control guest wifi, port forwardings, device profiles, ... all from within Home Assistant! \ud83e\udd16\u2728",
             "full_name": "mammuth/ha-fritzbox-tools",
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "8f2b699",
-            "last_release_tag": "1.2.3",
+            "last_commit": "82a38e2",
+            "last_release_tag": "1.2.4",
             "repository_manifest": {
                 "name": "FRITZ!Box Tools",
                 "domains": [
@@ -2521,7 +2525,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "1feb76b",
+            "last_commit": "b9b04de",
             "last_release_tag": null,
             "repository_manifest": {
                 "name": "DPC binary sensor",
@@ -2638,7 +2642,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "abcf75c",
+            "last_commit": "68b2d8c",
             "last_release_tag": "v1.2.0",
             "repository_manifest": {
                 "name": "Lightwave RF"
@@ -2800,8 +2804,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "b5a1893",
-            "last_release_tag": "1.0.1",
+            "last_commit": "512970a",
+            "last_release_tag": "3.0.3",
             "repository_manifest": {
                 "name": "SamsungTV Custom"
             },
@@ -3040,7 +3044,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "4db29ab",
+            "last_commit": "5d4e9a6",
             "last_release_tag": "1.2.0",
             "repository_manifest": {},
             "name": "Authenticated",
@@ -4047,7 +4051,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "ae0ddaf",
+            "last_commit": "8ea16ed",
             "last_release_tag": "v0.7.0",
             "repository_manifest": {},
             "name": "mini-graph-card",
@@ -4649,7 +4653,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "451db29",
+            "last_commit": "b8907ff",
             "last_release_tag": null,
             "repository_manifest": {},
             "name": "lovelace-xiaomi-vacuum-card",
@@ -4676,7 +4680,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "35ba1ef",
+            "last_commit": "952166f",
             "last_release_tag": null,
             "repository_manifest": {},
             "name": "lovelace-multiple-entity-row",
@@ -4815,8 +4819,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "01cd876",
-            "last_release_tag": "0.0.7",
+            "last_commit": "3f17a26",
+            "last_release_tag": "0.0.8",
             "repository_manifest": {},
             "name": "air-visual-card",
             "new": false,
@@ -4928,7 +4932,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "0770ea9",
+            "last_commit": "6459f66",
             "last_release_tag": null,
             "repository_manifest": {},
             "name": "lovelace-animated-background",
@@ -5427,8 +5431,8 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "b667cea",
-            "last_release_tag": "v0.3.4",
+            "last_commit": "59de604",
+            "last_release_tag": "v0.4.0",
             "repository_manifest": {
                 "name": "Button Entity Row",
                 "content_in_root": true,
@@ -5473,7 +5477,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "5a123c5",
+            "last_commit": "37eb2ce",
             "last_release_tag": null,
             "repository_manifest": {},
             "name": "flex-table-card",
@@ -5960,7 +5964,7 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": "fe7cd12",
+            "last_commit": "0e41bf6",
             "last_release_tag": null,
             "repository_manifest": {
                 "name": "ATAG One",
@@ -6013,10 +6017,209 @@
             "hide": false,
             "installed_commit": null,
             "installed": false,
-            "last_commit": null,
-            "last_release_tag": "1.0.0",
+            "last_commit": "f8b5e4c",
+            "last_release_tag": "1.0.5",
             "repository_manifest": {},
             "name": "restriction-card",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "98039328": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "home-assistant",
+                "hue",
+                "hue-lights",
+                "hue-sensors"
+            ],
+            "category": "integration",
+            "description": "Custom component for using Hue sensors & remotes with Home Assistant",
+            "full_name": "robmarkcole/Hue-sensors-HASS",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "068b4be",
+            "last_release_tag": "v1.7",
+            "repository_manifest": {},
+            "name": "Hue sensor custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "165791238": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "facial-recognition",
+                "home-assistant"
+            ],
+            "category": "integration",
+            "description": "Home Assistant custom component for using Deepstack object detection",
+            "full_name": "robmarkcole/HASS-Deepstack-object",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "b2684be",
+            "last_release_tag": "v2.1",
+            "repository_manifest": {},
+            "name": "deepstack_object custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "197116235": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "computer-vision",
+                "deep-learning",
+                "home-assistant"
+            ],
+            "category": "integration",
+            "description": "Home Assistant custom component for using Deepstack face recognition",
+            "full_name": "robmarkcole/HASS-Deepstack-face",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "62b2cb1",
+            "last_release_tag": "v0.2",
+            "repository_manifest": {},
+            "name": "deepstack_face custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "135166048": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "computer-vision",
+                "deep-neural-networks",
+                "home-assistant",
+                "home-automation",
+                "machinebox"
+            ],
+            "category": "integration",
+            "description": "Home-Assistant image classification using Machinebox.io",
+            "full_name": "robmarkcole/HASS-Machinebox-Classificationbox",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "5d11474",
+            "last_release_tag": "v0.5",
+            "repository_manifest": {},
+            "name": "classificationbox custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "137716691": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "computer-vision",
+                "home-assistant"
+            ],
+            "category": "integration",
+            "description": "Home-Assistant component for face and person detection with sighthound.com",
+            "full_name": "robmarkcole/HASS-Sighthound",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "e28dcc7",
+            "last_release_tag": "v0.2",
+            "repository_manifest": {},
+            "name": "Sighthound custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "160022220": {
+            "authors": [
+                "@robmarkcole"
+            ],
+            "topics": [
+                "home-assistant",
+                "rekognition"
+            ],
+            "category": "integration",
+            "description": "Home Assistant Object detection with Amazon Rekognition",
+            "full_name": "robmarkcole/HASS-amazon-rekognition",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "9f29c43",
+            "last_release_tag": "v1.1",
+            "repository_manifest": {},
+            "name": "Amazon Rekognition custom component",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "183494126": {
+            "authors": [
+                "@nicjo814",
+                "@limych"
+            ],
+            "topics": [
+                "custom-component",
+                "home-assistant",
+                "linkplay",
+                "media-player"
+            ],
+            "category": "integration",
+            "description": "LinkPlay based media devices integration for Home Assistant",
+            "full_name": "Limych/media_player.linkplay",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "a8a0208",
+            "last_release_tag": null,
+            "repository_manifest": {
+                "name": "LinkPlay Sound Devices Integration",
+                "domains": [
+                    "media_player"
+                ]
+            },
+            "name": "LinkPlay Media Player",
+            "new": true,
+            "selected_tag": null,
+            "show_beta": false,
+            "version_installed": null
+        },
+        "201292040": {
+            "authors": [],
+            "topics": [
+                "home-assistant",
+                "zigbee2mqtt"
+            ],
+            "category": "plugin",
+            "description": "Home Assistant Custom Card to show Zigbee2mqtt network map",
+            "full_name": "azuwis/zigbee2mqtt-networkmap",
+            "hide": false,
+            "installed_commit": null,
+            "installed": false,
+            "last_commit": "e7a1341",
+            "last_release_tag": "v0.5.0",
+            "repository_manifest": {
+                "name": "Zigbee2mqtt Networkmap Card",
+                "render_readme": true
+            },
+            "name": "zigbee2mqtt-networkmap",
             "new": true,
             "selected_tag": null,
             "show_beta": false,
