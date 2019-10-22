@@ -6,6 +6,7 @@
 .spotify*
 .storage/*
 !.storage/hacs*
+.storage/hacs.repositories
 .uuid
 *.bak
 *.conf
