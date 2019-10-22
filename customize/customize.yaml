@@ -15,17 +15,6 @@ group.amazon_echos:
 group.my_weather_darksky:
   order: 6
 
-group.tom_presence:
-  entity_picture: !secret tom_pic
-group.mitzi_presence:
-  entity_picture: !secret mitzi_pic
-#  hidden: true
-group.brandon_presence:
-  entity_picture: !secret brandon_pic
-group.krystle_presence:
-  entity_picture: !secret krystle_pic
-#  hidden: true
-
 person.tom:
   entity_picture: !secret tom_pic
 person.mitzi:
@@ -34,6 +23,16 @@ person.brandon:
   entity_picture: !secret brandon_pic
 person.krystle:
   entity_picture: !secret krystle_pic
+
+#group.tom_presence:
+#  entity_picture: !secret tom_pic
+#group.mitzi_presence:
+#  entity_picture: !secret mitzi_pic
+#group.brandon_presence:
+#  entity_picture: !secret brandon_pic
+#group.krystle_presence:
+#  entity_picture: !secret krystle_pic
+##  hidden: true
 
 # default HA groups
 group.all_automations:
