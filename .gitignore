@@ -5,8 +5,7 @@
 .shopping_list.json
 .spotify*
 .storage/*
-!.storage/hacs*
-.storage/hacs.repositories
+!.storage/hacs.installed
 .uuid
 *.bak
 *.conf
