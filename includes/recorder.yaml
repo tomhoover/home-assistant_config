@@ -2,7 +2,9 @@
 db_url: !secret recorder_db_url
 #purge_interval: 7
 #purge_keep_days: 2
-#exclude:
-#  entities:
+exclude:
+  entities:
 #    - sun.sun
 #    - sensor.date
+    - automation.battery_sensor_from_attributes
+    - automation.update_battery_status_group_members
