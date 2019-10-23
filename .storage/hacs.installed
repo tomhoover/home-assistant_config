@@ -29,6 +29,11 @@
             "version_type": "commit",
             "version_installed": "d6a7ec3",
             "version_available": "d6a7ec3"
+        },
+        "custom-cards/unused-card": {
+            "version_type": "version",
+            "version_installed": "1.1",
+            "version_available": "1.1"
         }
     },
     "schema": "5"
