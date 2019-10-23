@@ -2,7 +2,7 @@
     "data": {
         "custom-components/alexa_media_player": {
             "version_type": "version",
-            "version_installed": "v2.3.2",
+            "version_installed": "v2.3.3",
             "version_available": "v2.3.3"
         },
         "custom-components/breaking_changes": {
