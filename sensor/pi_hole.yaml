@@ -2,23 +2,22 @@
   sensors:
     pihole_ads_blocked_today:
       friendly_name: 'Ads Blocked Today'
-      value_template: "{{ states('sensor.pi_hole_ads_blocked_today')|int + states('sensor.pi_hole_ads_blocked_today_2')|int }}"
+      value_template: "{{ states('sensor.pihole1_ads_blocked_today')|int + states('sensor.pihole2_ads_blocked_today')|int }}"
     pihole_ads_percentage_blocked_today:
       friendly_name: 'Percentage of Ads Blocked Today'
-      value_template: "{{ ( (states('sensor.pi_hole_ads_blocked_today')|int + states('sensor.pi_hole_ads_blocked_today_2')|int) / (states('sensor.pi_hole_dns_queries_today')|int + states('sensor.pi_hole_dns_queries_today_2')|int) * 100 )|round(2)|string + ' %' }}"
+      value_template: "{{ ( (states('sensor.pihole1_ads_blocked_today')|int + states('sensor.pihole2_ads_blocked_today')|int) / (states('sensor.pihole1_dns_queries_today')|int + states('sensor.pihole2_dns_queries_today')|int) * 100 )|round(2)|string + ' %' }}"
     pihole_dns_queries_today:
       friendly_name: 'DNS Queries Today'
-      value_template: "{{ states('sensor.pi_hole_dns_queries_today')|int + states('sensor.pi_hole_dns_queries_today_2')|int }}"
-
+      value_template: "{{ states('sensor.pihole1_dns_queries_today')|int + states('sensor.pihole2_dns_queries_today')|int }}"
     pihole_domains_blocked:
       friendly_name: 'DNS Domains Blocked'
-      value_template: "{{ [states('sensor.pi_hole_domains_blocked'), states('sensor.pi_hole_domains_blocked_2')]|max }}"
-    pihole_dns_queries_cached:
-      friendly_name: 'DNS Queries Cached'
-      value_template: "{{ states('sensor.pi_hole_dns_queries_cached')|int + states('sensor.pi_hole_dns_queries_cached_2')|int }}"
-    pihole_dns_queries_forwarded:
-      friendly_name: 'DNS Queries Forwarded'
-      value_template: "{{ states('sensor.pi_hole_dns_queries_forwarded')|int + states('sensor.pi_hole_dns_queries_forwarded_2')|int }}"
-    pihole_dns_unique_domains:
-      friendly_name: 'DNS Unique Domains'
-      value_template: "{{ states('sensor.pi_hole_dns_unique_domains')|int + states('sensor.pi_hole_dns_unique_domains_2')|int }}"
+      value_template: "{{ [states('sensor.pihole1_domains_blocked'), states('sensor.pihole2_domains_blocked')]|max }}"
+#    pihole_dns_queries_cached:
+#      friendly_name: 'DNS Queries Cached'
+#      value_template: "{{ states('sensor.pihole1_dns_queries_cached')|int + states('sensor.pihole2_dns_queries_cached')|int }}"
+#    pihole_dns_queries_forwarded:
+#      friendly_name: 'DNS Queries Forwarded'
+#      value_template: "{{ states('sensor.pihole1_dns_queries_forwarded')|int + states('sensor.pihole2_dns_queries_forwarded')|int }}"
+#    pihole_dns_unique_domains:
+#      friendly_name: 'DNS Unique Domains'
+#      value_template: "{{ states('sensor.pihole1_dns_unique_domains')|int + states('sensor.pihole2_dns_unique_domains')|int }}"
