@@ -43,6 +43,7 @@ script: !include_dir_merge_named script
 sensor: !include_dir_merge_list sensor
 speedtestdotnet: !include includes/speedtestdotnet.yaml
 telegram_bot: !include includes/telegram_bot.yaml
+vacuum: !include includes/vacuum.yaml
 zone: !include includes/zone.yaml
 
 #=====================
