@@ -37,8 +37,8 @@
         },
         "hacs/integration": {
             "version_type": "version",
-            "version_installed": "0.16.1",
-            "version_available": "0.16.1"
+            "version_installed": "0.16.3",
+            "version_available": "0.16.3"
         }
     },
     "schema": "5"
