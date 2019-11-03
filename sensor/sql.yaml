@@ -1,0 +1,27 @@
+#sensor:
+- platform: sql
+  db_url: !secret recorder_db_url
+  scan_interval: 60
+  queries:
+    - name: States recorded today
+      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN CURDATE() AND adddate(current_date, 1) LIMIT 1;"
+      column: 'value'
+      unit_of_measurement: States
+    - name: States recorded yesterday
+      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN subdate(current_date, 1) and CURDATE() LIMIT 1;"
+      column: 'value'
+      unit_of_measurement: States
+    - name: Total states stored
+      query: "SELECT COUNT(*) as value FROM states;"
+      column: 'value'
+      unit_of_measurement: States
+    - name: Unique Entity IDs
+      query: "SELECT count(DISTINCT entity_id) as value FROM states;"
+      column: 'value'
+      unit_of_measurement: Entities
+    - name: Newest Entity ID
+      query: "SELECT entity_id, min(last_updated) as last_state FROM states GROUP BY entity_id ORDER BY last_state DESC LIMIT 1;"
+      column: 'entity_id'
+    - name: Most Updated Entity ID
+      query: "SELECT entity_id, count(*) as count, max(last_updated), min(last_updated) FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 1;"
+      column: 'entity_id'
