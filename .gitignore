@@ -31,3 +31,6 @@ zwcfg_*
 /.cloud
 /examples
 zwave_device_config.yaml
+custom_components/*
+!custom_components/pi_hole
+www/community/*
