@@ -1,10 +1,14 @@
 language: python
 python:
-  - "3.6"
-install:
-  - sudo apt-get install -y libudev-dev
-  - pip3 install homeassistant==0.100.3
-script:
-  - hass -c . --script check_config
+  - "3.7"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+  - sudo apt-get install -y libudev-dev
+# added per https://rc.home-assistant.io/integrations/stream#troubleshooting
+  - sudo apt-get install -y python-dev pkg-config libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev
+install:
+  - pip3 install homeassistant==0.101.3
+  - pip3 install colorlog
+script:
+#  - hass -c . --script check_config
+  - hass -c . --script check_config --info all
