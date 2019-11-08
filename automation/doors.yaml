@@ -145,6 +145,14 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.departure_scan_needed
+  - delay: 00:02:00
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.departure_scan_needed
+  - delay: 00:04:00
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.departure_scan_needed
 
 - alias: Close The Door (2)
   initial_state: true
