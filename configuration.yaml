@@ -44,6 +44,7 @@ alarm_control_panel: !include includes/alarm_control_panel.yaml
 alexa_media: !include includes/alexa_media.yaml
 automation: !include_dir_merge_list automation
 #automation: !include automations.yaml
+binary_sensor: !include_dir_merge_list binary_sensor
 cloud: !include includes/cloud.yaml
 device_tracker: !include includes/device_tracker.yaml
 emulated_hue: !include includes/emulated_hue.yaml

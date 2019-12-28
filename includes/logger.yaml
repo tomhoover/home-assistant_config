@@ -6,3 +6,5 @@ logs:
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error
   homeassistant.components.python_script: info
+#  custom_components.wyzesense: debug
+#  wyzesense.gateway: debug

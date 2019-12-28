@@ -1,0 +1,3 @@
+#binary_sensors:
+- platform: wyzesense
+  device: /dev/wyzesense
