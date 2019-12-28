@@ -1,0 +1,31 @@
+- alias: 'Set theme at startup'
+  initial_state: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: oxfordblue
+
+- alias: 'Set dark theme at sunset'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: frontend.set_theme
+    data:
+      name: oxforddark
+
+- alias: 'Set light theme at sunrise'
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: frontend.set_theme
+    data:
+      name: oxfordblue
