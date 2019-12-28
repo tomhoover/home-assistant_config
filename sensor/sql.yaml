@@ -4,11 +4,13 @@
   scan_interval: 60
   queries:
     - name: States recorded today
-      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN CURDATE() AND adddate(current_date, 1) LIMIT 1;"
+      #query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN CURDATE() AND adddate(current_date, 1) LIMIT 1;"
+      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN CURRENT_DATE AND (CURRENT_DATE + INTERVAL '1' DAY) LIMIT 1;"
       column: 'value'
       unit_of_measurement: States
     - name: States recorded yesterday
-      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN subdate(current_date, 1) and CURDATE() LIMIT 1;"
+      #query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN subdate(current_date, 1) and CURDATE() LIMIT 1;"
+      query: "SELECT COUNT(*) as value FROM states WHERE created BETWEEN (CURRENT_DATE - INTERVAL '1' DAY) AND CURRENT_DATE LIMIT 1;"
       column: 'value'
       unit_of_measurement: States
     - name: Total states stored
