@@ -283,12 +283,12 @@ sensor.nanas_iphone_battery_state:
 device_tracker.tom_iphone:
   battery_alert_disabled: true
   battery_sensor_creation_disabled: true
-device_tracker.toms_iphone:
-  battery_alert_disabled: true
-  battery_sensor_creation_disabled: true
-device_tracker.mitzis_iphone:
-  battery_alert_disabled: true
-  battery_sensor_creation_disabled: true
+#device_tracker.toms_iphone:
+#  battery_alert_disabled: true
+#  battery_sensor_creation_disabled: true
+#device_tracker.mitzis_iphone:
+#  battery_alert_disabled: true
+#  battery_sensor_creation_disabled: true
 
 sensor.battery_level_back_door_camera:
   hidden: true

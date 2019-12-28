@@ -16,6 +16,26 @@ http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
+#========================
+# default_config enables:
+#========================
+
+#automation:		listed under 'Includes' below
+#cloud:			listed under 'Includes' below
+config:
+#frontend:		listed under 'Includes' below
+history:
+logbook:
+map:
+mobile_app:
+#person:		listed under 'Includes' below
+#script:		listed under 'Includes' below
+ssdp:
+sun:
+system_health:
+updater:
+zeroconf:
+
 #=====================
 # Includes
 #=====================
@@ -51,13 +71,6 @@ zone: !include includes/zone.yaml
 #=====================
 
 #introduction:
-system_health:
-config:
-history:
-logbook:
-map:
-#mobile_app:
-sun:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -69,18 +82,6 @@ discovery:
 # Text to speech
 tts:
   - platform: google_translate
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  include_used_components: true
-
-# HACS (Home Assistant Community Store)
-breaking_changes:
 
 #=====================
 # Other components
@@ -97,17 +98,7 @@ camera:
 climate:
   - platform: zwave
 
-#custom_updater:
-#  component_urls:
-#    - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
-
 ffmpeg:
-
-hacs:
-  token: !secret hacs_access_token
-  #appdaemon: True
-  #python_script: True
-  #theme: True
 
 influxdb:
   host: 192.168.2.55
@@ -132,3 +123,16 @@ weather:
 zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_network_key
+
+#======================================
+# HACS (Home Assistant Community Store)
+#======================================
+
+hacs:
+  token: !secret hacs_access_token
+  appdaemon: True
+  options:
+    country: US
+
+breaking_changes:
+

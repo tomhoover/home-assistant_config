@@ -9,7 +9,7 @@
     entity_id: lock.front_deadbolt_locked
     state: unlocked
   action:
-    service: notify.ios_toms_iphone
+    service: notify.mobile_app_iphone
     data:
       title: Front Door Security Check
       message: "It's 10:30pm and the Front Door is still unlocked."
@@ -41,7 +41,7 @@
     entity_id: lock.kitchen_deadbolt_locked
     state: unlocked
   action:
-    service: notify.ios_toms_iphone
+    service: notify.mobile_app_iphone
     data:
       title: Kitchen Door Security Check
       message: "It's 10:30pm and the Kitchen Door is still unlocked."
@@ -73,7 +73,7 @@
     entity_id: lock.back_deadbolt_locked
     state: unlocked
   action:
-    service: notify.ios_toms_iphone
+    service: notify.mobile_app_iphone
     data:
       title: Back Door Security Check
       message: "It's 10:30pm and the Back Door is still unlocked."
@@ -105,7 +105,7 @@
     entity_id: lock.laundry_deadbolt_locked
     state: unlocked
   action:
-    service: notify.ios_toms_iphone
+    service: notify.mobile_app_iphone
     data:
       title: Laundry Room Door Security Check
       message: "It's 10:30pm and the Laundry Room Door is still unlocked."
@@ -137,7 +137,7 @@
     entity_id: lock.mbr_deadbolt_locked
     state: unlocked
   action:
-    service: notify.ios_toms_iphone
+    service: notify.mobile_app_iphone
     data:
       title: Master Bedroom Door Security Check
       message: "It's 10:30pm and the Master Bedroom Door is still unlocked."

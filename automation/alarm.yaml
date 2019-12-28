@@ -21,7 +21,7 @@
           {% elif trigger.to_state.state == ''pending'' %}pending mode change
           {% else %}disarmed{% endif %}.
         {% endif %} '
-  - service: notify.ios_toms_iphone
+  - service: notify.mobile_app_iphone
     data_template:
       title: 'ALARM'
       message: ' 

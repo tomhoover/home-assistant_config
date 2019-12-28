@@ -1,3 +1,4 @@
+#cloud:
 alexa:
   filter:
 #      include_entities:

@@ -62,7 +62,7 @@
         type: announce
         method: all
       message: Please verify all doors and windows are closed, and then try again.
-  - service: notify.ios_toms_iphone
+  - service: notify.mobile_app_iphone
     data:
       message: Please verify all doors and windows are closed, and then try again.
   - service: notify.telegram_tom

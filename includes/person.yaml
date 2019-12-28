@@ -8,7 +8,7 @@
 # owntracks
 #    - device_tracker.tom_iphone
 # hass
-    - device_tracker.toms_iphone
+    - device_tracker.iphone
 # monitor
     - device_tracker.toms_iphone_monitor
 # iphonedetect
@@ -21,7 +21,7 @@
 # nmap
 #    - device_tracker.mitzis_iphone_nmap
 # hass
-    - device_tracker.mitzis_iphone
+    - device_tracker.nanas_iphone
 # monitor
     - device_tracker.mitzis_iphone_monitor
 # iphonedetect
@@ -45,6 +45,6 @@
 # nmap
 #    - device_tracker.krystles_iphone_nmap
 # monitor
-    - device_tracker.krystles_iphone_monitor
+#    - device_tracker.krystles_iphone_monitor
 # iphonedetect
     - device_tracker.krystles_iphone_detect

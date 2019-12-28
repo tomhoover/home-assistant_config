@@ -1,7 +1,7 @@
 test_push:
   alias: 'test_push'
   sequence:
-    - service: notify.ios_toms_iphone
+    - service: notify.mobile_app_iphone
       data:
         message: 'This is a test!'
         data:

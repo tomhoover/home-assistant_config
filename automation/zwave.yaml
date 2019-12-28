@@ -24,7 +24,7 @@
         type: announce
         method: all
       message: ' {{ trigger.to_state.attributes.friendly_name }} is dead. '
-  - service: notify.ios_toms_iphone
+  - service: notify.mobile_app_iphone
     data_template:
       title: 'zwave error'
       message: '{{ trigger.to_state.attributes.friendly_name }} is dead.'
