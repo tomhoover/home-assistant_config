@@ -8,3 +8,4 @@ exclude:
 #    - sensor.date
     - automation.battery_sensor_from_attributes
     - automation.update_battery_status_group_members
+    - input_boolean.node_red
